@@ -2,8 +2,6 @@ import React from 'react';
 
 export const Page404 = () => {
     return (
-        <div>
-            404. Page not found
-        </div>
+            <h1>404. Page not found</h1>
     );
 };

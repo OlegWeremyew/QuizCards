@@ -21,6 +21,7 @@ export const PATH = {
 export const RoutesComponent = () => {
     return (
         <Routes>
+            <Route path="/" element={<Navigate to={PATH.DEMO}/>}/>
             <Route path={PATH.LOGIN} element={<Login/>}/>
             <Route path={PATH.DEMO} element={<Demo/>}/>
             <Route path={PATH.REGISTRATION} element={<Registration/>}/>

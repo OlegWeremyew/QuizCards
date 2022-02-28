@@ -2,8 +2,6 @@ import React from 'react';
 
 export const RecoveryPassword = () => {
     return (
-        <div>
-            RecoveryPassword
-        </div>
+        <h1>Recovery Password</h1>
     );
 };

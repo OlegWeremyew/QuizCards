@@ -1,11 +1,12 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {PATH} from "../../App/RoutesComponent/RoutesComponent";
+import style from './Header.module.css'
 
 export const Header = () => {
     return (
-        <header>
-            <nav>
+        <header className={style.headerContainer}>
+            <nav className={style.navbar}>
                 <NavLink to={PATH.LOGIN}>Log in</NavLink>
                 <NavLink to={PATH.REGISTRATION}>Sign in</NavLink>
                 <NavLink to={PATH.PROFILE}>Profile</NavLink>

@@ -34,7 +34,7 @@ export const SuperRadio: React.FC<SuperRadioPropsType> = (
                 onChange={onChangeCallback}
                 {...restProps}
             />
-            {o}
+            <span> {o} </span>
         </label>
     )) : []
 

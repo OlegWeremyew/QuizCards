@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import style from './Demo.module.css'
 import {SuperButton} from "../common/SuperButton/SuperButton";
 import {SuperCheckbox} from "../common/SuperCheckbox/SuperCheckbox";
 import {SuperEditableSpan} from "../common/SuperEditableSpan/SuperEditableSpan";
@@ -17,10 +18,19 @@ export const Demo = () => {
     return (
         <div>
             <h1>Demo page</h1>
+            <div className={style.login__items}>
+                <div className={style.login__item}>
+                    <SuperInputText placeholder={"Введите текст"}/>
+                </div>
+                <div className={style.login__item}>
+                    <SuperCheckbox>Ознакомлен и согласен</SuperCheckbox>
+                </div>
+                <div className={style.login__item}>
+                    <SuperButton>Кнопка подтверждения</SuperButton>
+                </div>
+            </div>
             <div>
-                <SuperInputText placeholder={"Введите текст"}/>
-                <SuperCheckbox>Ознакомлен и согласен</SuperCheckbox>
-                <SuperButton>Кнопка подтверждения</SuperButton>
+
             </div>
             <div>
                 <SuperEditableSpan
