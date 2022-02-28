@@ -1,0 +1,29 @@
+.default {
+    background-color: #dcb87e;
+    min-width: 70px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.default:hover {
+    background-color: #905e1c;
+}
+
+.default:disabled {
+    background-color: #d3bfa3;
+}
+
+.red {
+    background: red;
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.red:hover {
+    background-color: #702424;
+}
