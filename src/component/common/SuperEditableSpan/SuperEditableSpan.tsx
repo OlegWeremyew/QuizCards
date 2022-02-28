@@ -1,5 +1,5 @@
 import React, {DetailedHTMLProps, InputHTMLAttributes, HTMLAttributes, useState} from 'react'
-import s from "../../HW6.module.css"
+import s from "./SuperEditableSpan.module.css"
 import {SuperInputText} from "../SuperInputText/SuperInputText";
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -52,6 +52,7 @@ export const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                         autoFocus
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
+                        placeholder={""}
                         {...restProps}
                     />
                 ) : (
