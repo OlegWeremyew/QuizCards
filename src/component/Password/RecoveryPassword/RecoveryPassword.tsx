@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Password = () => {
+export const RecoveryPassword = () => {
     return (
         <div>
-            Password
+            RecoveryPassword
         </div>
     );
 };
