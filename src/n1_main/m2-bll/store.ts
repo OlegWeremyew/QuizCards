@@ -1,24 +1,49 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import thunk from "redux-thunk";
-import {registerFormReducer} from "../../n2_features/f1-auth/a2-register/RegisterFormReducer";
-import {meReducer} from "../../n2_features/f1-auth/a3-me/meReducer";
-import {passwordRecoveryReducer} from "../../n2_features/f1-auth/a4-passwordRecovery/passwordRecoveryReducer";
-import {profileReducer} from "../../n2_features/f1-auth/a6-profile/ProfileReducer";
-import {newPasswordReducer} from "../../n2_features/f1-auth/a5-newPassword/newPasswordReducer";
-import {loginFormReducer} from "../../n2_features/f1-auth/a1-login/LoginFormReducer";
+import thunk, {ThunkAction} from "redux-thunk";
+import {meReducer, meReducerActionType} from "./r1-reducers/meReducer";
+import {profileReducer, profileReducerTypes} from "./r1-reducers/ProfileReducer";
+import {ActionLoginFormType, loginFormReducer} from "./r1-reducers/LoginFormReducer";
+import {
+    registerAndRecoveryPassReducer,
+    RegisterAndRecoveryPassReducerActionType
+} from "./r1-reducers/RegisterAndRecoveryPassReducer";
+import {TypedUseSelectorHook, useSelector} from "react-redux";
+import {AppActionsType, appReducer} from "./r1-reducers/app-reducer";
+import {packsReducer, packsReducerActionType} from "../../n2_features/f2-packs&cards_YM/b1-packs/packsReducer";
+import {cardsReducer} from "../../n2_features/f2-packs&cards_YM/b2-cards/cardsReducer";
 
 const fridayReducer = combineReducers({
-    registration: registerFormReducer,
     me: meReducer,
-    forgot: passwordRecoveryReducer,
     profile: profileReducer,
-    newPass:newPasswordReducer,
     login: loginFormReducer,
+    app: appReducer,
+    regForNewPass: registerAndRecoveryPassReducer,
+    packs: packsReducer,
+    cards:cardsReducer
 })
 
+export const useFridaySelector: TypedUseSelectorHook<fridayReducerType> = useSelector
 export type fridayReducerType = ReturnType<typeof fridayReducer>
 
+//@ts-ignore
+/*
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export const store = createStore(fridayReducer, composeEnhancers(applyMiddleware(thunk)))
+*/
+
 export const store = createStore(fridayReducer, applyMiddleware(thunk))
+type AllFridayActionsType =
+    packsReducerActionType
+    | AppActionsType
+    | RegisterAndRecoveryPassReducerActionType
+    | profileReducerTypes
+    | meReducerActionType
+    | ActionLoginFormType
+
+export type FridayThunkType<ReturnType = void> = ThunkAction<ReturnType,
+    fridayReducerType,
+    unknown,
+    AllFridayActionsType>
 
 //@ts-ignore
 window.store = store

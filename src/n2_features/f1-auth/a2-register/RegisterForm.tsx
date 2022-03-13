@@ -1,11 +1,12 @@
 import React from 'react';
-import {registerUserTC, setErrorRegisterAC} from "./RegisterFormReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {fridayReducerType} from "../../../n1_main/m2-bll/store";
+import {useDispatch} from "react-redux";
+import {useFridaySelector} from "../../../n1_main/m2-bll/store";
 import regS from './RegisterForm.module.css'
 import {useFormik} from "formik";
-import {Navigate} from 'react-router-dom'
+import {Navigate, NavLink} from 'react-router-dom'
 import {RoutesXPaths} from "../../../n1_main/m1-ui/routes/routes";
+import {registerUserTC} from "../../../n1_main/m2-bll/r3-thunks/ThunksActionsRegisterAndRecoveryPassReducer";
+import {registerAndRecoveryPassActions} from "../../../n1_main/m2-bll/r2-actions/ActionsRegisterAndRecoveryPassReducer";
 
 type FormikErrorType = {
     email?: string
@@ -14,9 +15,9 @@ type FormikErrorType = {
 }
 
 const RegisterForm = () => {
-    const error = useSelector<fridayReducerType, string | undefined>(state => state.registration.error)
+    const error = useFridaySelector<string | undefined>(state => state.regForNewPass.register.error)
     const dispatch = useDispatch()
-    const isLoggedIn = useSelector<fridayReducerType, boolean>(state => state.login.isLoggedIn)
+    const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -51,7 +52,7 @@ const RegisterForm = () => {
         formik.resetForm()
         formik.setTouched({})
         formik.setErrors({email: undefined, password: undefined, confirm: undefined})
-        dispatch(setErrorRegisterAC(""))
+        dispatch(registerAndRecoveryPassActions.setErrorRegisterAC(""))
     }
     if (error === "email already exists /ᐠ｡ꞈ｡ᐟ\\") {
         return <Navigate to={RoutesXPaths.LOGIN}/>
@@ -61,40 +62,46 @@ const RegisterForm = () => {
         return <Navigate to={RoutesXPaths.PROFILE}/>
     }
     return (
-        <div className={regS.main}>
-            <div className={regS.title}>
-                <h1>Cards</h1>
-                {!!error && <div>{error}</div>}
-                <h4>Sing in</h4>
-            </div>
+        <div className={regS.registerPage}>
+            <div className={regS.registerContainer}>
+                <div className={regS.titles}>
+                    <h1>Cards</h1>
+                    {!!error && <div>{error}</div>}
+                    <h4>Sing in</h4>
+                </div>
 
-            <div>
-                <form onSubmit={formik.handleSubmit}>
-                    <div className={regS.second}>
-                        eMail
-                        <input {...formik.getFieldProps('email')}/>
-                        {formik.touched.email && formik.errors.email ?
-                            <div style={{color: 'red'}}>{formik.errors.email}</div> : null}
-                    </div>
-                    <div className={regS.second}>
-                        Password
-                        <input type="password"
-                               {...formik.getFieldProps('password')}/>
-                        {formik.touched.password && formik.errors.password ?
-                            <div style={{color: 'red'}}>{formik.errors.password}</div> : null}
-                    </div>
-                    <div className={regS.second}>
-                        Confirm password
-                        <input type="password"
-                               {...formik.getFieldProps('confirm')}/>
-                        {formik.touched.confirm && formik.errors.confirm ?
-                            <div style={{color: 'red'}}>{formik.errors.confirm}</div> : null}
-                    </div>
-                    <div className={regS.buttonsDiv}>
-                        <button type="button" onClick={cancelHandler}>Cancel</button>
-                        <button type="submit">Register</button>
-                    </div>
-                </form>
+                <div className={regS.registerForm}>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div className={regS.second}>
+                            eMail
+                            <input {...formik.getFieldProps('email')}/>
+                            {formik.touched.email && formik.errors.email ?
+                                <div className={regS.errorMessage}>{formik.errors.email}</div> : null}
+                        </div>
+                        <div className={regS.second}>
+                            Password
+                            <input type="password"
+                                   {...formik.getFieldProps('password')}/>
+
+                            {formik.touched.password && formik.errors.password ?
+                                <div className={regS.errorMessage}>{formik.errors.password}</div> : null}
+                        </div>
+                        <div className={regS.second}>
+                            Confirm password
+                            <input type="password"
+                                   {...formik.getFieldProps('confirm')}/>
+                            {formik.touched.confirm && formik.errors.confirm ?
+                                <div className={regS.errorMessage}>{formik.errors.confirm}</div> : null}
+                        </div>
+                        <div className={regS.buttonsDiv}>
+                            <button type="button" className={regS.canselButton}
+                                // onClick={cancelHandler}
+                            ><NavLink to={RoutesXPaths.LOGIN} >
+                                Cancel</NavLink></button>
+                            <button type="submit" className={regS.registerButton}>Register</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );

@@ -1,11 +1,14 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useFormik} from "formik";
 import style from "./LoginForm.module.css"
 import {Navigate, NavLink} from "react-router-dom";
-import {loginUserTC} from "./LoginFormReducer";
-import {fridayReducerType} from "../../../n1_main/m2-bll/store";
+import {loginUserTC} from "../../../n1_main/m2-bll/r1-reducers/LoginFormReducer";
+import {useFridaySelector} from "../../../n1_main/m2-bll/store";
 import {RoutesXPaths} from "../../../n1_main/m1-ui/routes/routes";
+import PasswordView from "../../../n1_main/m1-ui/view-password/PasswordView";
+
+
 
 type FormikErrorType = {
     email?: string
@@ -13,8 +16,9 @@ type FormikErrorType = {
 }
 
 const LoginForm = () => {
-    const error = useSelector<fridayReducerType, string | undefined>(state => state.login.error)
-    const isLoggedIn = useSelector<fridayReducerType, boolean>(state => state.login.isLoggedIn)
+    const isVisible = useFridaySelector<boolean>(state => state.app.isVisible)
+    const error = useFridaySelector<string | undefined>(state => state.login.error)
+    const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
     const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: {
@@ -48,35 +52,45 @@ const LoginForm = () => {
 
     return (
         <div className={style.main}>
+
             <div className={style.title}>
-                <h1>Login</h1>
+                {/*позволил себе чуть подэтого логин*/}
+                {/*<h1>Login</h1>*/}
                 {!!error && <div style={{color: 'red'}}>{error}</div>}
             </div>
             <hr/>
+
             <div className={style.login}>
+                <h1>Login</h1>
                 <form onSubmit={formik.handleSubmit}>
                     <div className={style.second}>
-                        eMail:
+                        <span>eMail:</span>
                         <input
                             type={"email"}
                             placeholder={"Enter your email"}
                             {...formik.getFieldProps('email')}
                         />
-                        {formik.touched.email && formik.errors.email &&
-                        <div style={{color: 'red'}}>{formik.errors.email}</div>}
                     </div>
+
+                    {formik.touched.email && formik.errors.email &&
+                    <div style={{color: 'red', fontSize: '12px'}}>{formik.errors.email}</div>}
+
                     <div className={style.second}>
-                        Password:
+                        <span>Password:</span>
                         <input
-                            type="password"
+                            type={isVisible ? "text" : "password"}
                             placeholder={"Enter your password"}
                             {...formik.getFieldProps('password')}
                         />
-                        {formik.touched.password && formik.errors.password &&
-                        <div style={{color: 'red'}}>{formik.errors.password}</div>}
+                        {/*<PasswordView isVisible={isVisible}/>*/}
+
                     </div>
-                    <div>
-                        Remember me:
+
+                    {formik.touched.password && formik.errors.password &&
+                    <div style={{color: 'red', fontSize: '12px'}}>{formik.errors.password}</div>}
+
+                    <div className={style.rememberMeBlock}>
+                        <span>Remember me:</span>
                         <input
                             type="checkbox"
                             {...formik.getFieldProps('rememberMe')}
@@ -86,12 +100,19 @@ const LoginForm = () => {
                         <button type="submit">Login</button>
                     </div>
                 </form>
+
                 <div className={style.footer}>
-                    <div>
-                        Not registered? <NavLink to={RoutesXPaths.REGISTER}>Create an Account</NavLink>
+                    <div className={style.LinkItem}>
+                        <span>Not registered?</span>
+                        <div className={style.links}>
+                            <NavLink className={style.Link} to={RoutesXPaths.REGISTER}>Create an Account</NavLink>
+                        </div>
                     </div>
-                    <div>
-                        Forgot password? <NavLink to={RoutesXPaths.RECOVERY}>Click here to recover</NavLink>
+                    <div className={style.LinkItem}>
+                        <span>Forgot password? </span>
+                        <div>
+                            <NavLink className={style.Link} to={RoutesXPaths.RECOVERY}>Click here to recover</NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

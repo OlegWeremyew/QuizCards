@@ -1,24 +1,51 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {RoutesXPaths} from "../routes/routes";
+import s from './Links.module.css'
+import {useFridaySelector} from "../../m2-bll/store";
 
 const Links = () => {
+    const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
+
+    if (!isLoggedIn) {
+        return <div className={s.main}><></></div>
+    }
+
     return (
-        <div>
-            <button><NavLink to={RoutesXPaths.PROFILE}
-                             style={{textDecoration: 'none'}}>Profile</NavLink></button>
-            <button><NavLink to={RoutesXPaths.REGISTER}
-                             style={{textDecoration: 'none'}}>Register</NavLink></button>
-            <button><NavLink to={RoutesXPaths.LOGIN}
-                             style={{textDecoration: 'none'}}>Login</NavLink></button>
-            <button><NavLink to={RoutesXPaths.RECOVERY}
-                             style={{textDecoration: 'none'}}>PasswordRecovery</NavLink></button>
-            <button><NavLink to={RoutesXPaths.SET_PASS}
-                             style={{textDecoration: 'none'}}>NewPassword</NavLink></button>
-            <button><NavLink to={RoutesXPaths.TEST}
-                             style={{textDecoration: 'none'}}>Test</NavLink></button>
-            <button><NavLink to={RoutesXPaths.LOGOUT}
-                             style={{textDecoration: 'none'}}>Logout</NavLink></button>
+        <div className={s.main}>
+            <><NavLink to={RoutesXPaths.PROFILE}
+                       className={({isActive}) => (isActive ? s.active : s.ordinaryLink)}
+                       style={{textDecoration: 'none'}}
+            >Profile</NavLink></>
+
+            {/*<><NavLink to={RoutesXPaths.REGISTER}*/}
+            {/*           className={({isActive}) => (isActive ? s.activeR : '')}*/}
+            {/*           style={{textDecoration: 'none'}}*/}
+            {/*>Register</NavLink></>*/}
+
+            {/*<><NavLink to={RoutesXPaths.LOGIN}*/}
+            {/*           className={({isActive}) => (isActive ? s.active : '')}*/}
+            {/*           style={{textDecoration: 'none'}}*/}
+            {/*>Login</NavLink></>*/}
+
+            {/*<><NavLink to={RoutesXPaths.RECOVERY}*/}
+            {/*           className={({isActive}) => (isActive ? s.activeR : '')}*/}
+            {/*           style={{textDecoration: 'none'}}*/}
+            {/*>PasswordRecovery</NavLink></>*/}
+
+            {/*<><NavLink to={RoutesXPaths.SET_PASS}*/}
+            {/*           className={({isActive}) => (isActive ? s.activeR : '')}*/}
+            {/*           style={{textDecoration: 'none'}}*/}
+            {/*>NewPassword</NavLink></>*/}
+
+            <><NavLink to={RoutesXPaths.Packs}
+                       className={({isActive}) => (isActive ? s.active : s.ordinaryLink)}
+                       style={{textDecoration: 'none'}}
+            >Packs</NavLink></>
+            <><NavLink to={RoutesXPaths.LOGOUT}
+                       className={({isActive}) => (isActive ? s.active : s.ordinaryLink)}
+                       style={{textDecoration: 'none'}}
+            >Logout</NavLink></>
         </div>
     );
 };
