@@ -5,21 +5,30 @@ import {faEye} from "@fortawesome/free-regular-svg-icons/faEye";
 import {useDispatch} from "react-redux";
 import {setAppVisibleAC} from "../../m2-bll/r1-reducers/app-reducer";
 
-
 type PasswordViewType = {
     isVisible: boolean
 }
 
 const PasswordView = ({isVisible}: PasswordViewType) => {
+
     const dispatch = useDispatch()
-    const icon = <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye}/>
+
+    const icon = <FontAwesomeIcon icon={isVisible ? faEye : faEyeSlash}/>
+
     const onChangeIcon = () => {
         dispatch(setAppVisibleAC(!isVisible))
     }
+
     return (
         <div>
-            <span onClick={onChangeIcon} style={{fontSize: "13px"}}>{icon}</span>
+            <span
+                onClick={onChangeIcon}
+                style={{fontSize: "13px"}}
+            >
+                {icon}
+            </span>
         </div>
     )
 }
-export default PasswordView;
+
+export default PasswordView

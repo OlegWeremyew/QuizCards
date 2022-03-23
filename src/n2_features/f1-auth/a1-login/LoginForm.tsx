@@ -1,14 +1,13 @@
 import React from 'react';
+import style from "./LoginForm.module.css"
 import {useDispatch} from "react-redux";
 import {useFormik} from "formik";
-import style from "./LoginForm.module.css"
 import {Navigate, NavLink} from "react-router-dom";
 import {loginUserTC} from "../../../n1_main/m2-bll/r1-reducers/LoginFormReducer";
 import {useFridaySelector} from "../../../n1_main/m2-bll/store";
 import {RoutesXPaths} from "../../../n1_main/m1-ui/routes/routes";
 import PasswordView from "../../../n1_main/m1-ui/view-password/PasswordView";
-
-
+import {Undetectable} from "../../../types/Undetectable";
 
 type FormikErrorType = {
     email?: string
@@ -16,10 +15,13 @@ type FormikErrorType = {
 }
 
 const LoginForm = () => {
-    const isVisible = useFridaySelector<boolean>(state => state.app.isVisible)
-    const error = useFridaySelector<string | undefined>(state => state.login.error)
-    const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
+
     const dispatch = useDispatch()
+
+    const isVisible = useFridaySelector<boolean>(state => state.app.isVisible)
+    const error = useFridaySelector<Undetectable<string>>(state => state.login.error)
+    const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -27,16 +29,16 @@ const LoginForm = () => {
             rememberMe: false,
         },
         validate: (values) => {
-            const errors: FormikErrorType = {};
+            const errors: FormikErrorType = {}
             if (!values.email) {
-                errors.email = 'Required';
+                errors.email = 'Required'
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address';
+                errors.email = 'Invalid email address'
             }
             if (!values.password) {
-                errors.password = 'Required';
+                errors.password = 'Required'
             } else if (values.password.length < 8) {
-                errors.password = 'Invalid password,pass will be longer them 8 symbols';
+                errors.password = 'Invalid password,pass will be longer them 8 symbols'
             }
             return errors;
         },
@@ -54,9 +56,12 @@ const LoginForm = () => {
         <div className={style.main}>
 
             <div className={style.title}>
-                {/*позволил себе чуть подэтого логин*/}
-                {/*<h1>Login</h1>*/}
-                {!!error && <div style={{color: 'red'}}>{error}</div>}
+                {
+                    !!error &&
+                    <div style={{color: 'red'}}>
+                        {error}
+                    </div>
+                }
             </div>
             <hr/>
 
@@ -82,12 +87,17 @@ const LoginForm = () => {
                             placeholder={"Enter your password"}
                             {...formik.getFieldProps('password')}
                         />
-                        {/*<PasswordView isVisible={isVisible}/>*/}
+                        <PasswordView isVisible={isVisible}/>
 
                     </div>
 
-                    {formik.touched.password && formik.errors.password &&
-                    <div style={{color: 'red', fontSize: '12px'}}>{formik.errors.password}</div>}
+                    {
+                        formik.touched.password &&
+                        formik.errors.password &&
+                        <div style={{color: 'red', fontSize: '12px'}}>
+                            {formik.errors.password}
+                        </div>
+                    }
 
                     <div className={style.rememberMeBlock}>
                         <span>Remember me:</span>
@@ -117,7 +127,7 @@ const LoginForm = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default LoginForm;
+export default LoginForm

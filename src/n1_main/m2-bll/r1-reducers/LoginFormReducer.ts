@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {loginFormAPI, loginType} from "../../m3-dal/LoginFormAPI";
-import {setAppStatusAC} from "./app-reducer";
+import {setAppStatusAC, setGlobalErrorAC} from "./app-reducer";
 import {
     LoginFormActions,
     LoginFormInitialState,
@@ -30,15 +30,17 @@ export const loginUserTC = (body: loginType) => async (dispatch: Dispatch) => {
     dispatch(setAppStatusAC("loading"))
     try {
         const res = await loginFormAPI.loginMe(body)
-        dispatch(LoginFormActions.setUserDataAC(res.data)) // можно заменить на setProfileAC, чтоб не дублировать логику
+        dispatch(LoginFormActions.setUserDataAC(res.data))
         dispatch(ProfileActions.setProfileAC(res.data))
         dispatch(LoginFormActions.setIsLoggedInAC(true))
-        // saveToken(res.data.token)
         dispatch(setAppStatusAC("succeeded"))
     } catch (e: any) {
         const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
         dispatch(LoginFormActions.setErrorAC(error))
+        dispatch(setGlobalErrorAC(error))
         dispatch(setAppStatusAC("failed"))
+    }finally {
+        dispatch(setAppStatusAC("idle"))
     }
 }
 
@@ -46,7 +48,9 @@ export const logoutUserTC = () => async (dispatch: Dispatch) => {
     try {
         await loginFormAPI.logoutMe()
         dispatch(LoginFormActions.setIsLoggedInAC(false))
-        // saveToken(null)
     } catch (e) {
+        dispatch(setGlobalErrorAC(e))
+    }finally {
+        dispatch(setAppStatusAC("idle"))
     }
 }
