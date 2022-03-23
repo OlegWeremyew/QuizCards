@@ -1,0 +1,47 @@
+.table {
+    width: 100%;
+    margin: 2px 0;
+}
+
+.tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    align-items: center;
+    overflow-wrap: anywhere;
+}
+
+.tableRow:nth-child(odd) {
+    background-color: #b5d2fc;
+}
+
+.input {
+    margin-left: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px #726d6f solid;
+    background-color: #b5d2fc;
+}
+
+.tableCell {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 25%;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.tableCell:nth-child(3), :nth-child(4) {
+    font-size: 16px;
+}
+
+.BtnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+
+}
+

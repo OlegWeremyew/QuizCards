@@ -1,0 +1,24 @@
+.table {
+    width: 100%;
+    margin: 2px 0;
+}
+
+.tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+.tableRow:nth-child(odd) {
+    background-color: #b5d2fc;
+
+}
+
+.tableCell {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 25%;
+
+}
+

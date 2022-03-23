@@ -1,0 +1,42 @@
+.tableHeader {
+    position: sticky;
+    top: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1.5fr;
+    grid-template-rows: 1fr;
+    gap: 0em 0;
+    grid-template-areas:
+    ". . . . .";
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;;
+    background-color: #d6dcea;
+}
+
+.tableHeaderWithId {
+    display: flex;
+    justify-content: space-around;
+    background-color: #d6dcea;
+}
+
+.tableHeader button {
+    background: #a5add7;
+    border: none;
+    margin-left: 1px;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.tableHeader__item {
+    cursor: pointer;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 22px;
+}
+
+.tableHeader__item:hover {
+    color: #092c7e;
+    font-weight: 700;
+    transition: color .3s linear;
+    text-decoration: underline;
+}
