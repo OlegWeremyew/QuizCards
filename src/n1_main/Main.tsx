@@ -6,7 +6,7 @@ const Main = () => {
         <div>
             <Links/>
         </div>
-    );
-};
+    )
+}
 
-export default Main;
+export default Main

@@ -1,16 +1,20 @@
-import {packsActions, packsActionsEnum, packsActionsTypes} from "./ActionsPacks";
-import {UpdatedType} from "./packsAPI";
+import {packsActions, packsActionsEnum, packsActionsTypes} from "../r2-actions/ActionsPacks";
+import {UpdatedType} from "../../m3-dal/packsAPI";
+import {Nullable} from "../../../types/Nullable";
 
-export type PacksType = {
+export type PackType = {
     _id: string
     user_id: string
     name: string
     cardsCount: number
     created: string
     updated: string
+    user_name: string
+    private:boolean
 }
+export type ModeTypes ='add'|'edit'|null
 export type InitialCardPacksType = {
-    cardPacks: PacksType[]
+    cardPacks: PackType[]
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
@@ -18,8 +22,10 @@ export type InitialCardPacksType = {
     pageCount: number
     packName: string
     updated: UpdatedType
-    user_id: string
+    user_id: Nullable<string>,
+    mode:ModeTypes,
 }
+
 const initialCardPacks: InitialCardPacksType = {
     cardPacks: [
         {
@@ -29,19 +35,23 @@ const initialCardPacks: InitialCardPacksType = {
             cardsCount: 0,
             created: "",
             updated: "",
+            user_name: "",
+            private:false
         }
     ],
     cardPacksTotalCount: 0,
     maxCardsCount: 0,
     minCardsCount: 0,
-    page: 0,
-    pageCount: 0,
+    page: 1,
+    pageCount: 10,
     packName: '',
-    updated: '0updated',
-    user_id: ''
+    updated: '' as UpdatedType,
+    user_id: null,
+    mode:null,
 }
 
 export type packsReducerActionType = ReturnType<packsActionsTypes<typeof packsActions>>
+
 export const packsReducer = (state = initialCardPacks, action: packsReducerActionType): InitialCardPacksType => {
     switch (action.type) {
         case packsActionsEnum.SET_PACKS: {
@@ -62,8 +72,14 @@ export const packsReducer = (state = initialCardPacks, action: packsReducerActio
         case packsActionsEnum.PAGE : {
             return {...state, page: action.payload.page}
         }
-        case packsActionsEnum.CARDS_PER_PAGE : {
-            return {...state, cardPacksTotalCount: action.payload.cardsPage}
+        case packsActionsEnum.PAGE_PACKS_COUNT : {
+            return {...state, pageCount: action.payload.pageCount}
+        }
+        case packsActionsEnum.PACKS_UPDATED : {
+            return {...state, updated: action.payload.updated}
+        }
+        case packsActionsEnum.PACKS_MODE: {
+            return {...state, mode:action.payload.mode}
         }
         default:
             return state
