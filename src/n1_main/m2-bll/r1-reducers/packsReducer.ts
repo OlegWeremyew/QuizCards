@@ -10,9 +10,8 @@ export type PackType = {
     created: string
     updated: string
     user_name: string
-    private:boolean
 }
-export type ModeTypes ='add'|'edit'|null
+
 export type InitialCardPacksType = {
     cardPacks: PackType[]
     cardPacksTotalCount: number
@@ -22,8 +21,7 @@ export type InitialCardPacksType = {
     pageCount: number
     packName: string
     updated: UpdatedType
-    user_id: Nullable<string>,
-    mode:ModeTypes,
+    user_id: Nullable<string>
 }
 
 const initialCardPacks: InitialCardPacksType = {
@@ -36,7 +34,6 @@ const initialCardPacks: InitialCardPacksType = {
             created: "",
             updated: "",
             user_name: "",
-            private:false
         }
     ],
     cardPacksTotalCount: 0,
@@ -47,7 +44,6 @@ const initialCardPacks: InitialCardPacksType = {
     packName: '',
     updated: '' as UpdatedType,
     user_id: null,
-    mode:null,
 }
 
 export type packsReducerActionType = ReturnType<packsActionsTypes<typeof packsActions>>
@@ -77,9 +73,6 @@ export const packsReducer = (state = initialCardPacks, action: packsReducerActio
         }
         case packsActionsEnum.PACKS_UPDATED : {
             return {...state, updated: action.payload.updated}
-        }
-        case packsActionsEnum.PACKS_MODE: {
-            return {...state, mode:action.payload.mode}
         }
         default:
             return state

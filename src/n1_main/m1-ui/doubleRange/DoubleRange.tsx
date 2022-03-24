@@ -4,7 +4,6 @@ import Slider from '@mui/material/Slider';
 import {packsActions} from "../../m2-bll/r2-actions/ActionsPacks";
 import {useDispatch} from "react-redux";
 import {styled} from "@mui/material";
-import {useFridaySelector} from "../../m2-bll/store";
 
 type DoubleRangePropsType = {}
 
@@ -54,7 +53,7 @@ const DoubleRange: React.FC<DoubleRangePropsType> = (
 ) => {
 
     const dispatch = useDispatch()
-    const isLoad = useFridaySelector<boolean>(state => state.app.isLoad)
+
     const [value, setValue] = useState([0, 100])
 
     const onChangeCallback = (e: Event, values: number | number[]) => {
@@ -73,7 +72,6 @@ const DoubleRange: React.FC<DoubleRangePropsType> = (
                 min={0}
                 max={100}
                 disableSwap
-                disabled={isLoad}
             />
         </div>
     )

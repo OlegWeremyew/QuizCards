@@ -1,7 +1,6 @@
 import {CardType} from "../r1-reducers/cardsReducer";
 import {UpdatedGradeType} from "../../m3-dal/cardsAPI";
 import {UpdatedType} from "../../m3-dal/packsAPI";
-import {ModeTypes} from "../r1-reducers/packsReducer";
 
 export enum cardsActionsEnum {
     SET_CARDS = 'CARDS/CARDS/SET_CARDS',
@@ -10,7 +9,6 @@ export enum cardsActionsEnum {
     SEARCH_CARDS = 'CARDS/CARDS/SEARCH_CARDS',
     UPDATE_CARDS = 'CARDS/CARDS/UPDATE_CARDS',
     GRADE_CARD = 'CARDS/CARDS/GRADE_CARD',
-    CARD_MODE = 'CARDS/CARDS/CARD_MODE',
 }
 
 export const cardsActions = {
@@ -48,12 +46,6 @@ export const cardsActions = {
         return {
             type: cardsActionsEnum.GRADE_CARD,
             payload: {updatedCard}
-        } as const
-    },
-    cardModeAC: (mode: ModeTypes) => {
-        return {
-            type: cardsActionsEnum.CARD_MODE,
-            payload: {mode}
         } as const
     },
 }

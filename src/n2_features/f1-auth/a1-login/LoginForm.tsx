@@ -21,7 +21,6 @@ const LoginForm = () => {
     const isVisible = useFridaySelector<boolean>(state => state.app.isVisible)
     const error = useFridaySelector<Undetectable<string>>(state => state.login.error)
     const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
-    const isLoad = useFridaySelector<boolean>(state => state.app.isLoad)
 
     const formik = useFormik({
         initialValues: {
@@ -71,7 +70,7 @@ const LoginForm = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <div className={style.second}>
                         <span>eMail:</span>
-                        <input disabled={isLoad}
+                        <input
                             type={"email"}
                             placeholder={"Enter your email"}
                             {...formik.getFieldProps('email')}
@@ -83,7 +82,7 @@ const LoginForm = () => {
 
                     <div className={style.second}>
                         <span>Password:</span>
-                        <input disabled={isLoad}
+                        <input
                             type={isVisible ? "text" : "password"}
                             placeholder={"Enter your password"}
                             {...formik.getFieldProps('password')}
@@ -108,7 +107,7 @@ const LoginForm = () => {
                         />
                     </div>
                     <div className={style.buttons}>
-                        <button type="submit" disabled={isLoad}>Login</button>
+                        <button type="submit">Login</button>
                     </div>
                 </form>
 

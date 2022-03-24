@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import {addNewPacksTC} from "../../../n1_main/m2-bll/r3-thunks/ThunkPacks";
 import {useDispatch} from "react-redux";
 import s from "./AddPackComponent.module.css"
-import {packsActions} from "../../../n1_main/m2-bll/r2-actions/ActionsPacks";
-import {useFridaySelector} from "../../../n1_main/m2-bll/store";
 
+type TestAddPackComponentType = {
+    setAddPack: (v: boolean) => void
+}
 
-
-const AddPackComponent = () => {
+const AddPackComponent = ({setAddPack}: TestAddPackComponentType) => {
 
     const dispatch = useDispatch()
-    const isLoad = useFridaySelector<boolean>(state => state.app.isLoad)
+
     const [newPack, seNewPack] = useState<string>('')
     const [newPackPrivate, setNewPackPrivate] = useState<boolean>(false)
 
@@ -22,11 +22,11 @@ const AddPackComponent = () => {
 
     const addNewPack = () => {
         dispatch(addNewPacksTC(pack))
-        dispatch(packsActions.packModeAC(null))
+        setAddPack(false)
     }
 
     const turnBach = () => {
-        dispatch(packsActions.packModeAC(null))
+        setAddPack(false)
     }
 
     return (
@@ -38,7 +38,7 @@ const AddPackComponent = () => {
                     <span>
                         Name pack <span>&nbsp; ✎</span>
                     </span>
-                <input disabled={isLoad}
+                <input
                     type="text"
                     value={newPack}
                     onChange={(e) => seNewPack(e.currentTarget.value)}
@@ -49,14 +49,14 @@ const AddPackComponent = () => {
                 <span>
                     Make private:
                 </span>
-                <input disabled={isLoad}
+                <input
                     type="checkbox"
                     onChange={(e) => setNewPackPrivate(e.currentTarget.checked)}
                 />
             </div>
             <div>
-                <button onClick={turnBach} disabled={isLoad}>Cancel</button>
-                <button onClick={addNewPack} disabled={isLoad}>Add</button>
+                <button onClick={turnBach}>Cancel</button>
+                <button onClick={addNewPack}>Add</button>
             </div>
 
         </div>

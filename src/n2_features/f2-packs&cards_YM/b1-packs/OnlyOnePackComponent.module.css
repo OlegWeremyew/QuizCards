@@ -1,37 +1,52 @@
 .TableContainer {
-    font-size: 0.8em;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
+    justify-content: space-around;
     width: 98%;
-    margin-top: 5px;
-    margin-left: 1%;
-    background-color: #f3f0f0;
+    background-color: #edf2f5;
+    margin: 5px;
     border-radius: 5px;
 }
 
 .TableItem__name {
-    word-wrap: break-word;
-    width: 22%;
+    width: 16%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+    padding-left: 10px;
 }
 
 .TableItem__cardsCount {
-    width: 9%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .TableItem__data {
-    width: 22%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
 }
 
 .TableItem__userName {
-    width: 25%;
-    word-wrap: break-word;
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+    font-size: 13px;
 }
 
 .TableItem__BtnGroup {
-    width: 21%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .BtnGroup__Item__My {
@@ -49,7 +64,7 @@
     border: 2px solid #1c5886;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 0.8em;
+    font-size: 16px;
     min-width: 35px;
     text-align: center;
     margin-right: 2px;

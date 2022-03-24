@@ -1,6 +1,5 @@
 import {cardsActions, cardsActionsEnum, cardsActionsTypes} from "../r2-actions/ActionsCards";
 import {UpdatedType} from "../../m3-dal/packsAPI";
-import {ModeTypes} from "./packsReducer";
 
 export type CardType = {
     answer: string
@@ -23,8 +22,7 @@ export type InitialCardsType = {
     pageCount: number
     cardAnswer: string
     cardQuestion: string
-    sortCards: UpdatedType,
-    mode:ModeTypes
+    sortCards: UpdatedType
 }
 
 const initialCards: InitialCardsType = {
@@ -49,7 +47,6 @@ const initialCards: InitialCardsType = {
     cardAnswer: '',
     cardQuestion: '',
     sortCards: '' as UpdatedType,
-    mode:null
 }
 
 export type cardsReducerActionType = ReturnType<cardsActionsTypes<typeof cardsActions>>
@@ -78,9 +75,6 @@ export const cardsReducer = (state = initialCards, action: cardsReducerActionTyp
                     ? {...card, grade: action.payload.updatedCard.grade}
                     : {...card})
             }
-        }
-        case cardsActionsEnum.CARD_MODE: {
-            return {...state, mode:action.payload.mode}
         }
         default:
             return state

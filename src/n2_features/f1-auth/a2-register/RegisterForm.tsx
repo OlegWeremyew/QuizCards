@@ -18,7 +18,7 @@ type FormikErrorType = {
 const RegisterForm = () => {
 
     const dispatch = useDispatch()
-    const isLoad = useFridaySelector<boolean>(state => state.app.isLoad)
+
     const error = useFridaySelector<Undetectable<string>>(state => state.regForNewPass.register.error)
     const isLoggedIn = useFridaySelector<boolean>(state => state.login.isLoggedIn)
 
@@ -81,13 +81,13 @@ const RegisterForm = () => {
                     <form onSubmit={formik.handleSubmit}>
                         <div className={regS.second}>
                             eMail
-                            <input disabled={isLoad} {...formik.getFieldProps('email')}/>
+                            <input {...formik.getFieldProps('email')}/>
                             {formik.touched.email && formik.errors.email ?
                                 <div className={regS.errorMessage}>{formik.errors.email}</div> : null}
                         </div>
                         <div className={regS.second}>
                             Password
-                            <input type="password" disabled={isLoad}
+                            <input type="password"
                                    {...formik.getFieldProps('password')}/>
 
                             {formik.touched.password && formik.errors.password ?
@@ -95,17 +95,17 @@ const RegisterForm = () => {
                         </div>
                         <div className={regS.second}>
                             Confirm password
-                            <input type="password" disabled={isLoad}
+                            <input type="password"
                                    {...formik.getFieldProps('confirm')}/>
                             {formik.touched.confirm && formik.errors.confirm ?
                                 <div className={regS.errorMessage}>{formik.errors.confirm}</div> : null}
                         </div>
                         <div className={regS.buttonsDiv}>
-                            <button type="button" className={regS.cancelButton} disabled={isLoad} onClick={cancelHandler}>
+                            <button type="button" className={regS.cancelButton}>
                                 <NavLink to={RoutesXPaths.LOGIN}>
                                     Cancel
                                 </NavLink></button>
-                            <button type="submit" className={regS.registerButton} disabled={isLoad}>Register</button>
+                            <button type="submit" className={regS.registerButton}>Register</button>
                         </div>
                     </form>
                 </div>

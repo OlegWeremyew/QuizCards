@@ -1,4 +1,4 @@
-import {InitialCardPacksType, ModeTypes} from "../r1-reducers/packsReducer";
+import {InitialCardPacksType} from "../r1-reducers/packsReducer";
 import {UpdatedType} from "../../m3-dal/packsAPI";
 import {Nullable} from "../../../types/Nullable";
 
@@ -11,7 +11,6 @@ export enum packsActionsEnum {
     PAGE = 'CARDS/PACKS/PAGE',
     PAGE_PACKS_COUNT = 'CARDS/PACKS/PAGE_PACKS_COUNT',
     PACKS_UPDATED = 'CARDS/PACKS/PACKS_UPDATED',
-    PACKS_MODE = 'CARDS/PACKS/PACKS_MODE',
 }
 
 export const packsActions = {
@@ -61,12 +60,6 @@ export const packsActions = {
         return {
             type: packsActionsEnum.PACKS_UPDATED,
             payload: {updated}
-        } as const
-    },
-    packModeAC: (mode: ModeTypes) => {
-        return {
-            type: packsActionsEnum.PACKS_MODE,
-            payload: {mode}
         } as const
     },
 }

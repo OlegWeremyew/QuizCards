@@ -3,7 +3,7 @@
     top: 0;
     list-style-type: none;
     display: grid;
-    grid-template-columns: 22% 9% 22% 25% 22%;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1.5fr;
     grid-template-rows: 1fr;
     gap: 0em 0;
     grid-template-areas:

@@ -5,33 +5,33 @@ import TablesPagination from "../../../n1_main/m1-ui/common/pagination/TablePagi
 import {packsActions} from "../../../n1_main/m2-bll/r2-actions/ActionsPacks";
 import {useDispatch} from "react-redux";
 import {useFridaySelector} from "../../../n1_main/m2-bll/store";
-import {InitialCardPacksType, ModeTypes, PackType} from "../../../n1_main/m2-bll/r1-reducers/packsReducer";
+import {InitialCardPacksType, PackType} from "../../../n1_main/m2-bll/r1-reducers/packsReducer";
 import {packsTC} from "../../../n1_main/m2-bll/r3-thunks/ThunkPacks";
 import {useNavigate} from "react-router-dom";
 import {RoutesXPaths} from "../../../n1_main/m1-ui/routes/routes";
 import {useDebounce} from "use-debounce";
 import TableHeader from "../../../n1_main/m1-ui/common/table/TableHeader";
-import OnlyOnePackComponent from "./OnlyOnePackComponent";
-import {Nullable} from "../../../types/Nullable";
-import GlobalError from "../../../n1_main/m1-ui/common/GlobalError/GlobalError";
-import Modal from "../../../n1_main/m1-ui/common/ModalWindow/ModalWindow";
 import AddPackComponent from "./AddPackComponent";
+import OnlyOnePackComponent from "./OnlyOnePackComponent";
+import Modal from "../../../n1_main/m1-ui/common/ModalWindow/ModalWindow";
+import {Nullable} from "../../../types/Nullable";
 
 const PacksList = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const isLoad = useFridaySelector<boolean>(state => state.app.isLoad)
+
     const myId = useFridaySelector<string>(state => state.profile.profile._id)
     const packsState = useFridaySelector<InitialCardPacksType>(state => state.packs)
     const packs = useFridaySelector<PackType[]>(state => state.packs.cardPacks)
-    const globalError = useFridaySelector<string>(state => state.app.globalError)
-    const packMode = useFridaySelector<ModeTypes>(state => state.packs.mode)
+    /*const globalError = useFridaySelector<string>(state => state.app.globalError)*/
+
     const debouncedSearch = useDebounce<string>(packsState.packName, 1000)
     const debouncedMIN = useDebounce<number>(packsState.minCardsCount, 1000)
     const debouncedMAX = useDebounce<number>(packsState.maxCardsCount, 1000)
 
     const [selected, setSelected] = useState<'MY' | 'ALL'>('ALL')
+    const [addPack, setAddPack] = useState<boolean>(false)
 
     const selectMyOrAll = (value: Nullable<string>) => {
         dispatch(packsActions.allMyAC(value))
@@ -58,6 +58,21 @@ const PacksList = () => {
     }, [debouncedSearch[0], packsState.user_id, debouncedMIN[0], debouncedMAX[0], packsState.pageCount,
         packsState.page, packsState.updated])
 
+    if (addPack) {
+        return (
+            <Modal
+                backgroundOnClick={() => setAddPack(false)}
+                show={true}
+                height={0}
+                width={0}
+                backgroundStyle={{backgroundColor: 'hotpink'}}
+                enableBackground={true}
+            >
+                <AddPackComponent setAddPack={setAddPack}/>
+            </Modal>
+        )
+    }
+
     return (
         <div className={style.packsListBlock}>
 
@@ -65,12 +80,12 @@ const PacksList = () => {
                 <h4 className={style.title}>
                     Show packs cards
                 </h4>
-                <button disabled={isLoad}
+                <button
                     className={selected === "MY" ? style.selected : style.hoverSelected}
                     onClick={() => selectMyOrAll(myId)}>
                     My
                 </button>
-                <button disabled={isLoad}
+                <button
                     className={selected === "ALL" ? style.selected : style.hoverSelected}
                     onClick={() => selectMyOrAll(null)}>
                     All
@@ -78,7 +93,7 @@ const PacksList = () => {
                 <h4 className={style.title}>
                     Number of cards
                 </h4>
-                <DoubleRange />
+                <DoubleRange/>
                 <div className={style.rangeValue}>
                     <div className={style.rangeValue__item}>min : {packsState.minCardsCount}</div>
                     <div className={style.rangeValue__item}>max : {packsState.maxCardsCount}</div>
@@ -91,14 +106,10 @@ const PacksList = () => {
                     <div className={style.searchContainer}>
                         <input placeholder={"Search..."}
                                value={packsState.packName}
-                               onChange={onChangeSearchInput}
-                        disabled={isLoad}/>
-                        <button disabled={isLoad}
+                               onChange={onChangeSearchInput}/>
+                        <button
                             className={style.buttonSearch}
-                            onClick={() => {
-                                dispatch(packsActions.packModeAC('add'))
-                            }}
-                        >
+                            onClick={() => setAddPack(!addPack)}>
                             Add New
                         </button>
                     </div>
@@ -112,22 +123,12 @@ const PacksList = () => {
                                     <OnlyOnePackComponent item={tableRow} runToCards={runToCards}/>
                                 </div>
                             )
+                            /*<div key={index} onDoubleClick={() => runToCards(item._id)}>
+                            {<TableX/>}
+                            <OnlyOnePackComponent item={item} key={index}/>
+                            {</div>}*/
                         })
                     }
-                    <Modal
-                        backgroundOnClick={() => {
-                        }}
-                        show={globalError !== '' || packMode === 'add' || packMode === 'edit'}
-                        height={0}
-                        width={0}
-                        backgroundStyle={globalError !== ''
-                            ? {backgroundColor: 'rgba(255,3,3,0.15)'}
-                            : {backgroundColor: 'rgba(255,145,3,0.13)'}
-                        }
-                        enableBackground={true}>
-                        {globalError !== '' && <GlobalError/>}
-                        {packMode === 'add' && <AddPackComponent/>}
-                    </Modal>
                     <TablesPagination/>
                 </div>
             </div>

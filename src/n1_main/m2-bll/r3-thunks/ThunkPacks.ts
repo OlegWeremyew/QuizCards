@@ -1,4 +1,4 @@
-import {setAppStatusAC, setGlobalErrorAC, setIsLoadAC} from "../r1-reducers/app-reducer";
+import {setAppStatusAC, setGlobalErrorAC} from "../r1-reducers/app-reducer";
 import {newPackType, packsAPI} from "../../m3-dal/packsAPI";
 import {fridayReducerType, FridayThunkType} from "../store";
 import {Dispatch} from "redux";
@@ -7,7 +7,6 @@ import {packsActions} from "../r2-actions/ActionsPacks";
 export const packsTC = () => async (dispatch: Dispatch, getState: () => fridayReducerType) => {
     const {packName, minCardsCount, maxCardsCount, updated, page, pageCount, user_id} = getState().packs
     dispatch(setAppStatusAC("loading"))
-    dispatch(setIsLoadAC(true))
     try {
         let res = await packsAPI.setPacks(packName, minCardsCount, maxCardsCount, updated, page, pageCount, user_id)
         dispatch(packsActions.setPacksAC(res.data))
@@ -17,13 +16,11 @@ export const packsTC = () => async (dispatch: Dispatch, getState: () => fridayRe
         dispatch(setAppStatusAC("failed"))
     } finally {
         dispatch(setAppStatusAC("idle"))
-        dispatch(setIsLoadAC(false))
     }
 }
 
 export const addNewPacksTC = (newPack: newPackType): FridayThunkType => async (dispatch: any) => {
     dispatch(setAppStatusAC("loading"))
-    dispatch(setIsLoadAC(true))
     try {
         await packsAPI.addNewPack(newPack)
         dispatch(packsTC())
@@ -32,13 +29,11 @@ export const addNewPacksTC = (newPack: newPackType): FridayThunkType => async (d
         dispatch(setAppStatusAC("failed"))
     } finally {
         dispatch(setAppStatusAC("idle"))
-        dispatch(setIsLoadAC(false))
     }
 }
 
 export const deletePacksTC = (id: string): FridayThunkType => async (dispatch: any) => {
     dispatch(setAppStatusAC("loading"))
-    dispatch(setIsLoadAC(true))
     try {
         await packsAPI.deletePack(id)
         dispatch(packsTC())
@@ -47,13 +42,11 @@ export const deletePacksTC = (id: string): FridayThunkType => async (dispatch: a
         dispatch(setAppStatusAC("failed"))
     } finally {
         dispatch(setAppStatusAC("idle"))
-        dispatch(setIsLoadAC(false))
     }
 }
 
 export const changePacksTC = (newName: string, id: string): FridayThunkType => async (dispatch: any) => {
     dispatch(setAppStatusAC("loading"))
-    dispatch(setIsLoadAC(true))
     try {
         await packsAPI.changePack(newName, id)
         dispatch(packsTC())
@@ -62,6 +55,5 @@ export const changePacksTC = (newName: string, id: string): FridayThunkType => a
         dispatch(setAppStatusAC("failed"))
     } finally {
         dispatch(setAppStatusAC("idle"))
-        dispatch(setIsLoadAC(false))
     }
 }
