@@ -1,25 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import styles from './PacksList.module.css'
-import Header from "../../main/ui/header/Header";
-import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
-import {PackFrame} from "../../main/ui/common/PackFrame/PackFrame";
-import Sidebar from "../../main/ui/Sidebar/Sidebar";
+import Header from "../../ui/header/Header";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../main/bll/store";
-import {addPackTC, changeCurrentPageAC, fetchPacksListsTC, setPageCountAC} from "../../main/bll/cardsPackReducer";
+import {AppRootStateType} from "../../Redux/store";
+import {addPackTC, changeCurrentPageAC, fetchPacksListsTC, setPageCountAC} from "../../Redux/cardsPackReducer";
 import {Navigate} from "react-router-dom";
-import {Pagination} from "../../main/ui/common/Pagination/Pagination";
-import {PageSizeSelector} from "../../main/ui/common/pageSizeSelector/PageSizeSelector";
-import {PacksSearch} from "../../main/ui/common/GridinSearch/PacksSearch";
-import Modal from "../../main/ui/common/Modal/Modal";
-import SuperInputText from "../../main/ui/common/SuperInputText/SuperInputText";
-import ModalButtonsWrap from "../../main/ui/common/Modal/ModalButtonsWrap";
-import {setErrorAC} from "../../main/bll/appReducer";
-import SuperCheckbox from "../../main/ui/common/SuperCheckbox/SuperCheckbox";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
 import {PATH} from "../../constants/routes";
 import {PacksTable} from "./PacksTable/Table";
+import {
+    Modal, ModalButtonsWrap,
+    PackFrame,
+    PacksSearch,
+    PageSizeSelector,
+    Pagination,
+    Sidebar,
+    SuperButton, SuperCheckbox,
+    SuperInputText
+} from "../../ui";
+import {setErrorAC} from "../../Redux/appReducer";
 
 export const PacksList = (): ReturnComponentType => {
     const dispatch = useDispatch();

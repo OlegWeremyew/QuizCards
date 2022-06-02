@@ -1,4 +1,4 @@
-import {CardType} from "../../../../../main/dal/cardsApi";;
+import {CardType} from "../../../../../API/cardsApi";;
 
 export type CardsTablePropsType = {
     cards: Array<CardType>

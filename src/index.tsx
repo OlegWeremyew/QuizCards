@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './main/App';
 import {Provider} from "react-redux";
 import {HashRouter} from "react-router-dom";
-import {store} from "./main/bll/store";
-
+import {store} from "./Redux/store";
+import {App} from "./main";
 
 ReactDOM.render(
     <React.StrictMode>

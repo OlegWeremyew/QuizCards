@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import SuperButton from "../../../../main/ui/common/SuperButton/SuperButton";
-import {passwordForgotTC} from "../../../../main/bll/passwordReducer";
+import {passwordForgotTC} from "../../../../Redux/passwordReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, NavLink} from "react-router-dom";
-import {AppRootStateType} from "../../../../main/bll/store";
+import {AppRootStateType} from "../../../../Redux/store";
 import s from "./ForgotYourPassword.module.css";
-import SuperInputText from "../../../../main/ui/common/SuperInputText/SuperInputText";
-import {Frame} from "../../../../main/ui/common/Frame/Frame";
 import styles from "../../Login/login.module.css";
-import Preloader from "../../../../main/ui/common/Preloader/Preloader";
-import {setErrorAC} from "../../../../main/bll/appReducer";
+import {setErrorAC} from "../../../../Redux/appReducer";
 import {EMPTY_STRING} from "../../../../constants";
 import {PATH} from "../../../../constants/routes";
 import {ReturnComponentType} from "../../../../types";
+import {Frame, Preloader, SuperButton, SuperInputText} from "../../../../ui";
 
 
 export const ForgotYourPassword = (): ReturnComponentType => {

@@ -1,16 +1,14 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
-import SuperInputText from "../../../main/ui/common/SuperInputText/SuperInputText";
-import SuperButton from "../../../main/ui/common/SuperButton/SuperButton";
 import styles from "../Profile.module.css";
 import noAvatar from "../images/noAvatar.png";
 import icon from "../images/Union.png"
-import ModalButtonsWrap from "../../../main/ui/common/Modal/ModalButtonsWrap";
-import {updateProfile} from "../../../main/bll/profileReducer";
+import {updateProfile} from "../../../Redux/profileReducer";
 import {useDispatch} from "react-redux";
 import stl from "./AvatarFileReader.module.css"
 import {EMPTY_STRING} from "../../../constants";
 import {Nullable, ReturnComponentType} from "../../../types";
 import {AvatarFilePropsType} from "./types";
+import {ModalButtonsWrap, SuperButton, SuperInputText} from "../../../ui";
 
 export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({closeModal}): ReturnComponentType => {
     const dispatch = useDispatch();

@@ -1,19 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import styles from './login.module.css';
-import SuperButton from "../../../main/ui/common/SuperButton/SuperButton";
-import SuperInputText from "../../../main/ui/common/SuperInputText/SuperInputText";
-import SuperCheckbox from "../../../main/ui/common/SuperCheckbox/SuperCheckbox";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../main/bll/store";
-import {loginTC} from "../../../main/bll/loginReducer";
+import {AppRootStateType} from "../../../Redux/store";
+import {loginTC} from "../../../Redux/loginReducer";
 import {Navigate, NavLink} from "react-router-dom"
-import {Frame} from "../../../main/ui/common/Frame/Frame";
-import SuperInputPassword from "../../../main/ui/common/SuperInputPassword/SuperInputPassword";
-import Preloader from "../../../main/ui/common/Preloader/Preloader";
-import {setErrorAC} from "../../../main/bll/appReducer";
+import {setErrorAC} from "../../../Redux/appReducer";
 import {ReturnComponentType} from "../../../types";
 import {EMPTY_STRING} from "../../../constants";
 import {PATH} from "../../../constants/routes";
+import {Frame, Preloader, SuperButton, SuperCheckbox, SuperInputPassword, SuperInputText} from "../../../ui";
 
 export const Login = (): ReturnComponentType => {
     const [email, setEmail] = useState<string>(EMPTY_STRING);

@@ -1,18 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import SuperButton from "../../../main/ui/common/SuperButton/SuperButton";
 import {useDispatch, useSelector} from "react-redux";
-import {registerTC, setRegister} from "../../../main/bll/registerReducer";
-import {AppRootStateType} from "../../../main/bll/store";
+import {registerTC, setRegister} from "../../../Redux/registerReducer";
+import {AppRootStateType} from "../../../Redux/store";
 import {Navigate, NavLink} from "react-router-dom";
 import s from './Registration.module.css';
-import SuperInputText from "../../../main/ui/common/SuperInputText/SuperInputText";
-import SuperInputPassword from "../../../main/ui/common/SuperInputPassword/SuperInputPassword";
-import {setErrorAC} from "../../../main/bll/appReducer";
-import {Frame} from "../../../main/ui/common/Frame/Frame";
-import Preloader from "../../../main/ui/common/Preloader/Preloader";
+import {setErrorAC} from "../../../Redux/appReducer";
 import {PATH} from "../../../constants/routes";
 import {EMPTY_STRING} from "../../../constants";
 import {ReturnComponentType} from "../../../types";
+import {Frame, Preloader, SuperButton, SuperInputPassword, SuperInputText} from "../../../ui";
 
 export const Registration = (): ReturnComponentType => {
 

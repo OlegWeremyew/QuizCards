@@ -1,17 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {Frame} from "../../../../main/ui/common/Frame/Frame";
-import SuperInputPassword from "../../../../main/ui/common/SuperInputPassword/SuperInputPassword";
-import SuperButton from "../../../../main/ui/common/SuperButton/SuperButton";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, useParams} from "react-router-dom";
-import {AppRootStateType} from "../../../../main/bll/store";
+import {AppRootStateType} from "../../../../Redux/store";
 import styles from "./passwordRecovery1.module.css";
-import {changePassTC} from "../../../../main/bll/passwordReducer";
-import Preloader from "../../../../main/ui/common/Preloader/Preloader";
-import {setErrorAC} from "../../../../main/bll/appReducer";
+import {changePassTC} from "../../../../Redux/passwordReducer";
+import {setErrorAC} from "../../../../Redux/appReducer";
 import {EMPTY_STRING} from "../../../../constants";
 import {Nullable, ReturnComponentType} from "../../../../types";
 import {PATH} from "../../../../constants/routes";
+import {Frame, Preloader, SuperButton, SuperInputPassword} from "../../../../ui";
 
 export const PasswordRecovery1 = (): ReturnComponentType => {
     const [password, setPassword] = useState<string>(EMPTY_STRING);
@@ -52,8 +49,9 @@ export const PasswordRecovery1 = (): ReturnComponentType => {
                     />
                 </div>
                 <p>Create new password and we will send you further instructions to email</p>
-                <SuperButton onClick={newPasswordHandler} style={{padding: '10px 60px'}}>Create new
-                    password</SuperButton>
+                <SuperButton onClick={newPasswordHandler} style={{padding: '10px 60px'}}>
+                    Create new password
+                </SuperButton>
             </Frame>
         </>
     )

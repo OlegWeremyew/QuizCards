@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../../main/ui/header/Header";
-import {Frame} from "../../main/ui/common/Frame/Frame";
-import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
+import Header from "../../ui/header/Header";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../main/bll/store";
-import {CardType} from "../../main/dal/cardsApi";
-import SuperRadio from "../../main/ui/common/SuperRadio/SuperRadio";
+import {AppRootStateType} from "../../Redux/store";
+import {CardType} from "../../API/cardsApi";
 import stl from './Learn.module.css'
-import Preloader from "../../main/ui/common/Preloader/Preloader";
-import {CardsGradeTC, clearCardsAC, learnCardsTC} from "../../main/bll/cardsReducer";
+import {CardsGradeTC, clearCardsAC, learnCardsTC} from "../../Redux/cardsReducer";
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
+import {Frame, Preloader, SuperButton, SuperRadio} from "../../ui";
 
 
 const grades = ["Did not know", "Forgot", "A lot of thought", "Confused", "Knew the answer"];

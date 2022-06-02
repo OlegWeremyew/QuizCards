@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
-import SuperButton from "../main/ui/common/SuperButton/SuperButton";
-import SuperCheckbox from "../main/ui/common/SuperCheckbox/SuperCheckbox";
-import SuperInputText from "../main/ui/common/SuperInputText/SuperInputText";
 import s from './test.module.css';
-import SuperEditableSpan from "../main/ui/common/SuperEditableSpan/SuperEditableSpan";
-import {RangeDemo} from "../main/ui/common/SuperRange/RangeDemo";
-import {Pagination} from "../main/ui/common/Pagination/Pagination";
 import {EMPTY_STRING} from "../constants";
 import {ReturnComponentType} from "../types";
+import {Pagination, RangeDemo, SuperButton, SuperCheckbox, SuperEditableSpan, SuperInputText} from "../ui";
 
 export const Test = (): ReturnComponentType => {
     const [value, setValue] = useState<string>(EMPTY_STRING)

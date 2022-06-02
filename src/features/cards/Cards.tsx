@@ -1,24 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Cards.module.css'
-import Header from "../../main/ui/header/Header";
-import {PackFrame} from "../../main/ui/common/PackFrame/PackFrame";
+import Header from "../../ui/header/Header";
 import {Navigate, NavLink, useParams} from "react-router-dom";
-import {addCardTC, changeCurrentPageCardsAC, fetchCardsTC, setPageCountCardsAC} from "../../main/bll/cardsReducer";
+import {addCardTC, changeCurrentPageCardsAC, fetchCardsTC, setPageCountCardsAC} from "../../Redux/cardsReducer";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../main/bll/store";
-import {CardType} from "../../main/dal/cardsApi";
-import {Pagination} from "../../main/ui/common/Pagination/Pagination";
-import {CardsSearch} from "../../main/ui/common/GridinSearch/CardsSearch";
-import {PageSizeSelector} from "../../main/ui/common/pageSizeSelector/PageSizeSelector";
+import {AppRootStateType} from "../../Redux/store";
+import {CardType} from "../../API/cardsApi";
 import backPage from "../../assets/images/backPage.svg"
-import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
-import Modal from "../../main/ui/common/Modal/Modal";
-import ModalButtonsWrap from "../../main/ui/common/Modal/ModalButtonsWrap";
-import SuperTextArea from "../../main/ui/common/SuperTextArea/SuperTextArea";
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
 import {CardsTable} from "./CardsTable/Table";
 import {ReturnComponentType} from "../../types";
+import {
+    CardsSearch,
+    Modal,
+    ModalButtonsWrap,
+    PackFrame,
+    PageSizeSelector,
+    Pagination,
+    SuperButton,
+    SuperTextArea
+} from "../../ui";
 
 export const Cards = (): ReturnComponentType => {
 

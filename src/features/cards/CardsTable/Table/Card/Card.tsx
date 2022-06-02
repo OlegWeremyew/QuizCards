@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
 import styles from "../CardsTable.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../../main/bll/store";
-import {SuperLoading} from "../../../../../main/ui/common/Loading/loading";
-import {deleteCardTC, updateCardTC} from "../../../../../main/bll/cardsReducer";
+import {AppRootStateType} from "../../../../../Redux/store";
+import {deleteCardTC, updateCardTC} from "../../../../../Redux/cardsReducer";
 import {useParams} from "react-router-dom";
-import Modal from "../../../../../main/ui/common/Modal/Modal";
-import ModalButtonsWrap from "../../../../../main/ui/common/Modal/ModalButtonsWrap";
-import SuperButton from "../../../../../main/ui/common/SuperButton/SuperButton";
-import SuperTextArea from "../../../../../main/ui/common/SuperTextArea/SuperTextArea";
 import {CardPropsType} from "./types";
 import {EMPTY_STRING} from "../../../../../constants";
+import {Modal, ModalButtonsWrap, SuperButton, SuperLoading, SuperTextArea} from "../../../../../ui";
 
 export const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
 

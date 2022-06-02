@@ -2,8 +2,8 @@ import React from 'react';
 import email2 from '../../../../assets/images/email2.png';
 import styles from './CheckEmail.module.css';
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../main/bll/store";
-import {Frame} from "../../../../main/ui/common/Frame/Frame";
+import {AppRootStateType} from "../../../../Redux/store";
+import {Frame} from "../../../../ui/common/Frame/Frame";
 import {ReturnComponentType} from "../../../../types";
 
 

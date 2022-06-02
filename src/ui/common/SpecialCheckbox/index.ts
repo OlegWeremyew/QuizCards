@@ -1,0 +1,1 @@
+export {DoubleCheckbox} from './DoubleCheckbox'

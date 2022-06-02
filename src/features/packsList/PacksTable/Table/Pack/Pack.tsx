@@ -2,15 +2,12 @@ import React, {useState} from 'react';
 import styles from "../PacksTable.module.css";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../../main/bll/store";
-import {deletePackTC, editPackTC} from "../../../../../main/bll/cardsPackReducer";
-import {SuperLoading} from "../../../../../main/ui/common/Loading/loading";
-import Modal from "../../../../../main/ui/common/Modal/Modal";
-import SuperButton from "../../../../../main/ui/common/SuperButton/SuperButton";
-import SuperInputText from "../../../../../main/ui/common/SuperInputText/SuperInputText";
-import ModalButtonsWrap from "../../../../../main/ui/common/Modal/ModalButtonsWrap";
+import {AppRootStateType} from "../../../../../Redux/store";
+import {deletePackTC, editPackTC} from "../../../../../Redux/cardsPackReducer";
 import {PackPropsType} from "./types";
 import {ReturnComponentType} from "../../../../../types";
+import {EMPTY_STRING} from "../../../../../constants";
+import {Modal, ModalButtonsWrap, SuperButton, SuperInputText, SuperLoading} from "../../../../../ui";
 
 export const Pack: React.FC<PackPropsType> = ({pack}): ReturnComponentType => {
     const dispatch = useDispatch();
@@ -20,19 +17,19 @@ export const Pack: React.FC<PackPropsType> = ({pack}): ReturnComponentType => {
     const [newPackName, setNewPackName] = useState<string>(pack.name);
     const [isShownModal, setIsShownModal] = useState<boolean>(false)
 
-    const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>('');
+    const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>(EMPTY_STRING);
     const closeModal = () => setIsShownModal(false)
-    const showModal = (modalType: 'Delete' | 'Edit' | ''):void => {
+    const showModal = (modalType: 'Delete' | 'Edit' | ''): void => {
         setIsShownModal(true)
         setModalType(modalType)
     }
 
-    const deletePack = ():void => {
+    const deletePack = (): void => {
         setIsShownModal(false)
         dispatch(deletePackTC(pack._id))
     }
 
-    const editPack = ():void => {
+    const editPack = (): void => {
         dispatch(editPackTC(pack._id, newPackName))
         closeModal()
     }

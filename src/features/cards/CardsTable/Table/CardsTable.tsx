@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './CardsTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../main/bll/store";
-import {changeCurrentPageCardsAC, sortCardsAC} from "../../../../main/bll/cardsReducer";
+import {AppRootStateType} from "../../../../Redux/store";
+import {changeCurrentPageCardsAC, sortCardsAC} from "../../../../Redux/cardsReducer";
 import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
 import {Card} from "./Card";
 import {EMPTY_STRING} from "../../../../constants";

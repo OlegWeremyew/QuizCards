@@ -2,19 +2,15 @@ import React, {ChangeEvent, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 import styles from "./Profile.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../main/bll/store";
+import {AppRootStateType} from "../../Redux/store";
 import noAvatar from './images/noAvatar.png'
-import {updateProfile} from "../../main/bll/profileReducer";
-import {Frame} from "../../main/ui/common/Frame/Frame";
-import SuperEditableSpan from "../../main/ui/common/SuperEditableSpan/SuperEditableSpan";
-import Preloader from "../../main/ui/common/Preloader/Preloader";
-import Header from "../../main/ui/header/Header";
-import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
-import Modal from "../../main/ui/common/Modal/Modal";
+import {updateProfile} from "../../Redux/profileReducer";
+import Header from "../../ui/header/Header";
 import {AvatarFileReader} from "./AvatarFileReader";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType, Undetectable} from "../../types";
 import {PATH} from "../../constants/routes";
+import {Frame, Modal, Preloader, SuperButton, SuperEditableSpan} from "../../ui";
 
 export const Profile = (): ReturnComponentType => {
     const dispatch = useDispatch();

@@ -1,0 +1,46 @@
+import React, {ChangeEvent, useState, KeyboardEvent, useEffect} from "react";
+import s from './PackSearch.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {changeCurrentPageAC, setFilteredPacksAC} from "../../../Redux/cardsPackReducer";
+import {AppRootStateType} from "../../../Redux/store";
+import {ReturnComponentType} from "../../../types";
+import {EMPTY_STRING} from "../../../constants";
+
+export const PacksSearch = (): ReturnComponentType => {
+    const dispatch = useDispatch()
+    const packName = useSelector<AppRootStateType, string>(state => state.cardsPack.packName);
+    const [event, setEvent] = useState<string>(EMPTY_STRING)
+
+    let handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        setEvent(e.currentTarget.value)
+    };
+
+    useEffect(() => {
+        if (packName !== event) setEvent(packName)
+    }, [packName])
+
+    let BtnHandler = (): void => {
+        dispatch(setFilteredPacksAC(event))
+        dispatch(changeCurrentPageAC(1))
+    }
+
+    const onKeyPressBtnHandler = (e: KeyboardEvent<HTMLInputElement>): void => {
+        if (e.key === 'Enter') {
+            BtnHandler()
+        }
+    }
+
+    return (
+        <div className={s.wrap}>
+            <input
+                onKeyPress={onKeyPressBtnHandler}
+                type="text"
+                placeholder="Search..."
+                value={event}
+                onChange={handleChange}
+            />
+            <button onClick={BtnHandler} className={s.btnSearch}></button>
+        </div>
+    );
+}
+

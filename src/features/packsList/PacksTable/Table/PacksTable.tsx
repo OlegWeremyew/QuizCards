@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './PacksTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../main/bll/store";
-import {PackType} from "../../../../main/dal/cardsPackApi";
-import {sortPacksAC} from "../../../../main/bll/cardsPackReducer";
+import {AppRootStateType} from "../../../../Redux/store";
+import {PackType} from "../../../../API/cardsPackApi";
+import {sortPacksAC} from "../../../../Redux/cardsPackReducer";
 import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
 import {Pack} from "./Pack";
 import {ReturnComponentType} from "../../../../types";

@@ -4,7 +4,7 @@ import {
     InitialStateType,
     setFilterReducerAC,
     sortCardsAC
-} from "../main/bll/cardsReducer";
+} from "../Redux/cardsReducer";
 
 let startState: InitialStateType
 
