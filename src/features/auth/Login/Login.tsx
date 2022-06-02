@@ -7,15 +7,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../main/bll/store";
 import {loginTC} from "../../../main/bll/loginReducer";
 import {Navigate, NavLink} from "react-router-dom"
-import {PATH} from "../../../main/ui/routes/Routes";
 import {Frame} from "../../../main/ui/common/Frame/Frame";
 import SuperInputPassword from "../../../main/ui/common/SuperInputPassword/SuperInputPassword";
 import Preloader from "../../../main/ui/common/Preloader/Preloader";
 import {setErrorAC} from "../../../main/bll/appReducer";
+import {ReturnComponentType} from "../../../types";
+import {EMPTY_STRING} from "../../../constants";
+import {PATH} from "../../../constants/routes";
 
-export const Login = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+export const Login = (): ReturnComponentType => {
+    const [email, setEmail] = useState<string>(EMPTY_STRING);
+    const [password, setPassword] = useState<string>(EMPTY_STRING);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
 
     const loginStatus = useSelector<AppRootStateType, boolean>(state => state.login.status);
@@ -23,12 +25,12 @@ export const Login = () => {
     const error = useSelector<AppRootStateType, string>(state => state.app.error);
     const dispatch = useDispatch();
 
-    const loginHandler = () => {
+    const loginHandler = (): void => {
         dispatch(loginTC(email, password, rememberMe));
     };
 
     useEffect(() => {
-        dispatch(setErrorAC(''))
+        dispatch(setErrorAC(EMPTY_STRING))
     }, [])
 
     if (loginStatus) {

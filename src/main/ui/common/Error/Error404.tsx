@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import s from './error404.module.css'
 import SuperButton from "../SuperButton/SuperButton";
-import {PATH} from "../../routes/Routes";
 import {NavLink} from "react-router-dom";
+import {PATH} from "../../../../constants/routes";
 
 export const Error404 = () => {
 

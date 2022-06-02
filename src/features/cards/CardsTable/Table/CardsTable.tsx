@@ -1,17 +1,14 @@
 import React from 'react';
 import styles from './CardsTable.module.css'
-import Card from "./Card/Card";
-import {CardType} from "../../../../main/dal/cardsApi";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../main/bll/store";
 import {changeCurrentPageCardsAC, sortCardsAC} from "../../../../main/bll/cardsReducer";
 import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
+import {Card} from "./Card";
+import {EMPTY_STRING} from "../../../../constants";
+import {CardsTablePropsType} from "./types";
 
-export type PropsType = {
-    cards: Array<CardType>
-}
-
-const CardsTable = ({cards}: PropsType) => {
+export const CardsTable = ({cards}: CardsTablePropsType) => {
     const dispatch = useDispatch();
     const myUserId = useSelector<AppRootStateType, string>(state => state.profilePage._id)
     let isCheckId = cards.every(m => m.user_id === myUserId)
@@ -22,27 +19,27 @@ const CardsTable = ({cards}: PropsType) => {
 
     const direction = sortCards[0]
     const activeField = sortCards.slice(1)
-    const rotate = direction === "1" ? styles.up : ""
+    const rotate = direction === "1" ? styles.up : EMPTY_STRING
 
-    const sortUpdate = () => {
+    const sortUpdate = (): void => {
         sortFields('updated', sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
             dispatch(changeCurrentPageCardsAC(1));
         }
     }
-    const sortQuestion = () => {
+    const sortQuestion = (): void => {
         sortFields('question', sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
             dispatch(changeCurrentPageCardsAC(1));
         }
     }
-    const sortAnswer = () => {
+    const sortAnswer = (): void => {
         sortFields('answer', sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
             dispatch(changeCurrentPageCardsAC(1));
         }
     }
-    const sortGrade = () => {
+    const sortGrade = (): void => {
         sortFields('grade', sortCardsAC, isLoading, sortCards, dispatch)
     }
 
@@ -50,19 +47,21 @@ const CardsTable = ({cards}: PropsType) => {
         <div className={styles.table}>
             <div className={`${styles.header} ${classMyCards}`}>
                 <div onClick={sortQuestion}
-                     className={activeField === "question" ? `${styles.active} ${rotate}` : ""}>Question
+                     className={activeField === "question" ? `${styles.active} ${rotate}` : EMPTY_STRING}>Question
                 </div>
                 <div onClick={sortAnswer}
-                     className={activeField === "answer" ? `${styles.active} ${rotate}` : ""}>Answer
+                     className={activeField === "answer" ? `${styles.active} ${rotate}` : EMPTY_STRING}>Answer
                 </div>
-                <div onClick={sortUpdate} className={activeField === "updated" ? `${styles.active} ${rotate}` : ""}>Last
+                <div onClick={sortUpdate}
+                     className={activeField === "updated" ? `${styles.active} ${rotate}` : EMPTY_STRING}>Last
                     Updated
                 </div>
-                <div onClick={sortGrade} className={activeField === "grade" ? `${styles.active} ${rotate}` : ""}>Grade
+                <div onClick={sortGrade}
+                     className={activeField === "grade" ? `${styles.active} ${rotate}` : EMPTY_STRING}>Grade
                 </div>
                 {
                     isCheckId && <>
-                        <div >Actions</div>
+                        <div>Actions</div>
                     </>
                 }
             </div>
@@ -75,5 +74,3 @@ const CardsTable = ({cards}: PropsType) => {
         </div>
     );
 };
-
-export default CardsTable;

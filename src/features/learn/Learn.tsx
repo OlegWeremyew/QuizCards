@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Header from "../../main/ui/header/Header";
 import {Frame} from "../../main/ui/common/Frame/Frame";
 import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
-import {PATH} from "../../main/ui/routes/Routes";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../main/bll/store";
@@ -11,6 +10,9 @@ import SuperRadio from "../../main/ui/common/SuperRadio/SuperRadio";
 import stl from './Learn.module.css'
 import Preloader from "../../main/ui/common/Preloader/Preloader";
 import {CardsGradeTC, clearCardsAC, learnCardsTC} from "../../main/bll/cardsReducer";
+import {PATH} from "../../constants/routes";
+import {EMPTY_STRING} from "../../constants";
+import {ReturnComponentType} from "../../types";
 
 
 const grades = ["Did not know", "Forgot", "A lot of thought", "Confused", "Knew the answer"];
@@ -41,7 +43,7 @@ const btnStyle = {
     padding: '0'
 }
 
-export const Learn = () => {
+export const Learn = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -52,7 +54,7 @@ export const Learn = () => {
     const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
 
     const [isChecked, setIsChecked] = useState<boolean>(false)
-    const [rating, setRating] = useState("")
+    const [rating, setRating] = useState(EMPTY_STRING)
     const [card, setCard] = useState<CardType>(initialState);
 
     useEffect(() => {
@@ -67,16 +69,16 @@ export const Learn = () => {
         console.log(cards)
     }, [cards])
 
-    const onNext = () => {
+    const onNext = (): void => {
         if (rating) {
             setIsChecked(false);
-            setRating("")
+            setRating(EMPTY_STRING)
 
             dispatch(CardsGradeTC(card._id, grades.findIndex(el => el === rating) + 1))
         }
     }
 
-    const cancelHandler = () => {
+    const cancelHandler = (): void => {
         navigate(PATH.PACKS, {replace: true})
     }
 

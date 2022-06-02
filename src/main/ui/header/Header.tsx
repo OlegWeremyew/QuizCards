@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {PATH} from "../routes/Routes";
 import styles from './Header.module.css';
 import profileIcon from '../../../assets/images/Profile.svg';
 import packsListIcon from '../../../assets/images/Packs.svg';
 import {logoutTC} from "../../bll/loginReducer";
 import {useDispatch} from "react-redux";
+import {PATH} from "../../../constants/routes";
 
 const Header = () => {
   const dispatch = useDispatch();

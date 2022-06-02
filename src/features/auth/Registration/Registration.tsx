@@ -7,15 +7,18 @@ import {Navigate, NavLink} from "react-router-dom";
 import s from './Registration.module.css';
 import SuperInputText from "../../../main/ui/common/SuperInputText/SuperInputText";
 import SuperInputPassword from "../../../main/ui/common/SuperInputPassword/SuperInputPassword";
-import {PATH} from "../../../main/ui/routes/Routes";
 import {setErrorAC} from "../../../main/bll/appReducer";
 import {Frame} from "../../../main/ui/common/Frame/Frame";
 import Preloader from "../../../main/ui/common/Preloader/Preloader";
+import {PATH} from "../../../constants/routes";
+import {EMPTY_STRING} from "../../../constants";
+import {ReturnComponentType} from "../../../types";
 
-export const Registration = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [confirmPassword, setConfirmPassword] = useState<string>('');
+export const Registration = (): ReturnComponentType => {
+
+    const [email, setEmail] = useState<string>(EMPTY_STRING);
+    const [password, setPassword] = useState<string>(EMPTY_STRING);
+    const [confirmPassword, setConfirmPassword] = useState<string>(EMPTY_STRING);
 
     const isRegistered = useSelector<AppRootStateType, boolean>(state => state.register.isRegistered)
     const error = useSelector<AppRootStateType, string>(state => state.app.error)
@@ -25,11 +28,11 @@ export const Registration = () => {
     useEffect(() => {
         return () => {
             dispatch(setRegister(false));
-            dispatch(setErrorAC(''))
+            dispatch(setErrorAC(EMPTY_STRING))
         }
     }, [])
 
-    const onClickHandler = () => {
+    const onClickHandler = (): void => {
         if (password !== confirmPassword) {
             dispatch(setErrorAC('Password and confirmation password do not match'))
         } else {

@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './PacksTable.module.css'
-import Pack from "./Pack/Pack";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../main/bll/store";
 import {PackType} from "../../../../main/dal/cardsPackApi";
 import {sortPacksAC} from "../../../../main/bll/cardsPackReducer";
 import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
+import {Pack} from "./Pack";
+import {ReturnComponentType} from "../../../../types";
+import {EMPTY_STRING} from "../../../../constants";
 
-
-const PacksTable = () => {
+export const PacksTable = (): ReturnComponentType => {
     const dispatch = useDispatch();
     const packs = useSelector<AppRootStateType, Array<PackType>>(state => state.cardsPack.cardPacks)
     const sortPacks = useSelector<AppRootStateType, string>(state => state.cardsPack.sortPacks)
@@ -16,14 +17,14 @@ const PacksTable = () => {
 
     const direction = sortPacks[0]
     const activeField = sortPacks.slice(1)
-    const rotate = direction === "1" ? styles.up : ""
+    const rotate = direction === "1" ? styles.up : EMPTY_STRING
 
-    const sortFieldsPack = (field: string) => sortFields(field, sortPacksAC, isLoading, sortPacks, dispatch)
+    const sortFieldsPack = (field: string): void => sortFields(field, sortPacksAC, isLoading, sortPacks, dispatch)
 
-    const sortUpdate = () => sortFieldsPack('updated')
-    const sortName = () => sortFieldsPack('name')
-    const sortCards = () => sortFieldsPack('cardsCount')
-    const sortUserName = () => sortFieldsPack('user_name')
+    const sortUpdate = (): void => sortFieldsPack('updated')
+    const sortName = (): void => sortFieldsPack('name')
+    const sortCards = (): void => sortFieldsPack('cardsCount')
+    const sortUserName = (): void => sortFieldsPack('user_name')
 
     return (
         <div className={styles.table}>
@@ -47,5 +48,3 @@ const PacksTable = () => {
         </div>
     );
 };
-
-export default PacksTable;

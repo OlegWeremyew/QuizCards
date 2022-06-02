@@ -6,29 +6,30 @@ import {Navigate, NavLink} from "react-router-dom";
 import {AppRootStateType} from "../../../../main/bll/store";
 import s from "./ForgotYourPassword.module.css";
 import SuperInputText from "../../../../main/ui/common/SuperInputText/SuperInputText";
-import {PATH} from "../../../../main/ui/routes/Routes";
 import {Frame} from "../../../../main/ui/common/Frame/Frame";
 import styles from "../../Login/login.module.css";
 import Preloader from "../../../../main/ui/common/Preloader/Preloader";
 import {setErrorAC} from "../../../../main/bll/appReducer";
+import {EMPTY_STRING} from "../../../../constants";
+import {PATH} from "../../../../constants/routes";
+import {ReturnComponentType} from "../../../../types";
 
 
-const ForgotYourPassword = () => {
+export const ForgotYourPassword = (): ReturnComponentType => {
 
     const isSend = useSelector<AppRootStateType, boolean>(state => state.recovery.isSend);
     const isError = useSelector<AppRootStateType, string>(state => state.app.error);
     const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
 
-    // ????? НУЖНО РАЗДЕЛЕНИЕ ОШИБОК ?????
     useEffect(() => {
-        dispatch(setErrorAC(''))
+        dispatch(setErrorAC(EMPTY_STRING))
     }, [])
 
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState(EMPTY_STRING)
 
     const dispatch = useDispatch()
 
-    let onClickHandler = () => {
+    let onClickHandler = (): void => {
         dispatch(passwordForgotTC(email))
     }
 
@@ -62,7 +63,6 @@ const ForgotYourPassword = () => {
         </>
     )
 }
-export default ForgotYourPassword
 
 
 

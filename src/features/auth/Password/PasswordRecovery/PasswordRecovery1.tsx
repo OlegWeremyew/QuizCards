@@ -5,26 +5,27 @@ import SuperButton from "../../../../main/ui/common/SuperButton/SuperButton";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, useParams} from "react-router-dom";
 import {AppRootStateType} from "../../../../main/bll/store";
-import {PATH} from "../../../../main/ui/routes/Routes";
 import styles from "./passwordRecovery1.module.css";
 import {changePassTC} from "../../../../main/bll/passwordReducer";
 import Preloader from "../../../../main/ui/common/Preloader/Preloader";
 import {setErrorAC} from "../../../../main/bll/appReducer";
+import {EMPTY_STRING} from "../../../../constants";
+import {Nullable, ReturnComponentType} from "../../../../types";
+import {PATH} from "../../../../constants/routes";
 
-
-export const PasswordRecovery1 = () => {
-    const [password, setPassword] = useState<string>('');
+export const PasswordRecovery1 = (): ReturnComponentType => {
+    const [password, setPassword] = useState<string>(EMPTY_STRING);
     const isChangedPass = useSelector<AppRootStateType, boolean>(state => state.recovery.isChangedPass);
-    const error = useSelector<AppRootStateType, string | null>(state => state.app.error);
+    const error = useSelector<AppRootStateType, Nullable<string>>(state => state.app.error);
     const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
     const dispatch = useDispatch()
     const {token} = useParams<{ token: string }>();
 
     useEffect(() => {
-        dispatch(setErrorAC(''))
+        dispatch(setErrorAC(EMPTY_STRING))
     }, [])
 
-    const newPasswordHandler = () => {
+    const newPasswordHandler = (): void => {
         dispatch(changePassTC(password, token))
     }
 
@@ -51,7 +52,8 @@ export const PasswordRecovery1 = () => {
                     />
                 </div>
                 <p>Create new password and we will send you further instructions to email</p>
-                <SuperButton onClick={newPasswordHandler} style={{padding: '10px 60px'}}>Create new password</SuperButton>
+                <SuperButton onClick={newPasswordHandler} style={{padding: '10px 60px'}}>Create new
+                    password</SuperButton>
             </Frame>
         </>
     )

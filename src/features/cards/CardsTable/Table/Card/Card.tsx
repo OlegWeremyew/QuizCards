@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import styles from "../CardsTable.module.css";
-import {CardType} from "../../../../../main/dal/cardsApi";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../../main/bll/store";
 import {SuperLoading} from "../../../../../main/ui/common/Loading/loading";
@@ -10,17 +9,15 @@ import Modal from "../../../../../main/ui/common/Modal/Modal";
 import ModalButtonsWrap from "../../../../../main/ui/common/Modal/ModalButtonsWrap";
 import SuperButton from "../../../../../main/ui/common/SuperButton/SuperButton";
 import SuperTextArea from "../../../../../main/ui/common/SuperTextArea/SuperTextArea";
+import {CardPropsType} from "./types";
+import {EMPTY_STRING} from "../../../../../constants";
 
-type CardPropsType = {
-    card: CardType
-    isCheckId: boolean
-    classMyCards: string
-}
+export const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
 
-const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
     const dispatch = useDispatch();
     const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
     const [year, month, day] = card.updated.slice(0, 10).split('-')
+
     let rating = +card.grade.toFixed(0)
     const finalClass1 = `${1 <= rating ? `${styles.active}` : ``}`
     const finalClass2 = `${2 <= rating ? `${styles.active}` : ``}`
@@ -28,25 +25,25 @@ const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
     const finalClass4 = `${4 <= rating ? `${styles.active}` : ``}`
     const finalClass5 = `${5 <= rating ? `${styles.active}` : ``}`
     const {packId} = useParams<{ packId: string }>();
-    const currId = packId ? packId : ''
+    const currId = packId ? packId : EMPTY_STRING
 
     const [newQuestion, setNewQuestion] = useState<string>(card.question);
     const [newAnswer, setNewAnswer] = useState<string>(card.answer);
     const [isShownModal, setIsShownModal] = useState<boolean>(false)
 
-    const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>('');
-    const closeModal = () => setIsShownModal(false)
+    const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>(EMPTY_STRING);
+    const closeModal = (): void => setIsShownModal(false)
     const showModal = (modalType: 'Delete' | 'Edit' | '') => {
         setIsShownModal(true)
         setModalType(modalType)
     }
 
-    const deleteCard = () => {
+    const deleteCard = (): void => {
         setIsShownModal(false)
         dispatch(deleteCardTC(currId, card._id))
     }
 
-    const updateCard = () => {
+    const updateCard = (): void => {
         dispatch(updateCardTC(currId, card._id, newQuestion, newAnswer))
         closeModal()
     }
@@ -105,5 +102,3 @@ const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
         </div>
     );
 };
-
-export default Card;

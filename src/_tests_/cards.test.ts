@@ -28,16 +28,25 @@ beforeEach(() => {
 })
 
 test('correct change sortCards', () => {
-    const endState = cardsReducer(startState, sortCardsAC('1updated'))
-    expect(endState.sortCards).toBe('1updated');
+
+    const value:string = '1updated';
+
+    const endState = cardsReducer(startState, sortCardsAC(value))
+    expect(endState.sortCards).toBe(value);
 });
 
 test('correct changeCurrentPage', () => {
-    const endState = cardsReducer(startState, changeCurrentPageCardsAC(3))
-    expect(endState.page).toBe(3);
+
+    const value:number = 3;
+
+    const endState = cardsReducer(startState, changeCurrentPageCardsAC(value))
+    expect(endState.page).toBe(value);
 });
 
 test('correct search', () => {
-    const endState = cardsReducer(startState, setFilterReducerAC('new'))
-    expect(endState.cardQuestion).toBe('new');
+
+    const value:string = 'new';
+
+    const endState = cardsReducer(startState, setFilterReducerAC(value))
+    expect(endState.cardQuestion).toBe(value);
 });

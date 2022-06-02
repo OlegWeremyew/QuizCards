@@ -6,16 +6,19 @@ import s from './test.module.css';
 import SuperEditableSpan from "../main/ui/common/SuperEditableSpan/SuperEditableSpan";
 import {RangeDemo} from "../main/ui/common/SuperRange/RangeDemo";
 import {Pagination} from "../main/ui/common/Pagination/Pagination";
+import {EMPTY_STRING} from "../constants";
+import {ReturnComponentType} from "../types";
 
-export const Test = () => {
-    const [value, setValue] = useState<string>('')
+export const Test = (): ReturnComponentType => {
+    const [value, setValue] = useState<string>(EMPTY_STRING)
     const [page, setPage] = useState(1)
     const [isShownModal, setIsShownModal] = useState<boolean>(true)
-    const onChangedPage = (page: number) => {
+
+    const onChangedPage = (page: number): void => {
         setPage(page)
     }
-    const closeModal = () => setIsShownModal(false)
-    const showModal = () => setIsShownModal(true)
+    const closeModal = (): void => setIsShownModal(false)
+    const showModal = (): void => setIsShownModal(true)
     return (
         <div className={s.container}>
             <div>

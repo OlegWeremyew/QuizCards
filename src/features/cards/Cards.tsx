@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './Cards.module.css'
 import Header from "../../main/ui/header/Header";
 import {PackFrame} from "../../main/ui/common/PackFrame/PackFrame";
-import CardsTable from "./CardsTable/Table/CardsTable";
 import {Navigate, NavLink, useParams} from "react-router-dom";
-import {PATH} from "../../main/ui/routes/Routes";
 import {addCardTC, changeCurrentPageCardsAC, fetchCardsTC, setPageCountCardsAC} from "../../main/bll/cardsReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../main/bll/store";
@@ -17,8 +15,13 @@ import SuperButton from "../../main/ui/common/SuperButton/SuperButton";
 import Modal from "../../main/ui/common/Modal/Modal";
 import ModalButtonsWrap from "../../main/ui/common/Modal/ModalButtonsWrap";
 import SuperTextArea from "../../main/ui/common/SuperTextArea/SuperTextArea";
+import {PATH} from "../../constants/routes";
+import {EMPTY_STRING} from "../../constants";
+import {CardsTable} from "./CardsTable/Table";
+import {ReturnComponentType} from "../../types";
 
-const Cards = () => {
+export const Cards = (): ReturnComponentType => {
+
     const myId = useSelector<AppRootStateType, string>(state => state.profilePage._id);
     const userId = useSelector<AppRootStateType, string>(state => state.cards.packUserId);
     const dispatch = useDispatch();
@@ -34,13 +37,14 @@ const Cards = () => {
     const cardsTotalCount = useSelector<AppRootStateType, number>(state => state.cards.cardsTotalCount)
     const {packId} = useParams<{ packId: string }>();
 
-    const currId = packId ? packId : ''
+    const currId = packId ? packId : EMPTY_STRING
 
-    const [newCardQuestion, setNewCardQuestion] = useState<string>('');
-    const [newCardAnswer, setNewCardAnswer] = useState<string>('');
+    const [newCardQuestion, setNewCardQuestion] = useState<string>(EMPTY_STRING);
+    const [newCardAnswer, setNewCardAnswer] = useState<string>(EMPTY_STRING);
     const [isModalAdd, setIsModalAdd] = useState<boolean>(false)
-    const showModal = () => setIsModalAdd(true);
-    const closeModal = () => setIsModalAdd(false);
+
+    const showModal = (): void => setIsModalAdd(true);
+    const closeModal = (): void => setIsModalAdd(false);
 
     useEffect(() => {
         if (packId) {
@@ -53,17 +57,18 @@ const Cards = () => {
         return <Navigate to={PATH.LOGIN}/>
     }
 
-    const onChangedPage = (newPage: number) => {
+    const onChangedPage = (newPage: number): void => {
         if (newPage !== page) dispatch(changeCurrentPageCardsAC(newPage))
     }
 
-    const pageSizeHandler = (value: number) => {
+    const pageSizeHandler = (value: number): void => {
         dispatch(setPageCountCardsAC(value))
     }
-    const addCard = () => {
+
+    const addCard = (): void => {
         dispatch(addCardTC(currId, newCardQuestion, newCardAnswer))
-        setNewCardQuestion('')
-        setNewCardAnswer('')
+        setNewCardQuestion(EMPTY_STRING)
+        setNewCardAnswer(EMPTY_STRING)
         closeModal()
     }
 
@@ -116,5 +121,3 @@ const Cards = () => {
         </>
     );
 };
-
-export default Cards;

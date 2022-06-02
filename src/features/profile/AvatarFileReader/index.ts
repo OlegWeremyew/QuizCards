@@ -1,0 +1,1 @@
+export {AvatarFileReader} from './AvatarFileReader';

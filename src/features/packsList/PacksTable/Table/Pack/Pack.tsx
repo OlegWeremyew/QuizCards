@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styles from "../PacksTable.module.css";
 import {NavLink} from "react-router-dom";
-import {PackType} from "../../../../../main/dal/cardsPackApi";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../../main/bll/store";
 import {deletePackTC, editPackTC} from "../../../../../main/bll/cardsPackReducer";
@@ -10,13 +9,10 @@ import Modal from "../../../../../main/ui/common/Modal/Modal";
 import SuperButton from "../../../../../main/ui/common/SuperButton/SuperButton";
 import SuperInputText from "../../../../../main/ui/common/SuperInputText/SuperInputText";
 import ModalButtonsWrap from "../../../../../main/ui/common/Modal/ModalButtonsWrap";
+import {PackPropsType} from "./types";
+import {ReturnComponentType} from "../../../../../types";
 
-
-type PackPropsType = {
-    pack: PackType
-}
-
-const Pack: React.FC<PackPropsType> = ({pack}) => {
+export const Pack: React.FC<PackPropsType> = ({pack}): ReturnComponentType => {
     const dispatch = useDispatch();
     const myUserId = useSelector<AppRootStateType, string>(state => state.profilePage._id)
     const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
@@ -26,17 +22,17 @@ const Pack: React.FC<PackPropsType> = ({pack}) => {
 
     const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>('');
     const closeModal = () => setIsShownModal(false)
-    const showModal = (modalType: 'Delete' | 'Edit' | '') => {
+    const showModal = (modalType: 'Delete' | 'Edit' | ''):void => {
         setIsShownModal(true)
         setModalType(modalType)
     }
 
-    const deletePack = () => {
+    const deletePack = ():void => {
         setIsShownModal(false)
         dispatch(deletePackTC(pack._id))
     }
 
-    const editPack = () => {
+    const editPack = ():void => {
         dispatch(editPackTC(pack._id, newPackName))
         closeModal()
     }
@@ -87,5 +83,3 @@ const Pack: React.FC<PackPropsType> = ({pack}) => {
         </div>
     );
 };
-
-export default Pack;
