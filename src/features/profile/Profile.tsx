@@ -2,25 +2,30 @@ import React, {ChangeEvent, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 import styles from "./Profile.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../Redux/store";
 import noAvatar from './images/noAvatar.png'
 import Header from "../../ui/header/Header";
 import {AvatarFileReader} from "./AvatarFileReader";
 import {EMPTY_STRING} from "../../constants";
-import {ReturnComponentType, Undetectable} from "../../types";
+import {ReturnComponentType} from "../../types";
 import {PATH} from "../../constants/routes";
 import {Frame, Modal, Preloader, SuperButton, SuperEditableSpan} from "../../ui";
 import {updateProfile} from "../../Redux/profileReducer";
+import {
+    getAvatarProfileSelector, getEmailProfileSelector, getErrorProfileSelector,
+    getIsLoadingAppSelector,
+    getNameProfileSelector, getPublicCardPacksCountProfileSelector,
+    getStatusLoginSelector
+} from "../../selectors";
 
 export const Profile = (): ReturnComponentType => {
     const dispatch = useDispatch();
-    const profileName = useSelector<AppRootStateType, string>(state => state.profilePage.name);
-    const profileAvatar = useSelector<AppRootStateType, string>(state => state.profilePage.avatar);
-    const profileEmail = useSelector<AppRootStateType, string>(state => state.profilePage.email);
-    const packsNumber = useSelector<AppRootStateType, number>(state => state.profilePage.publicCardPacksCount);
-    const error = useSelector<AppRootStateType, Undetectable<string>>(state => state.profilePage.error);
-    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.status);
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
+    const profileName = useSelector(getNameProfileSelector);
+    const profileAvatar = useSelector(getAvatarProfileSelector);
+    const profileEmail = useSelector(getEmailProfileSelector);
+    const packsNumber = useSelector(getPublicCardPacksCountProfileSelector);
+    const error = useSelector(getErrorProfileSelector);
+    const isLoggedIn = useSelector(getStatusLoginSelector);
+    const loading = useSelector(getIsLoadingAppSelector);
 
     const [name, setName] = useState(profileName)
     const [localErr, setLocalErr] = useState<string>(EMPTY_STRING)
@@ -52,7 +57,6 @@ export const Profile = (): ReturnComponentType => {
         }
     }
 
-//Modal
     const [isModal, setIsModal] = useState<boolean>(false)
     const showModal = () => setIsModal(true);
     const closeModal = () => setIsModal(false);

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Routes, Route} from "react-router-dom";
-import {Error404} from "../common/Error/Error404";
 import {PATH} from "../../constants/routes";
 import {
     Cards,
@@ -12,6 +11,7 @@ import {
     Profile,
     Registration, Test
 } from "../../features";
+import {Error404} from "../common";
 
 
 export const RoutesComponent = () => {

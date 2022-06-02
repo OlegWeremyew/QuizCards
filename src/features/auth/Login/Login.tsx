@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './login.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../Redux/store";
 import {Navigate, NavLink} from "react-router-dom"
 import {ReturnComponentType} from "../../../types";
 import {EMPTY_STRING} from "../../../constants";
@@ -9,15 +8,16 @@ import {PATH} from "../../../constants/routes";
 import {Frame, Preloader, SuperButton, SuperCheckbox, SuperInputPassword, SuperInputText} from "../../../ui";
 import {AppAction} from "../../../Redux/appReducer";
 import {loginTC} from "../../../Redux/loginReducer";
+import {getErrorAppSelector, getIsLoadingAppSelector, getStatusLoginSelector} from "../../../selectors";
 
 export const Login = (): ReturnComponentType => {
     const [email, setEmail] = useState<string>(EMPTY_STRING);
     const [password, setPassword] = useState<string>(EMPTY_STRING);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
 
-    const loginStatus = useSelector<AppRootStateType, boolean>(state => state.login.status);
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
-    const error = useSelector<AppRootStateType, string>(state => state.app.error);
+    const loginStatus = useSelector(getStatusLoginSelector);
+    const loading = useSelector(getIsLoadingAppSelector);
+    const error = useSelector(getErrorAppSelector);
     const dispatch = useDispatch();
 
     const loginHandler = (): void => {

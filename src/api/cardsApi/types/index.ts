@@ -1,28 +1,7 @@
-import {instance} from "./authAndProfileApi";
-
-export const cardsApi = {
-    getCards(params: Partial<GetCardsParamsType>) {
-        console.log(params)
-        return instance.get('/cards/card', {params: {...params}});
-    },
-    addCard: (newCard: addCardType) => {
-        return instance.post('/cards/card', {card: {...newCard}})
-    },
-    deleteCard: (id: string) => {
-        return instance.delete('/cards/card', {params: {id: id}})
-    },
-    updateCard: (UpdatedCard: Partial<CardType>) => {
-        return instance.put('/cards/card', {card: {...UpdatedCard}})
-    },
-    updateCardsGrade: (updatedGrade: Partial<GetCardsGrade>) => {
-        return instance.put<CardsGradeResponseType>('/cards/grade', updatedGrade)
-    },
-}
-
 export type GetCardsParamsType = {
     cardAnswer: string
     cardQuestion: string
-    cardsPack_id: string // обязательно!
+    cardsPack_id: string
     min: number
     max: number
     sortCards: string
@@ -44,7 +23,7 @@ export type CardsResponseType = {
 
 export type CardType = {
     _id: string
-    cardsPack_id: string  // ОБЯЗАТЕЛЬНОЕ ЗНАЧЕНИЕ ДЛЯ ДОБАВЛЕНИЯ И ИЗМЕНЕНИЯ
+    cardsPack_id: string
     user_id: string
     answer: string
     question: string

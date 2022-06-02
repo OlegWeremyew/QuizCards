@@ -1,4 +1,3 @@
-import {PacksResponseType} from "../../../api/cardsPackApi";
 import {
     CHANGE_CURRENT_PAGE, SET_DEBOUNCING_FLAG,
     SET_FILTERED_PACKS,
@@ -9,6 +8,7 @@ import {
     SET_PAGE_COUNT,
     SORT
 } from "../constants";
+import {PacksResponseType} from "../../../api/cardsPackApi/types";
 
 export const cardsPackAction = {
     setPacksListsAC(data: PacksResponseType) {

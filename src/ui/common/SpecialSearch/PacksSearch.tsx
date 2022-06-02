@@ -1,14 +1,14 @@
 import React, {ChangeEvent, useState, KeyboardEvent, useEffect} from "react";
 import s from './PackSearch.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../Redux/store";
 import {ReturnComponentType} from "../../../types";
 import {EMPTY_STRING} from "../../../constants";
 import {cardsPackAction} from "../../../Redux/cardsPackReducer";
+import {getPackNameCardsPackSelector} from "../../../selectors";
 
 export const PacksSearch = (): ReturnComponentType => {
     const dispatch = useDispatch()
-    const packName = useSelector<AppRootStateType, string>(state => state.cardsPack.packName);
+    const packName = useSelector(getPackNameCardsPackSelector);
     const [event, setEvent] = useState<string>(EMPTY_STRING)
 
     let handleChange = (e: ChangeEvent<HTMLInputElement>): void => {

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import styles from './PacksList.module.css'
 import Header from "../../ui/header/Header";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../Redux/store";
 import {Navigate} from "react-router-dom";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
@@ -20,20 +19,31 @@ import {
 } from "../../ui";
 import {AppAction} from "../../Redux/appReducer";
 import {addPackTC, cardsPackAction, fetchPacksListsTC} from "../../Redux/cardsPackReducer";
+import {
+    getCardPacksTotalCountCardsPackSelector,
+    getDebouncingFlagCardsPackSelector,
+    getErrorAppSelector,
+    getIsLoadingAppSelector,
+    getMyPacksCardsPackSelector, getPackNameCardsPackSelector,
+    getPageCardsPackSelector,
+    getPageCountCardsPackSelector,
+    getSortPacksCardsPackSelector,
+    getStatusLoginSelector
+} from "../../selectors";
 
 export const PacksList = (): ReturnComponentType => {
     const dispatch = useDispatch();
 
-    const error = useSelector<AppRootStateType, string>(state => state.app.error);
-    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.status);
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
-    const debouncingFlag = useSelector<AppRootStateType, object>(state => state.cardsPack.debouncingFlag)
-    const page = useSelector<AppRootStateType, number>(state => state.cardsPack.page)
-    const pageCount = useSelector<AppRootStateType, number>(state => state.cardsPack.pageCount)
-    const myPacks = useSelector<AppRootStateType, boolean>(state => state.cardsPack.myPacks)
-    const sortPacks = useSelector<AppRootStateType, string>(state => state.cardsPack.sortPacks)
-    const cardPacksTotalCount = useSelector<AppRootStateType, number>(state => state.cardsPack.cardPacksTotalCount)
-    const packName = useSelector<AppRootStateType, string>(state => state.cardsPack.packName)
+    const error = useSelector(getErrorAppSelector);
+    const isLoggedIn = useSelector(getStatusLoginSelector);
+    const isLoading = useSelector(getIsLoadingAppSelector)
+    const debouncingFlag = useSelector(getDebouncingFlagCardsPackSelector)
+    const page = useSelector(getPageCardsPackSelector)
+    const pageCount = useSelector(getPageCountCardsPackSelector)
+    const myPacks = useSelector(getMyPacksCardsPackSelector)
+    const sortPacks = useSelector(getSortPacksCardsPackSelector)
+    const cardPacksTotalCount = useSelector(getCardPacksTotalCountCardsPackSelector)
+    const packName = useSelector(getPackNameCardsPackSelector)
 
     const [newPackName, setNewPackName] = useState<string>(EMPTY_STRING);
     const [privateValue, setPrivateValue] = useState<boolean>(false);

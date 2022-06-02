@@ -1,6 +1,6 @@
-import {CardType} from "../../../api/cardsApi";
 import {cardsAction} from "../cardsAction";
 import {InferActionTypes} from "../../types";
+import {CardType} from "../../../api/cardsApi/types";
 
 export type InitialCardStateType = {
     cards: Array<CardType>

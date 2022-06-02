@@ -1,9 +1,10 @@
 import {Dispatch} from "redux";
 import {AppRootStateType} from "../../store";
 import {AppAction} from "../../appReducer";
-import {cardsApi, GetCardsGrade, GetCardsParamsType} from "../../../api/cardsApi";
 import {EMPTY_STRING} from "../../../constants";
 import {cardsAction} from "../cardsAction";
+import {GetCardsGrade, GetCardsParamsType} from "../../../api/cardsApi/types";
+import {cardsApi} from "../../../api";
 
 export const fetchCardsTC = (packUserId: string) =>
     (dispatch: Dispatch, getState: () => AppRootStateType) => {

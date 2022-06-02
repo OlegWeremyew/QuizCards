@@ -1,19 +1,23 @@
 import React from 'react';
 import styles from './PacksTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../Redux/store";
-import {PackType} from "../../../../api/cardsPackApi";
 import {Pack} from "./Pack";
 import {ReturnComponentType} from "../../../../types";
 import {EMPTY_STRING} from "../../../../constants";
 import {sortFields} from "../../../../utilits";
 import {cardsPackAction} from "../../../../Redux/cardsPackReducer";
+import {
+    getCardPacksCountCardsPackSelector,
+    getIsLoadingAppSelector,
+    getSortPacksCardsPackSelector
+} from "../../../../selectors";
 
 export const PacksTable = (): ReturnComponentType => {
     const dispatch = useDispatch();
-    const packs = useSelector<AppRootStateType, Array<PackType>>(state => state.cardsPack.cardPacks)
-    const sortPacks = useSelector<AppRootStateType, string>(state => state.cardsPack.sortPacks)
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
+
+    const packs = useSelector(getCardPacksCountCardsPackSelector)
+    const sortPacks = useSelector(getSortPacksCardsPackSelector)
+    const isLoading = useSelector(getIsLoadingAppSelector)
 
     const direction = sortPacks[0]
     const activeField = sortPacks.slice(1)

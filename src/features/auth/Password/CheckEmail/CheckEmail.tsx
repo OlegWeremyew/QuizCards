@@ -2,13 +2,13 @@ import React from 'react';
 import email2 from '../../../../assets/images/email2.png';
 import styles from './CheckEmail.module.css';
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../Redux/store";
-import {Frame} from "../../../../ui/common/Frame/Frame";
 import {ReturnComponentType} from "../../../../types";
+import {Frame} from "../../../../ui";
+import {getEmailPasswordSelector} from "../../../../selectors";
 
 
 export const CheckEmail = (): ReturnComponentType => {
-    const emailName = useSelector<AppRootStateType, string>(state => state.recovery.email);
+    const emailName = useSelector(getEmailPasswordSelector);
 
     return (
         <Frame>

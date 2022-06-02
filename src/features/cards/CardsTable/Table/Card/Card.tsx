@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import styles from "../CardsTable.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../../Redux/store";
 import {useParams} from "react-router-dom";
 import {CardPropsType} from "./types";
 import {EMPTY_STRING} from "../../../../../constants";
 import {Modal, ModalButtonsWrap, SuperButton, SuperLoading, SuperTextArea} from "../../../../../ui";
 import {deleteCardTC, updateCardTC} from "../../../../../Redux/cardsReducer";
+import {getIsLoadingAppSelector} from "../../../../../selectors";
 
 export const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
 
     const dispatch = useDispatch();
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
+    const isLoading = useSelector(getIsLoadingAppSelector)
     const [year, month, day] = card.updated.slice(0, 10).split('-')
 
     let rating = +card.grade.toFixed(0)

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, NavLink} from "react-router-dom";
-import {AppRootStateType} from "../../../../Redux/store";
 import s from "./ForgotYourPassword.module.css";
 import styles from "../../Login/login.module.css";
 import {EMPTY_STRING} from "../../../../constants";
@@ -10,13 +9,14 @@ import {ReturnComponentType} from "../../../../types";
 import {Frame, Preloader, SuperButton, SuperInputText} from "../../../../ui";
 import {AppAction} from "../../../../Redux/appReducer";
 import {passwordForgotTC} from "../../../../Redux/passwordReducer";
+import {getErrorAppSelector, getIsLoadingAppSelector, getIsSendPasswordSelector} from "../../../../selectors";
 
 
 export const ForgotYourPassword = (): ReturnComponentType => {
 
-    const isSend = useSelector<AppRootStateType, boolean>(state => state.recovery.isSend);
-    const isError = useSelector<AppRootStateType, string>(state => state.app.error);
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
+    const isSend = useSelector(getIsSendPasswordSelector);
+    const isError = useSelector(getErrorAppSelector);
+    const loading = useSelector(getIsLoadingAppSelector);
 
     useEffect(() => {
         dispatch(AppAction.setErrorAC(EMPTY_STRING))

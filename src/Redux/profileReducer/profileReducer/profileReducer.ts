@@ -1,7 +1,7 @@
-import {UserResponseType} from "../../../api/authAndProfileApi";
 import {EMPTY_STRING} from "../../../constants";
 import {SET_PROFILE_DATA, SET_PROFILE_DELETE_DATA, SET_PROFILE_ERROR, UPDATE_PROFILE_DATA} from "../constants";
 import {ProfileActionsType} from "../types";
+import {UserResponseType} from "../../../api/authAndProfileApi/types";
 
 export const profileInitialState: UserResponseType = {
     _id: EMPTY_STRING,

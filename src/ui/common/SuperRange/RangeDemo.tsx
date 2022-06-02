@@ -3,8 +3,8 @@ import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import stl from './RangeDemo.module.css'
 
 export function RangeDemo() {
-    const [value1, setValue1] = useState(0)
-    const [value2, setValue2] = useState(100)
+    const [value1, setValue1] = useState<number>(0)
+    const [value2, setValue2] = useState<number>(100)
 
     const onChangeDoubleRanger = (value: [number, number]): void => {
         setValue1(value[0])

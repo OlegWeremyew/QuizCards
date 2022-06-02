@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {authAndProfileApi} from "../../../api/authAndProfileApi";
+import {authAndProfileApi} from "../../../api/authAndProfileApi/authAndProfileApi";
 import {AppAction} from "../appAction";
 import {LoginAction} from "../../loginReducer";
 import {profileAction} from "../../profileReducer";

@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../Redux/store";
 import {ReturnComponentType} from "../../types";
 import {Preloader, RoutesComponent} from "../../ui";
 import {initializeAppTC} from "../../Redux/appReducer";
+import {getInitializedAppSelector} from "../../selectors";
 
 export const App = (): ReturnComponentType => {
     const dispatch = useDispatch();
 
-    const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
+    const isInitialized = useSelector(getInitializedAppSelector)
 
     useEffect(() => {
         dispatch(initializeAppTC())

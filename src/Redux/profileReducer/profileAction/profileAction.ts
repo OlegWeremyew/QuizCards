@@ -1,5 +1,5 @@
-import {UserResponseType} from "../../../api/authAndProfileApi";
 import {SET_PROFILE_DATA, SET_PROFILE_DELETE_DATA, SET_PROFILE_ERROR, UPDATE_PROFILE_DATA} from "../constants";
+import {UserResponseType} from "../../../api/authAndProfileApi/types";
 
 export const profileAction = {
     setProfileData(data: UserResponseType) {

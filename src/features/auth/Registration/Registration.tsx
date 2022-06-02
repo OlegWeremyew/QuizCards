@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../Redux/store";
 import {Navigate, NavLink} from "react-router-dom";
 import s from './Registration.module.css';
 import {PATH} from "../../../constants/routes";
@@ -9,6 +8,7 @@ import {ReturnComponentType} from "../../../types";
 import {Frame, Preloader, SuperButton, SuperInputPassword, SuperInputText} from "../../../ui";
 import {AppAction} from "../../../Redux/appReducer";
 import {registerAction, registerTC} from "../../../Redux/registerReducer";
+import {getErrorAppSelector, getIsLoadingAppSelector, getIsRegisteredRegisterSelector} from "../../../selectors";
 
 export const Registration = (): ReturnComponentType => {
 
@@ -16,9 +16,9 @@ export const Registration = (): ReturnComponentType => {
     const [password, setPassword] = useState<string>(EMPTY_STRING);
     const [confirmPassword, setConfirmPassword] = useState<string>(EMPTY_STRING);
 
-    const isRegistered = useSelector<AppRootStateType, boolean>(state => state.register.isRegistered)
-    const error = useSelector<AppRootStateType, string>(state => state.app.error)
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
+    const isRegistered = useSelector(getIsRegisteredRegisterSelector)
+    const error = useSelector(getErrorAppSelector)
+    const loading = useSelector(getIsLoadingAppSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {

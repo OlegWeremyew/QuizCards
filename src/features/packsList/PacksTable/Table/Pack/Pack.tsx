@@ -2,17 +2,18 @@ import React, {useState} from 'react';
 import styles from "../PacksTable.module.css";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../../Redux/store";
 import {PackPropsType} from "./types";
 import {ReturnComponentType} from "../../../../../types";
 import {EMPTY_STRING} from "../../../../../constants";
 import {Modal, ModalButtonsWrap, SuperButton, SuperInputText, SuperLoading} from "../../../../../ui";
 import {deletePackTC, editPackTC} from "../../../../../Redux/cardsPackReducer";
+import {get_idProfileSelector, getIsLoadingAppSelector} from "../../../../../selectors";
 
 export const Pack: React.FC<PackPropsType> = ({pack}): ReturnComponentType => {
     const dispatch = useDispatch();
-    const myUserId = useSelector<AppRootStateType, string>(state => state.profilePage._id)
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
+
+    const myUserId = useSelector(get_idProfileSelector)
+    const isLoading = useSelector(getIsLoadingAppSelector)
 
     const [newPackName, setNewPackName] = useState<string>(pack.name);
     const [isShownModal, setIsShownModal] = useState<boolean>(false)

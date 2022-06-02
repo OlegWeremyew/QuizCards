@@ -1,5 +1,4 @@
 import {InitialCardStateType} from "../types";
-import {updatedGradeType} from "../../../api/cardsApi";
 import {
     CHANGE_CURRENT_PAGE,
     CLEAR_CARDS,
@@ -8,6 +7,7 @@ import {
     SET_PAGE_COUNT_CARDS,
     SORT_CARDS
 } from "../constants";
+import {updatedGradeType} from "../../../api/cardsApi/types";
 
 export const cardsAction = {
     setCardsAC(data: InitialCardStateType){

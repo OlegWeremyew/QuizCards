@@ -3,8 +3,6 @@ import styles from './Cards.module.css'
 import Header from "../../ui/header/Header";
 import {Navigate, NavLink, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../Redux/store";
-import {CardType} from "../../api/cardsApi";
 import backPage from "../../assets/images/backPage.svg"
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
@@ -21,22 +19,36 @@ import {
     SuperTextArea
 } from "../../ui";
 import {addCardTC, cardsAction, fetchCardsTC} from "../../Redux/cardsReducer";
+import {
+    get_idProfileSelector,
+    getCardAnswerCardsSelector,
+    getCardQuestionCardsSelector,
+    getCardsCardsSelector,
+    getCardsTotalCountCardsSelector,
+    getIsLoadingAppSelector, getPackNameCardsPackSelector,
+    getPackUserIdCardsSelector,
+    getPageCardsSelector,
+    getPageCountCardsSelector,
+    getSortCardsCardsSelector,
+    getStatusLoginSelector
+} from "../../selectors";
 
 export const Cards = (): ReturnComponentType => {
 
-    const myId = useSelector<AppRootStateType, string>(state => state.profilePage._id);
-    const userId = useSelector<AppRootStateType, string>(state => state.cards.packUserId);
+    const myId = useSelector(get_idProfileSelector);
+    const userId = useSelector(getPackUserIdCardsSelector);
     const dispatch = useDispatch();
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
-    const packName = useSelector<AppRootStateType, string>(state => state.cardsPack.packName);
-    const cards = useSelector<AppRootStateType, Array<CardType>>(state => state.cards.cards);
-    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.status);
-    const page = useSelector<AppRootStateType, number>(state => state.cards.page)
-    const pageCount = useSelector<AppRootStateType, number>(state => state.cards.pageCount)
-    const cardQuestion = useSelector<AppRootStateType, string>(state => state.cards.cardQuestion)
-    const cardAnswer = useSelector<AppRootStateType, string>(state => state.cards.cardAnswer)
-    const sortCards = useSelector<AppRootStateType, string>(state => state.cards.sortCards)
-    const cardsTotalCount = useSelector<AppRootStateType, number>(state => state.cards.cardsTotalCount)
+    const isLoading = useSelector(getIsLoadingAppSelector)
+    const packName = useSelector(getPackNameCardsPackSelector);
+    const cards = useSelector(getCardsCardsSelector);
+    const isLoggedIn = useSelector(getStatusLoginSelector);
+    const page = useSelector(getPageCardsSelector)
+    const pageCount = useSelector(getPageCountCardsSelector)
+    const cardQuestion = useSelector(getCardQuestionCardsSelector)
+    const cardAnswer = useSelector(getCardAnswerCardsSelector)
+    const sortCards = useSelector(getSortCardsCardsSelector)
+    const cardsTotalCount = useSelector(getCardsTotalCountCardsSelector)
+
     const {packId} = useParams<{ packId: string }>();
 
     const currId = packId ? packId : EMPTY_STRING

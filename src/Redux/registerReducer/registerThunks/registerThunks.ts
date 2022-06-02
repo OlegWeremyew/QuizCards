@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {AppAction} from "../../appReducer";
-import {authAndProfileApi} from "../../../api/authAndProfileApi";
+import {authAndProfileApi} from "../../../api/authAndProfileApi/authAndProfileApi";
 import {EMPTY_STRING} from "../../../constants";
 import {registerAction} from "../registerAction";
 

@@ -1,21 +1,25 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, useParams} from "react-router-dom";
-import {AppRootStateType} from "../../../../Redux/store";
 import styles from "./passwordRecovery1.module.css";
 import {EMPTY_STRING} from "../../../../constants";
-import {Nullable, ReturnComponentType} from "../../../../types";
+import {ReturnComponentType} from "../../../../types";
 import {PATH} from "../../../../constants/routes";
 import {Frame, Preloader, SuperButton, SuperInputPassword} from "../../../../ui";
 import {AppAction} from "../../../../Redux/appReducer";
 import {changePassTC} from "../../../../Redux/passwordReducer";
+import {getErrorAppSelector, getIsChangedPassPasswordSelector, getIsLoadingAppSelector} from "../../../../selectors";
 
 export const PasswordRecovery1 = (): ReturnComponentType => {
+
     const [password, setPassword] = useState<string>(EMPTY_STRING);
-    const isChangedPass = useSelector<AppRootStateType, boolean>(state => state.recovery.isChangedPass);
-    const error = useSelector<AppRootStateType, Nullable<string>>(state => state.app.error);
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
+
+    const isChangedPass = useSelector(getIsChangedPassPasswordSelector);
+    const error = useSelector(getErrorAppSelector);
+    const loading = useSelector(getIsLoadingAppSelector);
+
     const dispatch = useDispatch()
+
     const {token} = useParams<{ token: string }>();
 
     useEffect(() => {

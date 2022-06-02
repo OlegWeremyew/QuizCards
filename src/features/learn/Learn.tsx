@@ -3,13 +3,14 @@ import Header from "../../ui/header/Header";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
-import {CardType} from "../../api/cardsApi";
 import stl from './Learn.module.css'
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
 import {Frame, Preloader, SuperButton, SuperRadio} from "../../ui";
 import {cardsAction, CardsGradeTC, learnCardsTC} from "../../Redux/cardsReducer";
+import {CardType} from "../../api/cardsApi/types";
+import {getCardsCardsSelector, getIsLoadingAppSelector} from "../../selectors";
 
 
 const grades = ["Did not know", "Forgot", "A lot of thought", "Confused", "Knew the answer"];
@@ -46,9 +47,9 @@ export const Learn = (): ReturnComponentType => {
     const navigate = useNavigate()
     const {packId} = useParams<{ packId: string }>()
 
-    const cards = useSelector<AppRootStateType, Array<CardType>>(state => state.cards.cards)
+    const cards = useSelector(getCardsCardsSelector)
     const packName = useSelector<AppRootStateType, string>(state => state.cardsPack.cardPacks.filter((p: any) => p._id === packId)[0]?.name)
-    const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
+    const loading = useSelector(getIsLoadingAppSelector)
 
     const [isChecked, setIsChecked] = useState<boolean>(false)
     const [rating, setRating] = useState(EMPTY_STRING)

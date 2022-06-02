@@ -1,21 +1,30 @@
 import React from 'react';
 import styles from './CardsTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../Redux/store";
 import {Card} from "./Card";
 import {EMPTY_STRING} from "../../../../constants";
 import {CardsTablePropsType} from "./types";
 import {sortFields} from "../../../../utilits";
 import {cardsAction} from "../../../../Redux/cardsReducer";
+import {
+    get_idProfileSelector,
+    getIsLoadingAppSelector,
+    getPageCardsSelector,
+    getSortCardsCardsSelector
+} from "../../../../selectors";
 
 export const CardsTable = ({cards}: CardsTablePropsType) => {
     const dispatch = useDispatch();
-    const myUserId = useSelector<AppRootStateType, string>(state => state.profilePage._id)
+
+    const myUserId = useSelector(get_idProfileSelector)
+
     let isCheckId = cards.every(m => m.user_id === myUserId)
+
     const classMyCards = `${isCheckId ? `${styles.itemMy}` : `${styles.item}`}`
-    const sortCards = useSelector<AppRootStateType, string>(state => state.cards.sortCards)
-    const isLoading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading)
-    const curPage = useSelector<AppRootStateType, number>(state => state.cards.page)
+
+    const sortCards = useSelector(getSortCardsCardsSelector)
+    const isLoading = useSelector(getIsLoadingAppSelector)
+    const curPage = useSelector(getPageCardsSelector)
 
     const direction = sortCards[0]
     const activeField = sortCards.slice(1)

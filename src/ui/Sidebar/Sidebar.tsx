@@ -3,16 +3,16 @@ import styles from "./Sidebar.module.css";
 import stl from "../common/SuperRange/RangeDemo.module.css";
 import SuperDoubleRange from "../common/SuperRange/common/c8-SuperDoubleRange/SuperDoubleRange";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../Redux/store";
 import {ReturnComponentType} from "../../types";
 import {cardsPackAction} from "../../Redux/cardsPackReducer";
 import {DoubleCheckbox} from "../common";
+import {getMaxCardsCountCardsPackSelector, getMaxCardsPackSelector, getMinCardsPackSelector} from "../../selectors";
 
 export const Sidebar = (): ReturnComponentType => {
     const dispatch = useDispatch()
-    const maxCardsCount = useSelector<AppRootStateType, number>(state => state.cardsPack.maxCardsCount)
-    const max = useSelector<AppRootStateType, number>(state => state.cardsPack.max)
-    const min = useSelector<AppRootStateType, number>(state => state.cardsPack.min)
+    const maxCardsCount = useSelector(getMaxCardsCountCardsPackSelector)
+    const max = useSelector(getMaxCardsPackSelector)
+    const min = useSelector(getMinCardsPackSelector)
     const [id, setId] = useState(0)
 
     useEffect(() => {

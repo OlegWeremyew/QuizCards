@@ -1,8 +1,9 @@
-import {authAndProfileApi, updateProfileRequestType} from "../../../api/authAndProfileApi";
 import {Dispatch} from "redux";
 import {AppAction} from "../../appReducer";
 import axios from "axios";
 import {profileAction} from "../profileAction";
+import {updateProfileRequestType} from "../../../api/authAndProfileApi/types";
+import {authAndProfileApi} from "../../../api";
 
 export const updateProfile = (data: updateProfileRequestType) => (dispatch: Dispatch) => {
     dispatch(AppAction.setLoadingAC(true));

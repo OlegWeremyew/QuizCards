@@ -1,7 +1,7 @@
 import {Dispatch} from "redux";
 import {AppRootStateType} from "../../store";
 import {AppAction} from "../../appReducer";
-import {cardsPackApi} from "../../../api/cardsPackApi";
+import {cardsPackApi} from "../../../api/cardsPackApi/cardsPackApi";
 import {EMPTY_STRING} from "../../../constants";
 import {cardsPackAction} from "../cardsPackAction";
 
