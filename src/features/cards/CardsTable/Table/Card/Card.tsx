@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import styles from "../CardsTable.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../../Redux/store";
-import {deleteCardTC, updateCardTC} from "../../../../../Redux/cardsReducer";
 import {useParams} from "react-router-dom";
 import {CardPropsType} from "./types";
 import {EMPTY_STRING} from "../../../../../constants";
 import {Modal, ModalButtonsWrap, SuperButton, SuperLoading, SuperTextArea} from "../../../../../ui";
+import {deleteCardTC, updateCardTC} from "../../../../../Redux/cardsReducer";
 
 export const Card: React.FC<CardPropsType> = ({card, isCheckId, classMyCards}) => {
 

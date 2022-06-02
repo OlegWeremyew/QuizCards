@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import styles from './Cards.module.css'
 import Header from "../../ui/header/Header";
 import {Navigate, NavLink, useParams} from "react-router-dom";
-import {addCardTC, changeCurrentPageCardsAC, fetchCardsTC, setPageCountCardsAC} from "../../Redux/cardsReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
-import {CardType} from "../../API/cardsApi";
+import {CardType} from "../../api/cardsApi";
 import backPage from "../../assets/images/backPage.svg"
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
@@ -21,6 +20,7 @@ import {
     SuperButton,
     SuperTextArea
 } from "../../ui";
+import {addCardTC, cardsAction, fetchCardsTC} from "../../Redux/cardsReducer";
 
 export const Cards = (): ReturnComponentType => {
 
@@ -60,11 +60,11 @@ export const Cards = (): ReturnComponentType => {
     }
 
     const onChangedPage = (newPage: number): void => {
-        if (newPage !== page) dispatch(changeCurrentPageCardsAC(newPage))
+        if (newPage !== page) dispatch(cardsAction.changeCurrentPageCardsAC(newPage))
     }
 
     const pageSizeHandler = (value: number): void => {
-        dispatch(setPageCountCardsAC(value))
+        dispatch(cardsAction.setPageCountCardsAC(value))
     }
 
     const addCard = (): void => {

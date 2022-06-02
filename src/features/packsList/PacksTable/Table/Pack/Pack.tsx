@@ -3,11 +3,11 @@ import styles from "../PacksTable.module.css";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../../Redux/store";
-import {deletePackTC, editPackTC} from "../../../../../Redux/cardsPackReducer";
 import {PackPropsType} from "./types";
 import {ReturnComponentType} from "../../../../../types";
 import {EMPTY_STRING} from "../../../../../constants";
 import {Modal, ModalButtonsWrap, SuperButton, SuperInputText, SuperLoading} from "../../../../../ui";
+import {deletePackTC, editPackTC} from "../../../../../Redux/cardsPackReducer";
 
 export const Pack: React.FC<PackPropsType> = ({pack}): ReturnComponentType => {
     const dispatch = useDispatch();

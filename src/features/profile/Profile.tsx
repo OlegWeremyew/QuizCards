@@ -4,13 +4,13 @@ import styles from "./Profile.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
 import noAvatar from './images/noAvatar.png'
-import {updateProfile} from "../../Redux/profileReducer";
 import Header from "../../ui/header/Header";
 import {AvatarFileReader} from "./AvatarFileReader";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType, Undetectable} from "../../types";
 import {PATH} from "../../constants/routes";
 import {Frame, Modal, Preloader, SuperButton, SuperEditableSpan} from "../../ui";
+import {updateProfile} from "../../Redux/profileReducer";
 
 export const Profile = (): ReturnComponentType => {
     const dispatch = useDispatch();

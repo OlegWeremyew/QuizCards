@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './PacksTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../Redux/store";
-import {PackType} from "../../../../API/cardsPackApi";
-import {sortPacksAC} from "../../../../Redux/cardsPackReducer";
-import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
+import {PackType} from "../../../../api/cardsPackApi";
 import {Pack} from "./Pack";
 import {ReturnComponentType} from "../../../../types";
 import {EMPTY_STRING} from "../../../../constants";
+import {sortFields} from "../../../../utilits";
+import {cardsPackAction} from "../../../../Redux/cardsPackReducer";
 
 export const PacksTable = (): ReturnComponentType => {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const PacksTable = (): ReturnComponentType => {
     const activeField = sortPacks.slice(1)
     const rotate = direction === "1" ? styles.up : EMPTY_STRING
 
-    const sortFieldsPack = (field: string): void => sortFields(field, sortPacksAC, isLoading, sortPacks, dispatch)
+    const sortFieldsPack = (field: string): void => sortFields(field, cardsPackAction.sortPacksAC, isLoading, sortPacks, dispatch)
 
     const sortUpdate = (): void => sortFieldsPack('updated')
     const sortName = (): void => sortFieldsPack('name')

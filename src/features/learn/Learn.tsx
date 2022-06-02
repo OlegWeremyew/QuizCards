@@ -3,13 +3,13 @@ import Header from "../../ui/header/Header";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
-import {CardType} from "../../API/cardsApi";
+import {CardType} from "../../api/cardsApi";
 import stl from './Learn.module.css'
-import {CardsGradeTC, clearCardsAC, learnCardsTC} from "../../Redux/cardsReducer";
 import {PATH} from "../../constants/routes";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
 import {Frame, Preloader, SuperButton, SuperRadio} from "../../ui";
+import {cardsAction, CardsGradeTC, learnCardsTC} from "../../Redux/cardsReducer";
 
 
 const grades = ["Did not know", "Forgot", "A lot of thought", "Confused", "Knew the answer"];
@@ -27,12 +27,12 @@ const getCard = (cards: CardType[]) => {
 }
 
 const initialState: CardType = {
-    _id: "", cardsPack_id: "", user_id: "",
-    answer: "", question: "", grade: 0,
-    shots: 0, comments: "", type: "",
-    rating: 0, more_id: "", created: "",
-    updated: "", __v: 0, answerImg: "",
-    answerVideo: "", questionImg: "", questionVideo: "",
+    _id: EMPTY_STRING, cardsPack_id: EMPTY_STRING, user_id: EMPTY_STRING,
+    answer: EMPTY_STRING, question: EMPTY_STRING, grade: 0,
+    shots: 0, comments: EMPTY_STRING, type: EMPTY_STRING,
+    rating: 0, more_id: EMPTY_STRING, created: EMPTY_STRING,
+    updated: EMPTY_STRING, __v: 0, answerImg: EMPTY_STRING,
+    answerVideo: EMPTY_STRING, questionImg: EMPTY_STRING, questionVideo: EMPTY_STRING,
 }
 
 const btnStyle = {
@@ -57,7 +57,7 @@ export const Learn = (): ReturnComponentType => {
     useEffect(() => {
         packId && dispatch(learnCardsTC(packId))
         return () => {
-            dispatch(clearCardsAC())
+            dispatch(cardsAction.clearCardsAC())
         }
     }, [])
 

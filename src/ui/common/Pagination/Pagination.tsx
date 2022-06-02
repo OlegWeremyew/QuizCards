@@ -2,9 +2,9 @@ import React from "react";
 import styles from './Pagination.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../Redux/store";
-import {setLoadingAC} from "../../../Redux/appReducer";
 import {PaginationPropsType} from "./types";
 import {ReturnComponentType} from "../../../types";
+import {AppAction} from "../../../Redux/appReducer";
 
 export const Pagination: React.FC<PaginationPropsType> = ({
                                                               totalCount,
@@ -70,13 +70,13 @@ export const Pagination: React.FC<PaginationPropsType> = ({
 
     const previous = (): void => {
         onChangedPage(currentPage - 1);
-        dispatch(setLoadingAC(false))
+        dispatch(AppAction.setLoadingAC(false))
 
     }
 
     const next = (): void => {
         onChangedPage(currentPage + 1);
-        dispatch(setLoadingAC(false))
+        dispatch(AppAction.setLoadingAC(false))
     }
 
     return (

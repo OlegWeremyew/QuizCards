@@ -1,9 +1,9 @@
 import React from "react";
 import s from './DoubleCheckbox.module.css'
-import {setMyPacksAC} from "../../../Redux/cardsPackReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../Redux/store";
 import {ReturnComponentType} from "../../../types";
+import {cardsPackAction} from "../../../Redux/cardsPackReducer";
 
 export const DoubleCheckbox = (): ReturnComponentType => {
     const myPacks = useSelector<AppRootStateType, boolean>(state => state.cardsPack.myPacks);
@@ -13,14 +13,14 @@ export const DoubleCheckbox = (): ReturnComponentType => {
 
     const myOnClickHandler = (): void => {
         if (!isLoading) {
-            if (!myPacks) dispatch(setMyPacksAC(true))
+            if (!myPacks) dispatch(cardsPackAction.setMyPacksAC(true))
         }
     }
 
 
     const allOnClickHandler = (): void => {
         if (!isLoading) {
-            if (myPacks) dispatch(setMyPacksAC(false))
+            if (myPacks) dispatch(cardsPackAction.setMyPacksAC(false))
         }
     }
 

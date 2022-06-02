@@ -1,4 +1,4 @@
-import {CardType} from "../../../../../../API/cardsApi";
+import {CardType} from "../../../../../../api/cardsApi";
 
 export type CardPropsType = {
     card: CardType

@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {registerTC, setRegister} from "../../../Redux/registerReducer";
 import {AppRootStateType} from "../../../Redux/store";
 import {Navigate, NavLink} from "react-router-dom";
 import s from './Registration.module.css';
-import {setErrorAC} from "../../../Redux/appReducer";
 import {PATH} from "../../../constants/routes";
 import {EMPTY_STRING} from "../../../constants";
 import {ReturnComponentType} from "../../../types";
 import {Frame, Preloader, SuperButton, SuperInputPassword, SuperInputText} from "../../../ui";
+import {AppAction} from "../../../Redux/appReducer";
+import {registerAction, registerTC} from "../../../Redux/registerReducer";
 
 export const Registration = (): ReturnComponentType => {
 
@@ -23,14 +23,14 @@ export const Registration = (): ReturnComponentType => {
 
     useEffect(() => {
         return () => {
-            dispatch(setRegister(false));
-            dispatch(setErrorAC(EMPTY_STRING))
+            dispatch(registerAction.setRegister(false));
+            dispatch(AppAction.setErrorAC(EMPTY_STRING))
         }
     }, [])
 
     const onClickHandler = (): void => {
         if (password !== confirmPassword) {
-            dispatch(setErrorAC('Password and confirmation password do not match'))
+            dispatch(AppAction.setErrorAC('Password and confirmation password do not match'))
         } else {
             dispatch(registerTC(email, password))
         }

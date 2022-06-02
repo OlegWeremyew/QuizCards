@@ -1,12 +1,12 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import thunk, {ThunkAction} from "redux-thunk";
-import {AuthActionsType, loginReducer} from "./loginReducer";
-import {registerReducer} from "./registerReducer";
+import thunk from "redux-thunk";
+import {appReducer} from "./appReducer";
+import {loginReducer} from "./loginReducer";
 import {profileReducer} from "./profileReducer";
+import {registerReducer} from "./registerReducer";
+import {cardsPackReducer} from "./cardsPackReducer";
+import {cardsReducer} from "./cardsReducer";
 import {passwordReducer} from "./passwordReducer";
-import {appReducer, AppReducerActionsType} from "./appReducer";
-import {CardsPackActionsType, cardsPackReducer} from "./cardsPackReducer";
-import {CardsActionsType, cardsReducer} from "./cardsReducer";
 
 const rootReducer = combineReducers({
     app: appReducer,
@@ -21,11 +21,3 @@ const rootReducer = combineReducers({
 export const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export type AppRootStateType = ReturnType<typeof rootReducer>
-
-// все типы экшенов для App
-export type AppActionsType = AppReducerActionsType | AuthActionsType | CardsPackActionsType | CardsActionsType
-
-export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, AppActionsType>
-
-// @ts-ignore
-window.store = store;

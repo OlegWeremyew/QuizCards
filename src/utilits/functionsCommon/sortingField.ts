@@ -1,15 +1,15 @@
 import {Dispatch} from "redux";
-import {AppActionsType} from "../../Redux/store";
+import {ActionAppReducerType} from "../../Redux/appReducer/types";
 
-export const sortFields = (field: string, sortAC: (sortItems: string) => {}, loading: boolean, value: string, dispatch: Dispatch<AppActionsType>): void => {
+export const sortFields = (field: string, sortAC: (sortItems: string) => {}, loading: boolean, value: string, dispatch: Dispatch<ActionAppReducerType>): void => {
     if (loading) return
     if (value.slice(1) !== field) {
-        dispatch(<AppActionsType>sortAC('0' + field))
+        dispatch(<ActionAppReducerType>sortAC('0' + field))
     } else {
         if (value[0] !== '0') {
-            dispatch(<AppActionsType>sortAC('0' + field))
+            dispatch(<ActionAppReducerType>sortAC('0' + field))
         } else {
-            dispatch(<AppActionsType>sortAC('1' + field))
+            dispatch(<ActionAppReducerType>sortAC('1' + field))
         }
     }
 }

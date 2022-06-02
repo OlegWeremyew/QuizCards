@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {passwordForgotTC} from "../../../../Redux/passwordReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, NavLink} from "react-router-dom";
 import {AppRootStateType} from "../../../../Redux/store";
 import s from "./ForgotYourPassword.module.css";
 import styles from "../../Login/login.module.css";
-import {setErrorAC} from "../../../../Redux/appReducer";
 import {EMPTY_STRING} from "../../../../constants";
 import {PATH} from "../../../../constants/routes";
 import {ReturnComponentType} from "../../../../types";
 import {Frame, Preloader, SuperButton, SuperInputText} from "../../../../ui";
+import {AppAction} from "../../../../Redux/appReducer";
+import {passwordForgotTC} from "../../../../Redux/passwordReducer";
 
 
 export const ForgotYourPassword = (): ReturnComponentType => {
@@ -19,7 +19,7 @@ export const ForgotYourPassword = (): ReturnComponentType => {
     const loading = useSelector<AppRootStateType, boolean>(state => state.app.isLoading);
 
     useEffect(() => {
-        dispatch(setErrorAC(EMPTY_STRING))
+        dispatch(AppAction.setErrorAC(EMPTY_STRING))
     }, [])
 
     const [email, setEmail] = useState(EMPTY_STRING)

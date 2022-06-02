@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import styles from './login.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../Redux/store";
-import {loginTC} from "../../../Redux/loginReducer";
 import {Navigate, NavLink} from "react-router-dom"
-import {setErrorAC} from "../../../Redux/appReducer";
 import {ReturnComponentType} from "../../../types";
 import {EMPTY_STRING} from "../../../constants";
 import {PATH} from "../../../constants/routes";
 import {Frame, Preloader, SuperButton, SuperCheckbox, SuperInputPassword, SuperInputText} from "../../../ui";
+import {AppAction} from "../../../Redux/appReducer";
+import {loginTC} from "../../../Redux/loginReducer";
 
 export const Login = (): ReturnComponentType => {
     const [email, setEmail] = useState<string>(EMPTY_STRING);
@@ -25,7 +25,7 @@ export const Login = (): ReturnComponentType => {
     };
 
     useEffect(() => {
-        dispatch(setErrorAC(EMPTY_STRING))
+        dispatch(AppAction.setErrorAC(EMPTY_STRING))
     }, [])
 
     if (loginStatus) {

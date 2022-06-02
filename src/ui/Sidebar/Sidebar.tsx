@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Sidebar.module.css";
-import {DoubleCheckbox} from "../common/SpecialCheckbox/DoubleCheckbox";
 import stl from "../common/SuperRange/RangeDemo.module.css";
 import SuperDoubleRange from "../common/SuperRange/common/c8-SuperDoubleRange/SuperDoubleRange";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
-import {setDebouncingFlagAC, setMaxAC, setMinAC} from "../../Redux/cardsPackReducer";
 import {ReturnComponentType} from "../../types";
+import {cardsPackAction} from "../../Redux/cardsPackReducer";
+import {DoubleCheckbox} from "../common";
 
 export const Sidebar = (): ReturnComponentType => {
     const dispatch = useDispatch()
@@ -16,15 +16,15 @@ export const Sidebar = (): ReturnComponentType => {
     const [id, setId] = useState(0)
 
     useEffect(() => {
-        dispatch(setMaxAC(maxCardsCount))
+        dispatch(cardsPackAction.setMaxAC(maxCardsCount))
     }, [maxCardsCount])
 
     const onChangeDoubleRanger = (value: [number, number]): void => {
-        if (value[0] !== min) dispatch(setMinAC(value[0]))
-        if (value[1] !== max) dispatch(setMaxAC(value[1]))
+        if (value[0] !== min) dispatch(cardsPackAction.setMinAC(value[0]))
+        if (value[1] !== max) dispatch(cardsPackAction.setMaxAC(value[1]))
         clearTimeout(id)
         const x = +setTimeout(() => {
-            dispatch(setDebouncingFlagAC())
+            dispatch(cardsPackAction.setDebouncingFlagAC())
         }, 1500)
         setId(x)
     }

@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './CardsTable.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../Redux/store";
-import {changeCurrentPageCardsAC, sortCardsAC} from "../../../../Redux/cardsReducer";
-import {sortFields} from "../../../../utilits/functionsCommon/sortingField";
 import {Card} from "./Card";
 import {EMPTY_STRING} from "../../../../constants";
 import {CardsTablePropsType} from "./types";
+import {sortFields} from "../../../../utilits";
+import {cardsAction} from "../../../../Redux/cardsReducer";
 
 export const CardsTable = ({cards}: CardsTablePropsType) => {
     const dispatch = useDispatch();
@@ -22,25 +22,25 @@ export const CardsTable = ({cards}: CardsTablePropsType) => {
     const rotate = direction === "1" ? styles.up : EMPTY_STRING
 
     const sortUpdate = (): void => {
-        sortFields('updated', sortCardsAC, isLoading, sortCards, dispatch)
+        sortFields('updated', cardsAction.sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
-            dispatch(changeCurrentPageCardsAC(1));
+            dispatch(cardsAction.changeCurrentPageCardsAC(1));
         }
     }
     const sortQuestion = (): void => {
-        sortFields('question', sortCardsAC, isLoading, sortCards, dispatch)
+        sortFields('question', cardsAction.sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
-            dispatch(changeCurrentPageCardsAC(1));
+            dispatch(cardsAction.changeCurrentPageCardsAC(1));
         }
     }
     const sortAnswer = (): void => {
-        sortFields('answer', sortCardsAC, isLoading, sortCards, dispatch)
+        sortFields('answer', cardsAction.sortCardsAC, isLoading, sortCards, dispatch)
         if (curPage !== 1) {
-            dispatch(changeCurrentPageCardsAC(1));
+            dispatch(cardsAction.changeCurrentPageCardsAC(1));
         }
     }
     const sortGrade = (): void => {
-        sortFields('grade', sortCardsAC, isLoading, sortCards, dispatch)
+        sortFields('grade', cardsAction.sortCardsAC, isLoading, sortCards, dispatch)
     }
 
     return (

@@ -1,0 +1,1 @@
+export {registerTC} from './registerThunks'

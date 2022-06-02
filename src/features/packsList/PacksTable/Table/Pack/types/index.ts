@@ -1,4 +1,4 @@
-import {PackType} from "../../../../../../API/cardsPackApi";
+import {PackType} from "../../../../../../api/cardsPackApi";
 
 export type PackPropsType = {
     pack: PackType

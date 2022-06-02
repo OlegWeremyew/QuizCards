@@ -1,0 +1,1 @@
+export {registerReducer} from './registerReducer'

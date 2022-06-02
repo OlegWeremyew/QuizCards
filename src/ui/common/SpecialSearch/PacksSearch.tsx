@@ -1,10 +1,10 @@
 import React, {ChangeEvent, useState, KeyboardEvent, useEffect} from "react";
 import s from './PackSearch.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {changeCurrentPageAC, setFilteredPacksAC} from "../../../Redux/cardsPackReducer";
 import {AppRootStateType} from "../../../Redux/store";
 import {ReturnComponentType} from "../../../types";
 import {EMPTY_STRING} from "../../../constants";
+import {cardsPackAction} from "../../../Redux/cardsPackReducer";
 
 export const PacksSearch = (): ReturnComponentType => {
     const dispatch = useDispatch()
@@ -20,8 +20,8 @@ export const PacksSearch = (): ReturnComponentType => {
     }, [packName])
 
     let BtnHandler = (): void => {
-        dispatch(setFilteredPacksAC(event))
-        dispatch(changeCurrentPageAC(1))
+        dispatch(cardsPackAction.setFilteredPacksAC(event))
+        dispatch(cardsPackAction.changeCurrentPageAC(1))
     }
 
     const onKeyPressBtnHandler = (e: KeyboardEvent<HTMLInputElement>): void => {

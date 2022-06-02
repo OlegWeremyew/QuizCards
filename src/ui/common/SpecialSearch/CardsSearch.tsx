@@ -2,10 +2,10 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import s from './PackSearch.module.css'
 import {useDispatch} from "react-redux";
 
-import {changeCurrentPageCardsAC, setFilterReducerAC} from "../../../Redux/cardsReducer";
 import {useParams} from "react-router-dom";
 import {EMPTY_STRING} from "../../../constants";
 import {ReturnComponentType} from "../../../types";
+import {cardsAction} from "../../../Redux/cardsReducer";
 
 export const CardsSearch = (): ReturnComponentType => {
     const {packId} = useParams()
@@ -19,8 +19,8 @@ export const CardsSearch = (): ReturnComponentType => {
     };
 
     let BtnHandler = (): void => {
-        dispatch(setFilterReducerAC(event));
-        dispatch(changeCurrentPageCardsAC(1))
+        dispatch(cardsAction.setFilterReducerAC(event));
+        dispatch(cardsAction.changeCurrentPageCardsAC(1))
     }
 
     const onKeyPressBtnHandler = (e: KeyboardEvent<HTMLInputElement>): void => {

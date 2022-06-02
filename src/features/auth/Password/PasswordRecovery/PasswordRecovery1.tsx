@@ -3,12 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {Navigate, useParams} from "react-router-dom";
 import {AppRootStateType} from "../../../../Redux/store";
 import styles from "./passwordRecovery1.module.css";
-import {changePassTC} from "../../../../Redux/passwordReducer";
-import {setErrorAC} from "../../../../Redux/appReducer";
 import {EMPTY_STRING} from "../../../../constants";
 import {Nullable, ReturnComponentType} from "../../../../types";
 import {PATH} from "../../../../constants/routes";
 import {Frame, Preloader, SuperButton, SuperInputPassword} from "../../../../ui";
+import {AppAction} from "../../../../Redux/appReducer";
+import {changePassTC} from "../../../../Redux/passwordReducer";
 
 export const PasswordRecovery1 = (): ReturnComponentType => {
     const [password, setPassword] = useState<string>(EMPTY_STRING);
@@ -19,7 +19,7 @@ export const PasswordRecovery1 = (): ReturnComponentType => {
     const {token} = useParams<{ token: string }>();
 
     useEffect(() => {
-        dispatch(setErrorAC(EMPTY_STRING))
+        dispatch(AppAction.setErrorAC(EMPTY_STRING))
     }, [])
 
     const newPasswordHandler = (): void => {

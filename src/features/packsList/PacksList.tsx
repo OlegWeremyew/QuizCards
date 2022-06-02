@@ -3,7 +3,6 @@ import styles from './PacksList.module.css'
 import Header from "../../ui/header/Header";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../Redux/store";
-import {addPackTC, changeCurrentPageAC, fetchPacksListsTC, setPageCountAC} from "../../Redux/cardsPackReducer";
 import {Navigate} from "react-router-dom";
 import {EMPTY_STRING} from "../../constants";
 import {ReturnComponentType} from "../../types";
@@ -19,7 +18,8 @@ import {
     SuperButton, SuperCheckbox,
     SuperInputText
 } from "../../ui";
-import {setErrorAC} from "../../Redux/appReducer";
+import {AppAction} from "../../Redux/appReducer";
+import {addPackTC, cardsPackAction, fetchPacksListsTC} from "../../Redux/cardsPackReducer";
 
 export const PacksList = (): ReturnComponentType => {
     const dispatch = useDispatch();
@@ -50,17 +50,17 @@ export const PacksList = (): ReturnComponentType => {
 
     useEffect(() => {
         return () => {
-            if (error.length > 0) dispatch(setErrorAC(EMPTY_STRING))
+            if (error.length > 0) dispatch(AppAction.setErrorAC(EMPTY_STRING))
         }
     })
 
 
     const pageSizeHandler = (value: number): void => {
-        if (!isLoading) dispatch(setPageCountAC(value))
+        if (!isLoading) dispatch(cardsPackAction.setPageCountAC(value))
     }
     const onChangedPage = (newPage: number): void => {
         if (isLoading) return
-        if (newPage !== page) dispatch(changeCurrentPageAC(newPage))
+        if (newPage !== page) dispatch(cardsPackAction.changeCurrentPageAC(newPage))
     }
 
     const addPack = (): void => {

@@ -1,0 +1,1 @@
+export {cardsPackReducer} from './cardsPackReducer'

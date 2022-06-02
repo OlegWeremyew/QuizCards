@@ -3,10 +3,10 @@ import {NavLink} from "react-router-dom";
 import styles from './Header.module.css';
 import profileIcon from '../../assets/images/Profile.svg';
 import packsListIcon from '../../assets/images/Packs.svg';
-import {logoutTC} from "../../Redux/loginReducer";
 import {useDispatch} from "react-redux";
 import {PATH} from "../../constants/routes";
 import {ReturnComponentType} from "../../types";
+import {logoutTC} from "../../Redux/loginReducer";
 
 export const Header = (): ReturnComponentType => {
     const dispatch = useDispatch();
