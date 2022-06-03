@@ -85,7 +85,8 @@ export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({
   );
 };
 
-const returnFileSize = (n: number) => {
+// eslint-disable-next-line consistent-return
+const returnFileSize = (n: number): any => {
   if (n < 1024) {
     return `${n}bytes`;
   }

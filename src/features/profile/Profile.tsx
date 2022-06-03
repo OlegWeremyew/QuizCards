@@ -63,8 +63,8 @@ export const Profile = (): ReturnComponentType => {
   };
 
   const [isModal, setIsModal] = useState<boolean>(false);
-  const showModal = () => setIsModal(true);
-  const closeModal = () => setIsModal(false);
+  const showModal = (): void => setIsModal(true);
+  const closeModal = (): void => setIsModal(false);
 
   if (!isLoggedIn) {
     return <Navigate to={PATH.LOGIN} />;
