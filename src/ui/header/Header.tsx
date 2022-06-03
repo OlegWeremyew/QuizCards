@@ -26,7 +26,7 @@ export const Header = (): ReturnComponentType => {
         >
           <div className={styles.packsLink}>
             <img src={packsListIcon} alt="packsListIcon" />
-            <span>Packs list</span>
+            <span> Packs list</span>
           </div>
         </NavLink>
         <NavLink
@@ -35,7 +35,7 @@ export const Header = (): ReturnComponentType => {
         >
           <div className={styles.profileLink}>
             <img src={profileIcon} alt="profileIcon" />
-            <span>Profile</span>
+            <span> Profile</span>
           </div>
         </NavLink>
         <div className={styles.btnLogoutContainer}>

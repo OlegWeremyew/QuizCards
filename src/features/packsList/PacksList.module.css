@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.main h2 {
+    font-family: 'Kaushan Script', sans-serif;
+}
+
 .paginationWrapper {
     display: flex;
     justify-content: space-between;

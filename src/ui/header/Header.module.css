@@ -1,6 +1,6 @@
 .header {
     height: 60px;
-    background: #EBE0E9;
+    background: #778bc4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #2D2E46;
+    color: #fff;
     padding: 20px 10px;
     opacity: 0.4;
     width: 129px;
@@ -27,7 +27,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #DCCCDB;
+    background-color: #586fab;
     opacity: 1;
 }
 
@@ -36,6 +36,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 
 .packsLink img,
@@ -44,8 +45,8 @@ nav a:hover {
 }
 
 .isActive {
-    border-bottom: 2px #21268F solid;
-    background-color: #DCCCDB;
+    border-bottom: 2px #0a0f60 solid;
+    background-color: #586fab;
     opacity: 1;
 }
 
@@ -56,10 +57,10 @@ nav a:hover {
 
 .btnLogout {
     outline: none;
-    background-color: #DCCCDB;
+    background-color: #0a0f60;
     border: none;
     text-decoration: none;
-    color: #2D2E46;
+    color: #fff;
     padding: 20px 30px;
     opacity: 0.4;
     font-size: 17px;
@@ -71,9 +72,9 @@ nav a:hover {
 .btnLogout:hover,
 .btnLogout:active,
 .btnLogout:focus {
-    background-color: #DCCCDB;
+    background-color: #586fab;
     opacity: 1;
-    border-bottom: 2px #21268F solid;
+    border-bottom: 2px #0a0f60 solid;
 }
 
 @media (max-width: 553px) {

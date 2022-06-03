@@ -1,5 +1,5 @@
 .select {
-    color: #21268F;
+    color: #5d079f;
     appearance: none;
     min-width: 45px;
     min-height: 25px;
@@ -11,7 +11,7 @@
     font-family: Bahnschrift, sans-serif;
     font-size: 16px;
     padding-left: 5px;
-    /*text-align: center;*/
+    cursor: pointer;
 }
 
 .options {
@@ -20,5 +20,5 @@
 }
 
 .options:checked {
-    background-color: #6d70d5;
+    background-color: #906ea4;
 }

@@ -1,7 +1,12 @@
 .sidebar {
     background: #ECECF9;
     padding: 24px;
-    /*max-width: 243px;*/
+}
+
+.sidebar p {
+    font-family: 'Kaushan Script', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .containerNumberOfCards{

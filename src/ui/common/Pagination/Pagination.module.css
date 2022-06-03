@@ -10,7 +10,7 @@
     pointer-events: all;
 }
 
-.page{
+.page {
     pointer-events: all;
 }
 
@@ -20,14 +20,10 @@
 
 .pageList {
     display: flex;
-    /*position: absolute;*/
-    /*left: 40px;*/
-    /*flex-wrap: wrap;*/
-    /*gap: 10px;*/
 }
 
 .currentPage {
-    background: #21268F;
+    background: #5d079f;
     border-radius: 2px;
     color: #F2F5F7;
     user-select: none;
@@ -36,23 +32,6 @@
     width: content-box;
     text-align: center;
 }
-
-/*.page {*/
-/*  min-width: 24px;*/
-/*  cursor: pointer;*/
-/*  padding: 5px;*/
-/*  width: content-box;*/
-/*  text-align: center;*/
-/*}*/
-
-/*.prev{*/
-/*  position: absolute;*/
-/*}*/
-
-/*.next{*/
-/*  position: absolute;*/
-/*  left: calc();*/
-/*}*/
 
 .pagesWrapper span {
     min-width: 24px;

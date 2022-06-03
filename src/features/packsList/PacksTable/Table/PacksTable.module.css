@@ -76,7 +76,7 @@
 
 .button, a.button {
     font-weight: 600;
-    color: #21268F;
+    color: #5d079f;
     padding: 6px;
     border: none;
     background: #D7D8EF;
@@ -88,12 +88,12 @@
 }
 
 .button:hover, a.button:hover {
-    background: #21268F;
+    background: #5d079f;
     color: #fff;
 }
 
 .delete {
-    background: #F1453D;
+    background: #f52e1e;
     color: #fff;
 }
 
@@ -104,6 +104,11 @@
 .disabled {
     pointer-events: none;
     opacity: 30%;
+}
+
+.textLink:hover {
+    text-decoration: underline;
+    color: #5d079f;
 }
 
 
@@ -134,9 +139,10 @@
 }
 
 @media (max-width: 460px) {
-    .table{
+    .table {
         margin: 10px 0;
     }
+
     .item {
         grid-template-columns: 1fr 60px;
         grid-gap: 16px;

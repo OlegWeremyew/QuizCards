@@ -50,20 +50,21 @@ export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => 
 
   return (
     <div className={`${styles.pack} ${styles.item}`}>
-      <NavLink to={`/cards/${pack._id}`}>{pack.name}</NavLink>
+      <NavLink className={styles.textLink} to={`/cards/${pack._id}`}>
+        {pack.name}
+      </NavLink>
       <div>{pack.cardsCount}</div>
       <div>{pack.updated.slice(0, 10)}</div>
       <div>{pack.user_name}</div>
       <div className={styles.buttons}>
+        <NavLink
+          to={`/learn/${pack._id}`}
+          className={`${!pack.cardsCount ? styles.disabled : ''} ${styles.button}`}
+        >
+          Learn
+        </NavLink>
         {myUserId === pack.user_id && (
           <>
-            <button
-              type="button"
-              className={`${styles.button} ${styles.delete}`}
-              onClick={() => showModal('Delete')}
-            >
-              Delete
-            </button>
             <button
               type="button"
               className={styles.button}
@@ -71,14 +72,15 @@ export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => 
             >
               Edit
             </button>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.delete}`}
+              onClick={() => showModal('Delete')}
+            >
+              Delete
+            </button>
           </>
         )}
-        <NavLink
-          to={`/learn/${pack._id}`}
-          className={`${!pack.cardsCount ? styles.disabled : ''} ${styles.button}`}
-        >
-          Learn
-        </NavLink>
       </div>
       {modalType === 'Delete' && (
         <Modal title="Delete Pack" show={isShownModal} closeModal={closeModal}>

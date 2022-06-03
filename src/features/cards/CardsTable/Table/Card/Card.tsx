@@ -77,17 +77,17 @@ export const Card: React.FC<CardPropsType> = ({ card, isCheckId, classMyCards })
           <>
             <button
               type="button"
-              className={`${styles.button} ${styles.delete}`}
-              onClick={() => showModal('Delete')}
-            >
-              Delete
-            </button>
-            <button
-              type="button"
               className={styles.button}
               onClick={() => showModal('Edit')}
             >
               Edit
+            </button>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.delete}`}
+              onClick={() => showModal('Delete')}
+            >
+              Delete
             </button>
           </>
         </div>
