@@ -1,1 +1,1 @@
-export {passwordReducer} from './passwordReducer'
+export { passwordReducer } from './passwordReducer';

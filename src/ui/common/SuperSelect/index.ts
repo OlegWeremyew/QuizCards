@@ -1,1 +1,1 @@
-export {SuperSelect} from './SuperSelect'
+export { SuperSelect } from './SuperSelect';

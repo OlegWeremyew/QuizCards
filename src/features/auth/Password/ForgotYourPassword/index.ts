@@ -1,1 +1,1 @@
-export {ForgotYourPassword} from './ForgotYourPassword'
+export { ForgotYourPassword } from './ForgotYourPassword';

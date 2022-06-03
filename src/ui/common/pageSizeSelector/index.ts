@@ -1,1 +1,1 @@
-export {PageSizeSelector} from './PageSizeSelector';
+export { PageSizeSelector } from './PageSizeSelector';

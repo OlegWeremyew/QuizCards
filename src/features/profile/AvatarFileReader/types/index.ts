@@ -1,3 +1,3 @@
 export type AvatarFilePropsType = {
-    closeModal: () => void
-}
+  closeModal: () => void;
+};

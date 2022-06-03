@@ -1,5 +1,5 @@
-import {PackType} from "../../../../../../api/cardsPackApi/types";
+import { PackType } from '../../../../../../api/cardsPackApi/types';
 
 export type PackPropsType = {
-    pack: PackType
-}
+  pack: PackType;
+};

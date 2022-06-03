@@ -1,1 +1,1 @@
-export {passwordAction} from './passwordAction'
+export { passwordAction } from './passwordAction';

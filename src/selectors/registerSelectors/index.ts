@@ -1,1 +1,1 @@
-export * from './registerSelectors'
+export * from './registerSelectors';

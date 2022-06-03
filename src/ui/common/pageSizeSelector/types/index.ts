@@ -1,5 +1,5 @@
 export type PageSizeSelectorPropsType = {
-    pageCount: number
-    handler: (value: number) => void
-    totalCount: number
-}
+  pageCount: number;
+  handler: (value: number) => void;
+  totalCount: number;
+};

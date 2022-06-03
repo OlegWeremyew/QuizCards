@@ -1,8 +1,8 @@
-import {LoginAction} from "../loginAction";
-import {InferActionTypes} from "../../types";
+import { InferActionTypes } from '../../types';
+import { LoginAction } from '../loginAction';
 
 export type initialStateLoginType = {
-    status: boolean
-}
+  status: boolean;
+};
 
-export type AuthActionsType = InferActionTypes<typeof LoginAction>
+export type AuthActionsType = InferActionTypes<typeof LoginAction>;

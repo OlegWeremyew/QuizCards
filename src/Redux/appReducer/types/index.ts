@@ -1,11 +1,11 @@
-import {AppAction} from "../appAction";
-import {InferActionTypes} from "../../types";
+import { InferActionTypes } from '../../types';
+import { AppAction } from '../appAction';
 
 export type InitialAppStateType = {
-    isInitialized: boolean
-    errorAPP: string
-    error: string
-    isLoading: boolean
-}
+  isInitialized: boolean;
+  errorAPP: string;
+  error: string;
+  isLoading: boolean;
+};
 
-export type ActionAppReducerType = InferActionTypes<typeof AppAction>
+export type ActionAppReducerType = InferActionTypes<typeof AppAction>;

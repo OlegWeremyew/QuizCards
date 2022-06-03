@@ -1,1 +1,1 @@
-export {updateProfile} from './profileThunks'
+export { updateProfile } from './profileThunks';

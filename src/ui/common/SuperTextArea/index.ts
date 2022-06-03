@@ -1,1 +1,1 @@
-export {SuperTextArea} from './SuperTextArea'
+export { SuperTextArea } from './SuperTextArea';

@@ -1,44 +1,43 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from "react";
-import s from './PackSearch.module.css'
-import {useDispatch} from "react-redux";
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
-import {useParams} from "react-router-dom";
-import {EMPTY_STRING} from "../../../constants";
-import {ReturnComponentType} from "../../../types";
-import {cardsAction} from "../../../Redux/cardsReducer";
+import { useDispatch } from 'react-redux';
+
+import { EMPTY_STRING } from '../../../constants';
+import { cardsAction } from '../../../Redux/cardsReducer';
+import { ReturnComponentType } from '../../../types';
+
+import s from './PackSearch.module.css';
 
 export const CardsSearch = (): ReturnComponentType => {
-    const {packId} = useParams()
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    let [event, setEvent] = useState<string>(EMPTY_STRING)
+  const [event, setEvent] = useState<string>(EMPTY_STRING);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        setEvent(e.currentTarget.value)
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setEvent(e.currentTarget.value);
+  };
 
-    };
+  const BtnHandler = (): void => {
+    dispatch(cardsAction.setFilterReducerAC(event));
+    dispatch(cardsAction.changeCurrentPageCardsAC(1));
+  };
 
-    let BtnHandler = (): void => {
-        dispatch(cardsAction.setFilterReducerAC(event));
-        dispatch(cardsAction.changeCurrentPageCardsAC(1))
+  const onKeyPressBtnHandler = (e: KeyboardEvent<HTMLInputElement>): void => {
+    if (e.key === 'Enter') {
+      BtnHandler();
     }
+  };
 
-    const onKeyPressBtnHandler = (e: KeyboardEvent<HTMLInputElement>): void => {
-        if (e.key === 'Enter') {
-            BtnHandler()
-        }
-    }
-
-    return (
-        <div className={s.wrap}>
-            <input
-                type="text"
-                placeholder="Search..."
-                onKeyPress={onKeyPressBtnHandler}
-                value={event}
-                onChange={handleChange}
-            />
-            <button onClick={BtnHandler} className={s.btnSearch}></button>
-        </div>
-    );
-}
+  return (
+    <div className={s.wrap}>
+      <input
+        type="text"
+        placeholder="Search..."
+        onKeyPress={onKeyPressBtnHandler}
+        value={event}
+        onChange={handleChange}
+      />
+      <button type="button" onClick={BtnHandler} className={s.btnSearch} />
+    </div>
+  );
+};

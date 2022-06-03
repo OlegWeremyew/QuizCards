@@ -1,1 +1,1 @@
-export {cardsReducer} from './cardsReducer'
+export { cardsReducer } from './cardsReducer';

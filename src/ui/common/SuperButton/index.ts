@@ -1,1 +1,1 @@
-export {SuperButton} from './SuperButton'
+export { SuperButton } from './SuperButton';

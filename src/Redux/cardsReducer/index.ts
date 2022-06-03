@@ -1,3 +1,10 @@
-export {updateCardTC, deleteCardTC, addCardTC, CardsGradeTC, learnCardsTC, fetchCardsTC} from './cardsThunks'
-export {cardsAction} from './cardsAction'
-export {cardsReducer} from './cardsReducer'
+export {
+  updateCardTC,
+  deleteCardTC,
+  addCardTC,
+  CardsGradeTC,
+  learnCardsTC,
+  fetchCardsTC,
+} from './cardsThunks';
+export { cardsAction } from './cardsAction';
+export { cardsReducer } from './cardsReducer';

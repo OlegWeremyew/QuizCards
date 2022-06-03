@@ -1,8 +1,8 @@
-import {registerAction} from "../registerAction";
-import {InferActionTypes} from "../../types";
+import { InferActionTypes } from '../../types';
+import { registerAction } from '../registerAction';
 
 export type InitialRegisterStateType = {
-    isRegistered: boolean
-}
+  isRegistered: boolean;
+};
 
-export type RegisterActionsType = InferActionTypes<typeof registerAction>
+export type RegisterActionsType = InferActionTypes<typeof registerAction>;

@@ -1,2 +1,2 @@
-export {appReducer} from './appReducer'
-export {initialAppState} from './appReducer'
+export { appReducer } from './appReducer';
+export { initialAppState } from './appReducer';

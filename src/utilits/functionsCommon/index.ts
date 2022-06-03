@@ -1,1 +1,1 @@
-export {sortFields} from './sortingField';
+export { sortFields } from './sortingField';

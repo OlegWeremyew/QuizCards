@@ -1,1 +1,1 @@
-export * from './loginSelectors'
+export * from './loginSelectors';

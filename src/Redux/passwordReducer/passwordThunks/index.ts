@@ -1,1 +1,1 @@
-export {passwordForgotTC, changePassTC} from './passwordThunks'
+export { passwordForgotTC, changePassTC } from './passwordThunks';

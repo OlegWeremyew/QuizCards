@@ -1,2 +1,2 @@
-export {Modal} from './Modal';
-export {ModalButtonsWrap} from './ModalButtonsWrap';
+export { Modal } from './Modal';
+export { ModalButtonsWrap } from './ModalButtonsWrap';

@@ -1,1 +1,1 @@
-export {LoginAction} from './LoginAction'
+export { LoginAction } from './LoginAction';

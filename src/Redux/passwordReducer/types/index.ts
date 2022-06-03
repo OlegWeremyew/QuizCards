@@ -1,10 +1,10 @@
-import {InferActionTypes} from "../../types";
-import {passwordAction} from "../passwordAction";
+import { InferActionTypes } from '../../types';
+import { passwordAction } from '../passwordAction';
 
-export type  InitialPasswordStateType = {
-    isSend: boolean
-    email: string
-    isChangedPass: boolean
-}
+export type InitialPasswordStateType = {
+  isSend: boolean;
+  email: string;
+  isChangedPass: boolean;
+};
 
-export type PasswordActionsType = InferActionTypes<typeof passwordAction>
+export type PasswordActionsType = InferActionTypes<typeof passwordAction>;

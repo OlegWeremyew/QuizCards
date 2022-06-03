@@ -1,1 +1,1 @@
-export {PackFrame} from './PackFrame';
+export { PackFrame } from './PackFrame';

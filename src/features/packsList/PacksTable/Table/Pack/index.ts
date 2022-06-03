@@ -1,1 +1,1 @@
-export {Pack} from './Pack'
+export { Pack } from './Pack';

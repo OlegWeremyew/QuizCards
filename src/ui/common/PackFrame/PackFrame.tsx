@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from './PackFrame.module.css';
-import {PackFramePropsType} from "./types";
 
-export const PackFrame = (props: PackFramePropsType) => {
-    return (
-        <div className={styles.packFrame}>
-            {props.children}
-        </div>
-    );
-};
+import { ReturnComponentType } from '../../../types';
+
+import styles from './PackFrame.module.css';
+import { PackFramePropsType } from './types';
+
+export const PackFrame: React.FC<PackFramePropsType> = ({
+  children,
+}): ReturnComponentType => <div className={styles.packFrame}>{children}</div>;

@@ -1,4 +1,4 @@
-import {profileAction} from "../profileAction";
-import {InferActionTypes} from "../../types";
+import { InferActionTypes } from '../../types';
+import { profileAction } from '../profileAction';
 
-export type ProfileActionsType = InferActionTypes<typeof profileAction>
+export type ProfileActionsType = InferActionTypes<typeof profileAction>;

@@ -1,1 +1,1 @@
-export {cardsApi} from './cardsApi'
+export { cardsApi } from './cardsApi';

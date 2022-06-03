@@ -1,1 +1,1 @@
-export {RangeDemo} from './RangeDemo'
+export { RangeDemo } from './RangeDemo';

@@ -1,1 +1,1 @@
-export {SuperEditableSpan} from './SuperEditableSpan'
+export { SuperEditableSpan } from './SuperEditableSpan';

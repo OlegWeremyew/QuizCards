@@ -1,1 +1,1 @@
-export * from './cardsPackSelectors'
+export * from './cardsPackSelectors';

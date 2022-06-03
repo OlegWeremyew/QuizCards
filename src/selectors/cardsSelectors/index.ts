@@ -1,1 +1,1 @@
-export * from './cardsSelectors'
+export * from './cardsSelectors';

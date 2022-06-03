@@ -1,2 +1,2 @@
-export {CardsSearch} from './CardsSearch'
-export {PacksSearch} from './PacksSearch'
+export { CardsSearch } from './CardsSearch';
+export { PacksSearch } from './PacksSearch';

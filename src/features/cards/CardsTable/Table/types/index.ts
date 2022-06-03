@@ -1,5 +1,5 @@
-import {CardType} from "../../../../../api/cardsApi/types";
+import { CardType } from '../../../../../api/cardsApi/types';
 
 export type CardsTablePropsType = {
-    cards: Array<CardType>
-}
+  cards: Array<CardType>;
+};

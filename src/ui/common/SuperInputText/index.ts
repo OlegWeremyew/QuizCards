@@ -1,1 +1,1 @@
-export {SuperInputText} from './SuperInputText'
+export { SuperInputText } from './SuperInputText';

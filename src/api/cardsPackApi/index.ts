@@ -1,1 +1,1 @@
-export {cardsPackApi} from './cardsPackApi'
+export { cardsPackApi } from './cardsPackApi';

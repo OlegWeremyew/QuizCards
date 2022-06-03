@@ -1,1 +1,1 @@
-export {sortFields} from './functionsCommon';
+export { sortFields } from './functionsCommon';

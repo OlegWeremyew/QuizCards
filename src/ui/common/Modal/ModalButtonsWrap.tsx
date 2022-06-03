@@ -1,13 +1,18 @@
 import React from 'react';
-import styles from "./Modal.module.css";
-import {ModalButtonsWrapPropsType} from "./types";
-import {SuperButton} from "../SuperButton";
 
-export const ModalButtonsWrap = (props: ModalButtonsWrapPropsType) => {
-    return (
-        <div className={styles.modalButtons}>
-            <SuperButton onClick={props.closeModal} light={true}>Cancel</SuperButton>
-            {props.children}
-        </div>
-    );
-};
+import { SuperButton } from '../SuperButton';
+
+import styles from './Modal.module.css';
+import { ModalButtonsWrapPropsType } from './types';
+
+export const ModalButtonsWrap: React.FC<ModalButtonsWrapPropsType> = ({
+  closeModal,
+  children,
+}) => (
+  <div className={styles.modalButtons}>
+    <SuperButton onClick={closeModal} light>
+      Cancel
+    </SuperButton>
+    {children}
+  </div>
+);

@@ -1,1 +1,1 @@
-export {AppAction} from './appAction'
+export { AppAction } from './appAction';

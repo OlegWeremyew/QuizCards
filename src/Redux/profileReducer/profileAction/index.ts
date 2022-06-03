@@ -1,1 +1,1 @@
-export {profileAction} from './profileAction'
+export { profileAction } from './profileAction';

@@ -1,3 +1,3 @@
-export {AppAction} from './appAction'
-export {appReducer} from './appReducer'
-export {initializeAppTC} from './appThunks'
+export { AppAction } from './appAction';
+export { appReducer } from './appReducer';
+export { initializeAppTC } from './appThunks';

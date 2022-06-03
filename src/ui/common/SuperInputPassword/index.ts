@@ -1,1 +1,1 @@
-export {SuperInputPassword} from './SuperInputPassword'
+export { SuperInputPassword } from './SuperInputPassword';

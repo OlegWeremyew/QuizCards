@@ -1,1 +1,1 @@
-export * from './passwordSelectors'
+export * from './passwordSelectors';

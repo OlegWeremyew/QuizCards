@@ -1,1 +1,1 @@
-export {Learn} from './Learn';
+export { Learn } from './Learn';

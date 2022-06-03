@@ -1,1 +1,1 @@
-export * from './appSelectors'
+export * from './appSelectors';

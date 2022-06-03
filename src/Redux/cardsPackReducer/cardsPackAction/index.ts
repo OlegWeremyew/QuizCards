@@ -1,1 +1,1 @@
-export {cardsPackAction} from './cardsPackAction'
+export { cardsPackAction } from './cardsPackAction';

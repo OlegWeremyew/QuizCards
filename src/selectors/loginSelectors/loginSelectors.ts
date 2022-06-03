@@ -1,5 +1,4 @@
-import {AppRootStateType} from "../../Redux/store";
+import { AppRootStateType } from '../../Redux/store';
 
-export const getStatusLoginSelector = (state: AppRootStateType): boolean => {
-    return state.login.status
-}
+export const getStatusLoginSelector = (state: AppRootStateType): boolean =>
+  state.login.status;

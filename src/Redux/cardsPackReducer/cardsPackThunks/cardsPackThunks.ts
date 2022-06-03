@@ -1,90 +1,104 @@
-import {Dispatch} from "redux";
-import {AppRootStateType} from "../../store";
-import {AppAction} from "../../appReducer";
-import {cardsPackApi} from "../../../api/cardsPackApi/cardsPackApi";
-import {EMPTY_STRING} from "../../../constants";
-import {cardsPackAction} from "../cardsPackAction";
+import { Dispatch } from 'redux';
 
-export const fetchPacksListsTC = () => {
-    return (dispatch: Dispatch, getState: () => AppRootStateType) => {
-        dispatch(AppAction.setLoadingAC(true))
+import { cardsPackApi } from '../../../api';
+import { EMPTY_STRING } from '../../../constants';
+import { AppAction } from '../../appReducer';
+import { AppRootStateType } from '../../store';
+import { cardsPackAction } from '../cardsPackAction';
 
-        let {packName, min, max, sortPacks, page, pageCount, myPacks, user_id} = getState().cardsPack;
-        let myUserId = getState().profilePage._id;
+export const fetchPacksListsTC =
+  () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
+    dispatch(AppAction.setLoadingAC(true));
 
-        user_id = myPacks ? myUserId : user_id
+    // eslint-disable-next-line prefer-const
+    let { packName, min, max, sortPacks, page, pageCount, myPacks, user_id } =
+      getState().cardsPack;
+    const myUserId = getState().profilePage._id;
 
-        const payload = {packName, min, max, sortPacks, page, pageCount, user_id};
+    user_id = myPacks ? myUserId : user_id;
 
-        cardsPackApi.getPacks(payload)
-            .then((res) => {
-                dispatch(cardsPackAction.setPacksListsAC(res.data))
-            })
-            .catch(e => {
-                const error = e.response ? e.response.data.error : (e.message + ', more details in the console');
-                dispatch(AppAction.setErrorAC(error))
-            })
-            .finally(() => {
-                dispatch(AppAction.setLoadingAC(false));
-            })
-    }
-}
+    const payload = { packName, min, max, sortPacks, page, pageCount, user_id };
 
-export const deletePackTC = (packId: string): any => {
-    return (dispatch:any) => {
-        dispatch(AppAction.setLoadingAC(true))
+    cardsPackApi
+      .getPacks(payload)
+      .then(res => {
+        dispatch(cardsPackAction.setPacksListsAC(res.data));
+      })
+      .catch(e => {
+        const error = e.response
+          ? e.response.data.error
+          : `${e.message}, more details in the console`;
+        dispatch(AppAction.setErrorAC(error));
+      })
+      .finally(() => {
+        dispatch(AppAction.setLoadingAC(false));
+      });
+  };
 
-        cardsPackApi.deletePack(packId)
-            .then(() => {
-                dispatch(fetchPacksListsTC())
-            })
-            .catch(e => {
-                const error = e.response ? e.response.data.error : (e.message + ', more details in the console');
-                dispatch(AppAction.setErrorAC(error))
-                dispatch(AppAction.setLoadingAC(false));
-            })
-    }
-}
+export const deletePackTC =
+  (packId: string): any =>
+  (dispatch: any) => {
+    dispatch(AppAction.setLoadingAC(true));
 
-export const addPackTC = (packName: string, privateValue: boolean): any => {
-    return (dispatch:any) => {
-        dispatch(AppAction.setLoadingAC(true))
-        dispatch(cardsPackAction.sortPacksAC("0updated"))
+    cardsPackApi
+      .deletePack(packId)
+      .then(() => {
+        dispatch(fetchPacksListsTC());
+      })
+      .catch(e => {
+        const error = e.response
+          ? e.response.data.error
+          : `${e.message}, more details in the console`;
+        dispatch(AppAction.setErrorAC(error));
+        dispatch(AppAction.setLoadingAC(false));
+      });
+  };
 
-        const payload = {
-            name: packName,
-            deckCover: EMPTY_STRING,
-            private: privateValue
-        }
+export const addPackTC =
+  (packName: string, privateValue: boolean): any =>
+  (dispatch: any) => {
+    dispatch(AppAction.setLoadingAC(true));
+    dispatch(cardsPackAction.sortPacksAC('0updated'));
 
-        cardsPackApi.addPack(payload)
-            .then(() => {
-                dispatch(fetchPacksListsTC())
-            })
-            .catch(e => {
-                const error = e.response ? e.response.data.error : (e.message + ', more details in the console');
-                dispatch(AppAction.setErrorAC(error))
-                dispatch(AppAction.setLoadingAC(false))
-            })
-    }
-}
+    const payload = {
+      name: packName,
+      deckCover: EMPTY_STRING,
+      private: privateValue,
+    };
 
-export const editPackTC = (_id: string, packName: string): any => {
-    return (dispatch:any) => {
-        dispatch(AppAction.setLoadingAC(true))
+    cardsPackApi
+      .addPack(payload)
+      .then(() => {
+        dispatch(fetchPacksListsTC());
+      })
+      .catch(e => {
+        const error = e.response
+          ? e.response.data.error
+          : `${e.message}, more details in the console`;
+        dispatch(AppAction.setErrorAC(error));
+        dispatch(AppAction.setLoadingAC(false));
+      });
+  };
 
-        const payload = {
-            _id: _id,
-            name: packName,
-        }
+export const editPackTC =
+  (_id: string, packName: string): any =>
+  (dispatch: any) => {
+    dispatch(AppAction.setLoadingAC(true));
 
-        cardsPackApi.updatePack(payload)
-            .then(() => {
-                dispatch(fetchPacksListsTC())
-            })
-            .catch(e => {
-                const error = e.response ? e.response.data.error : (e.message + ', more details in the console');
-                dispatch(AppAction.setErrorAC(error))
-            })
-    }
-}
+    const payload = {
+      _id,
+      name: packName,
+    };
+
+    cardsPackApi
+      .updatePack(payload)
+      .then(() => {
+        dispatch(fetchPacksListsTC());
+      })
+      .catch(e => {
+        const error = e.response
+          ? e.response.data.error
+          : `${e.message}, more details in the console`;
+        dispatch(AppAction.setErrorAC(error));
+      });
+  };

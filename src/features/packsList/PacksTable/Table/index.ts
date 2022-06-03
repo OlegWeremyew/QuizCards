@@ -1,1 +1,1 @@
-export {PacksTable} from './PacksTable';
+export { PacksTable } from './PacksTable';

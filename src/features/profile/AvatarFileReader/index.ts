@@ -1,1 +1,1 @@
-export {AvatarFileReader} from './AvatarFileReader';
+export { AvatarFileReader } from './AvatarFileReader';

@@ -1,1 +1,1 @@
-export {authAndProfileApi} from './authAndProfileApi'
+export { authAndProfileApi } from './authAndProfileApi';

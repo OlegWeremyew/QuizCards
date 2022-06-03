@@ -1,1 +1,6 @@
-export {fetchPacksListsTC, deletePackTC, addPackTC, editPackTC} from './cardsPackThunks'
+export {
+  fetchPacksListsTC,
+  deletePackTC,
+  addPackTC,
+  editPackTC,
+} from './cardsPackThunks';

@@ -1,1 +1,1 @@
-export {registerReducer} from './registerReducer'
+export { registerReducer } from './registerReducer';

@@ -1,40 +1,38 @@
-import React, {ChangeEvent} from 'react'
-import stl from "./SuperRadio.module.css";
-import {SuperRadioPropsType} from "./types";
+import React, { ChangeEvent } from 'react';
 
-export const SuperRadio: React.FC<SuperRadioPropsType> = (
-    {
-        type, name,
-        options, value, className,
-        onChange, onChangeOption,
-        ...restProps
-    }
-) => {
+import stl from './SuperRadio.module.css';
+import { SuperRadioPropsType } from './types';
 
-    const onChangeCallback = (e: ChangeEvent<HTMLInputElement>): void => {
-        onChange && onChange(e)
-        onChangeOption && onChangeOption(e.currentTarget.value)
-    }
+export const SuperRadio: React.FC<SuperRadioPropsType> = ({
+  name,
+  options,
+  value,
+  className,
+  onChange,
+  onChangeOption,
+}) => {
+  const onChangeCallback = (e: ChangeEvent<HTMLInputElement>): void => {
+    onChange && onChange(e);
+    onChangeOption && onChangeOption(e.currentTarget.value);
+  };
 
-    const finalSelectClassName = `$ ${className ? className : stl.superRadio}`
+  const finalSelectClassName = `$ ${className || stl.superRadio}`;
 
-    const mappedOptions: any[] = options ? options.map((o, i) => (
-        <label key={name + '-' + i}>
-            <input
-                type={'radio'}
-                name={o}
-                value={o}
-                checked={o === value}
-                onChange={onChangeCallback}
-                className={finalSelectClassName}
-            />
-            &nbsp; {o} &nbsp;
+  const mappedOptions: any[] = options
+    ? options.map((o, i) => (
+        <label key={`${name}-${i}`}>
+          <input
+            type="radio"
+            name={o}
+            value={o}
+            checked={o === value}
+            onChange={onChangeCallback}
+            className={finalSelectClassName}
+          />
+          &nbsp; {o} &nbsp;
         </label>
-    )) : []
+      ))
+    : [];
 
-    return (
-        <>
-            {mappedOptions}
-        </>
-    )
-}
+  return <>{mappedOptions}</>;
+};

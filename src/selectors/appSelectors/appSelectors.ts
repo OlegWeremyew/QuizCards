@@ -1,13 +1,9 @@
-import {AppRootStateType} from "../../Redux/store";
+import { AppRootStateType } from '../../Redux/store';
 
-export const getInitializedAppSelector = (state: AppRootStateType): boolean => {
-    return state.app.isInitialized
-}
+export const getInitializedAppSelector = (state: AppRootStateType): boolean =>
+  state.app.isInitialized;
 
-export const getIsLoadingAppSelector = (state: AppRootStateType): boolean => {
-    return state.app.isLoading
-}
+export const getIsLoadingAppSelector = (state: AppRootStateType): boolean =>
+  state.app.isLoading;
 
-export const getErrorAppSelector = (state: AppRootStateType): string => {
-    return state.app.error
-}
+export const getErrorAppSelector = (state: AppRootStateType): string => state.app.error;

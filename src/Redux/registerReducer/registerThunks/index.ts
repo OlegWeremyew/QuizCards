@@ -1,1 +1,1 @@
-export {registerTC} from './registerThunks'
+export { registerTC } from './registerThunks';
