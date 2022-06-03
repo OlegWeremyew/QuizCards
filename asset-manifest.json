@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/QuizCards/static/css/main.cbb11cb3.css",
-    "main.js": "/QuizCards/static/js/main.aea47500.js",
+    "main.css": "/QuizCards/static/css/main.0e2f17c3.css",
+    "main.js": "/QuizCards/static/js/main.057eab9f.js",
     "static/media/editIcon.png": "/QuizCards/static/media/editIcon.545bc6345da3171ae4bd.png",
     "static/media/Packs.svg": "/QuizCards/static/media/Packs.5d964c999636ddb653dbad492824c432.svg",
     "static/media/error404.png": "/QuizCards/static/media/error404.76ee353c5b1b959f8913.png",
@@ -12,11 +12,11 @@
     "static/media/no-view.svg": "/QuizCards/static/media/no-view.ef3570e6475960ea172b.svg",
     "static/media/view.svg": "/QuizCards/static/media/view.bc05a0cb437d19c6e4d9.svg",
     "static/media/backPage.svg": "/QuizCards/static/media/backPage.d52a0f56410b4c87aee61f6bc39ddef2.svg",
-    "main.cbb11cb3.css.map": "/QuizCards/static/css/main.cbb11cb3.css.map",
-    "main.aea47500.js.map": "/QuizCards/static/js/main.aea47500.js.map"
+    "main.0e2f17c3.css.map": "/QuizCards/static/css/main.0e2f17c3.css.map",
+    "main.057eab9f.js.map": "/QuizCards/static/js/main.057eab9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbb11cb3.css",
-    "static/js/main.aea47500.js"
+    "static/css/main.0e2f17c3.css",
+    "static/js/main.057eab9f.js"
   ]
 }
