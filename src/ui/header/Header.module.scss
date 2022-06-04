@@ -1,0 +1,89 @@
+.header {
+  height: 60px;
+  background: #778bc4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media (max-width: 553px) {
+      position: inherit;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      padding: 20px 10px;
+      opacity: 0.4;
+      width: 129px;
+      min-width: 90px;
+      font-size: 17px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        background-color: #586fab;
+        opacity: 1;
+      }
+
+      .packsLink,
+      .profileLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        img {
+          width: 20px;
+        }
+
+      }
+
+    }
+
+    .isActive {
+      border-bottom: 2px #0a0f60 solid;
+      background-color: #586fab;
+      opacity: 1;
+    }
+
+    .btnLogoutContainer {
+      position: absolute;
+      right: 3%;
+
+      @media (max-width: 553px) {
+        position: inherit;
+      }
+
+      .btnLogout {
+        outline: none;
+        background-color: #0a0f60;
+        border: none;
+        text-decoration: none;
+        color: #fff;
+        padding: 20px 30px;
+        opacity: 0.4;
+        font-size: 17px;
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: #586fab;
+          opacity: 1;
+          border-bottom: 2px #0a0f60 solid;
+        }
+
+      }
+    }
+
+  }
+}

@@ -11,7 +11,7 @@ import {
   SuperInputText,
 } from '../../ui';
 
-import s from './Test.module.css';
+import s from './Test.module.scss';
 
 export const Test = (): ReturnComponentType => {
   const [value, setValue] = useState<string>(EMPTY_STRING);

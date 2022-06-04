@@ -6,7 +6,7 @@ import { EMPTY_STRING } from '../../../constants';
 import { cardsAction } from '../../../Redux/cardsReducer';
 import { ReturnComponentType } from '../../../types';
 
-import s from './PackSearch.module.css';
+import s from './PackSearch.module.scss';
 
 export const CardsSearch = (): ReturnComponentType => {
   const dispatch = useDispatch();

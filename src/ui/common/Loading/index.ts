@@ -1,1 +1,1 @@
-export { SuperLoading } from './loading';
+export { SuperLoading } from './Loading';

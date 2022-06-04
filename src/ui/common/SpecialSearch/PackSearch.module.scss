@@ -1,0 +1,38 @@
+.wrap {
+  position: relative;
+  display: block;
+
+  input {
+    background: rgba(236, 236, 249, 0.5);
+    border: 1px solid rgba(99, 93, 128, 0.5);
+    box-sizing: border-box;
+    border-radius: 2px;
+    height: 36px;
+    width: 100%;
+    padding: 10px;
+    color: #2D2E46;
+
+    &:focus {
+      outline: none;
+      border: 1px solid #2D2E46;
+    }
+  }
+
+  .btnSearch {
+    position: absolute;
+    height: 100%;
+    width: 70px;
+    right: 0;
+    border: 1px solid rgba(99, 93, 128, 0.5);
+    background: #D7D8EF url(images/IconSearch.svg) no-repeat center/auto 80%;
+    cursor: pointer;
+    z-index: 2;
+    top: 0;
+    opacity: 1;
+
+    @media (max-width: 630px) {
+      width: 50px;
+    }
+
+  }
+}

@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import s from './SuperInputPassword.module.css';
+import s from './SuperInputPassword.module.scss';
 import { SuperInputPasswordPropsType } from './types';
 
 export const SuperInputPassword: React.FC<SuperInputPasswordPropsType> = ({

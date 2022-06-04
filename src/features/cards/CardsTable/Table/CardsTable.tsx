@@ -14,7 +14,7 @@ import { ReturnComponentType } from '../../../../types';
 import { sortFields } from '../../../../utilits';
 
 import { Card } from './Card';
-import styles from './CardsTable.module.css';
+import styles from './CardsTable.module.scss';
 import { CardsTablePropsType } from './types';
 
 export const CardsTable = ({ cards }: CardsTablePropsType): ReturnComponentType => {

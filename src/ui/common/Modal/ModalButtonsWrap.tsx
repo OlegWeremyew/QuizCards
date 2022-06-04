@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SuperButton } from '../SuperButton';
 
-import styles from './Modal.module.css';
+import styles from './Modal.module.scss';
 import { ModalButtonsWrapPropsType } from './types';
 
 export const ModalButtonsWrap: React.FC<ModalButtonsWrapPropsType> = ({

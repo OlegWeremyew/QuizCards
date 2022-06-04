@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEvent } from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import s from './SuperInputText.module.css';
+import s from './SuperInputText.module.scss';
 import { SuperInputTextPropsType } from './types';
 
 export const SuperInputText: React.FC<SuperInputTextPropsType> = ({

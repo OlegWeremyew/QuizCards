@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import styles from './Modal.module.css';
+import styles from './Modal.module.scss';
 import { ModalPropsType } from './types';
 
 export const Modal: React.FC<ModalPropsType> = ({

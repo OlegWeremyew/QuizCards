@@ -13,7 +13,7 @@ import { ReturnComponentType } from '../../../../types';
 import { sortFields } from '../../../../utilits';
 
 import { Pack } from './Pack';
-import styles from './PacksTable.module.css';
+import styles from './PacksTable.module.scss';
 
 export const PacksTable = (): ReturnComponentType => {
   const dispatch = useDispatch();

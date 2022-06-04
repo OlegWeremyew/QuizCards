@@ -8,7 +8,7 @@ import { Nullable, ReturnComponentType } from '../../../types';
 import { ModalButtonsWrap, SuperButton, SuperInputText } from '../../../ui';
 import noAvatar from '../images/noAvatar.png';
 import icon from '../images/Union.png';
-import styles from '../Profile.module.css';
+import styles from '../Profile.module.scss';
 
 import stl from './AvatarFileReader.module.css';
 import { AvatarFilePropsType } from './types';

@@ -7,7 +7,7 @@ import { cardsPackAction } from '../../../Redux/cardsPackReducer';
 import { getPackNameCardsPackSelector } from '../../../selectors';
 import { ReturnComponentType } from '../../../types';
 
-import s from './PackSearch.module.css';
+import s from './PackSearch.module.scss';
 
 export const PacksSearch = (): ReturnComponentType => {
   const dispatch = useDispatch();

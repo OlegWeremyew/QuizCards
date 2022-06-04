@@ -13,7 +13,7 @@ import {
   SuperLoading,
   SuperTextArea,
 } from '../../../../../ui';
-import styles from '../CardsTable.module.css';
+import styles from '../CardsTable.module.scss';
 
 import { CardPropsType } from './types';
 

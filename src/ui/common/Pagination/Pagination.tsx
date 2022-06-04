@@ -6,7 +6,7 @@ import { AppAction } from '../../../Redux/appReducer';
 import { getIsLoadingAppSelector } from '../../../selectors';
 import { ReturnComponentType } from '../../../types';
 
-import styles from './Pagination.module.css';
+import styles from './Pagination.module.scss';
 import { PaginationPropsType } from './types';
 
 export const Pagination: React.FC<PaginationPropsType> = ({

@@ -22,7 +22,7 @@ import {
   SuperInputText,
 } from '../../../ui';
 
-import styles from './login.module.css';
+import styles from './Login.module.scss';
 
 export const Login = (): ReturnComponentType => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);

@@ -38,7 +38,7 @@ import {
 } from '../../ui';
 import Header from '../../ui/header/Header';
 
-import styles from './PacksList.module.css';
+import styles from './PacksList.module.scss';
 import { PacksTable } from './PacksTable/Table';
 
 export const PacksList = (): ReturnComponentType => {

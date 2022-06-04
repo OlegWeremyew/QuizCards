@@ -11,9 +11,9 @@ import {
 import { ReturnComponentType } from '../../types';
 import { DoubleCheckbox } from '../common';
 import SuperDoubleRange from '../common/SuperRange/common/c8-SuperDoubleRange/SuperDoubleRange';
-import stl from '../common/SuperRange/RangeDemo.module.css';
+import stl from '../common/SuperRange/RangeDemo.module.scss';
 
-import styles from './Sidebar.module.css';
+import styles from './Sidebar.module.scss';
 
 export const Sidebar = (): ReturnComponentType => {
   const dispatch = useDispatch();

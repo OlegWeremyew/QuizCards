@@ -2,7 +2,7 @@ import React, { KeyboardEvent } from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import styles from './SuperTextArea.module.css';
+import styles from './SuperTextArea.module.scss';
 import { SuperTextareaTextPropsType } from './types';
 
 export const SuperTextArea: React.FC<SuperTextareaTextPropsType> = ({

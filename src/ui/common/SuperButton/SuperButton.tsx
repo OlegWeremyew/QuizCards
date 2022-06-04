@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import s from './SuperButton.module.css';
+import s from './SuperButton.module.scss';
 import { SuperButtonPropsType } from './types';
 
 export const SuperButton: React.FC<SuperButtonPropsType> = ({

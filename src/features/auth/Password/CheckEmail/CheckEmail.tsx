@@ -7,7 +7,7 @@ import { getEmailPasswordSelector } from '../../../../selectors';
 import { ReturnComponentType } from '../../../../types';
 import { Frame } from '../../../../ui';
 
-import styles from './CheckEmail.module.css';
+import styles from './CheckEmail.module.scss';
 
 export const CheckEmail = (): ReturnComponentType => {
   const emailName = useSelector(getEmailPasswordSelector);

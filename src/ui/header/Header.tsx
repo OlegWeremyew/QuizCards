@@ -9,7 +9,7 @@ import { PATH } from '../../constants/routes';
 import { logoutTC } from '../../Redux/loginReducer';
 import { ReturnComponentType } from '../../types';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 export const Header = (): ReturnComponentType => {
   const dispatch = useDispatch();

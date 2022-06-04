@@ -13,7 +13,7 @@ import { ReturnComponentType } from '../../types';
 import { Frame, Preloader, SuperButton, SuperRadio } from '../../ui';
 import Header from '../../ui/header/Header';
 
-import stl from './Learn.module.css';
+import stl from './Learn.module.scss';
 
 const grades = [
   'Did not know',
@@ -115,7 +115,6 @@ export const Learn = (): ReturnComponentType => {
             <div className={stl.block}>
               <b>Question:</b> {card.question}
             </div>
-
             {isChecked && (
               <>
                 <div className={stl.radioBlock}>

@@ -21,7 +21,7 @@ import {
   SuperInputText,
 } from '../../../ui';
 
-import s from './Registration.module.css';
+import s from './Registration.module.scss';
 
 export const Registration = (): ReturnComponentType => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);

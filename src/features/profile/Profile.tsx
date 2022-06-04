@@ -21,7 +21,7 @@ import Header from '../../ui/header/Header';
 
 import { AvatarFileReader } from './AvatarFileReader';
 import noAvatar from './images/noAvatar.png';
-import styles from './Profile.module.css';
+import styles from './Profile.module.scss';
 
 export const Profile = (): ReturnComponentType => {
   const dispatch = useDispatch();

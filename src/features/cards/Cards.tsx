@@ -34,7 +34,7 @@ import {
 } from '../../ui';
 import Header from '../../ui/header/Header';
 
-import styles from './Cards.module.css';
+import styles from './Cards.module.scss';
 import { CardsTable } from './CardsTable/Table';
 
 export const Cards = (): ReturnComponentType => {

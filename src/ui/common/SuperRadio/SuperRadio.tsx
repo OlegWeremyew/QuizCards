@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
-import stl from './SuperRadio.module.css';
+import stl from './SuperRadio.module.scss';
 import { SuperRadioPropsType } from './types';
 
 export const SuperRadio: React.FC<SuperRadioPropsType> = ({

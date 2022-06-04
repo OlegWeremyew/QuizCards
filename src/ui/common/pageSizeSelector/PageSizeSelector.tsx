@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { ReturnComponentType } from '../../../types';
 import { SuperSelect } from '../SuperSelect';
 
-import styles from './PageSizeSelector.module.css';
+import styles from './PageSizeSelector.module.scss';
 import { PageSizeSelectorPropsType } from './types';
 
 export const PageSizeSelector: React.FC<PageSizeSelectorPropsType> = ({

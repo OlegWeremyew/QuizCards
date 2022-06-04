@@ -6,7 +6,7 @@ import { cardsPackAction } from '../../../Redux/cardsPackReducer';
 import { getIsLoadingAppSelector, getMyPacksCardsPackSelector } from '../../../selectors';
 import { ReturnComponentType } from '../../../types';
 
-import s from './DoubleCheckbox.module.css';
+import s from './DoubleCheckbox.module.scss';
 
 export const DoubleCheckbox = (): ReturnComponentType => {
   const myPacks = useSelector(getMyPacksCardsPackSelector);

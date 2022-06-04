@@ -14,7 +14,7 @@ import {
   SuperInputText,
   SuperLoading,
 } from '../../../../../ui';
-import styles from '../PacksTable.module.css';
+import styles from '../PacksTable.module.scss';
 
 import { PackPropsType } from './types';
 

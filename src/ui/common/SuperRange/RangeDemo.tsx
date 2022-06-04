@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ReturnComponentType } from '../../../types';
 
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange';
-import stl from './RangeDemo.module.css';
+import stl from './RangeDemo.module.scss';
 
 export const RangeDemo = (): ReturnComponentType => {
   const [value1, setValue1] = useState<number>(0);

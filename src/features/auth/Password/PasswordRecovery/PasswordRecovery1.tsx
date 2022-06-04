@@ -15,7 +15,7 @@ import {
 import { ReturnComponentType } from '../../../../types';
 import { Frame, Preloader, SuperButton, SuperInputPassword } from '../../../../ui';
 
-import styles from './passwordRecovery1.module.css';
+import styles from './PasswordRecovery1.module.scss';
 
 export const PasswordRecovery1 = (): ReturnComponentType => {
   const [password, setPassword] = useState<string>(EMPTY_STRING);

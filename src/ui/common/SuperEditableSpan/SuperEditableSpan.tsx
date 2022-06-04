@@ -4,7 +4,7 @@ import { EMPTY_STRING } from '../../../constants';
 import { ReturnComponentType } from '../../../types';
 import { SuperInputText } from '../SuperInputText';
 
-import classes from './SuperEditableSpan.module.css';
+import classes from './SuperEditableSpan.module.scss';
 import { SuperEditableSpanType } from './types';
 
 export const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({

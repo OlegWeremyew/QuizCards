@@ -6,7 +6,7 @@ import { PATH } from '../../../constants/routes';
 import { ReturnComponentType } from '../../../types';
 import { SuperButton } from '../SuperButton';
 
-import s from './error404.module.css';
+import s from './Error404.module.scss';
 
 export const Error404 = (): ReturnComponentType => (
   <div className={s.container}>

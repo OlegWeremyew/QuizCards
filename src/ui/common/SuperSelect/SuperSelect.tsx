@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import s from './SuperSelect.module.css';
+import s from './SuperSelect.module.scss';
 import { SuperSelectPropsType } from './types';
 
 export const SuperSelect: React.FC<SuperSelectPropsType> = ({

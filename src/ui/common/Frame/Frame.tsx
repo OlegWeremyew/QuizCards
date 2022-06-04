@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReturnComponentType } from '../../../types';
 
-import styles from './Frame.module.css';
+import styles from './Frame.module.scss';
 import { FramePropsType } from './types';
 
 export const Frame: React.FC<FramePropsType> = ({ children }): ReturnComponentType => (

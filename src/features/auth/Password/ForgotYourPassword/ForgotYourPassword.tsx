@@ -14,9 +14,9 @@ import {
 } from '../../../../selectors';
 import { ReturnComponentType } from '../../../../types';
 import { Frame, Preloader, SuperButton, SuperInputText } from '../../../../ui';
-import styles from '../../Login/login.module.css';
+import styles from '../../Login/Login.module.scss';
 
-import s from './ForgotYourPassword.module.css';
+import s from './ForgotYourPassword.module.scss';
 
 export const ForgotYourPassword = (): ReturnComponentType => {
   const isSend = useSelector(getIsSendPasswordSelector);

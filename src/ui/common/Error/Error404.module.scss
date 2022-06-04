@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-size: 30rem;
+  justify-content: center;
+  background-position: top;
+  background-image: url("images/error404.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  p {
+    font-size: 30px;
+  }
+
+}
