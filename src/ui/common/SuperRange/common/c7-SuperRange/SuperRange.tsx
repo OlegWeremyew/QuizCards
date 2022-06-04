@@ -3,7 +3,7 @@ import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from 'reac
 import { EMPTY_STRING } from '../../../../../constants';
 import { ReturnComponentType } from '../../../../../types';
 
-import s from './SuperRange.module.css';
+import s from './SuperRange.module.scss';
 
 type DefaultInputPropsType = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,

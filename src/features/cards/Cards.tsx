@@ -133,12 +133,24 @@ export const Cards = (): ReturnComponentType => {
       </PackFrame>
       <Modal title="Card Info" show={isModalAdd} closeModal={closeModal}>
         <div className={styles.textArea}>
-          <label>Question</label>
-          <SuperTextArea value={newCardQuestion} onChangeText={setNewCardQuestion} />
+          <label className={styles.label} htmlFor="Question">
+            Question
+          </label>
+          <SuperTextArea
+            id="Question"
+            value={newCardQuestion}
+            onChangeText={setNewCardQuestion}
+          />
         </div>
         <div className={styles.textArea}>
-          <label>Answer</label>
-          <SuperTextArea value={newCardAnswer} onChangeText={setNewCardAnswer} />
+          <label className={styles.label} htmlFor="Answer">
+            Answer
+          </label>
+          <SuperTextArea
+            id="Answer"
+            value={newCardAnswer}
+            onChangeText={setNewCardAnswer}
+          />
         </div>
         <ModalButtonsWrap closeModal={closeModal}>
           <SuperButton onClick={addCard}>Save</SuperButton>

@@ -27,6 +27,14 @@
   width: 100%;
 }
 
+.label {
+  cursor: pointer;
+
+  &:hover {
+    color: #5d079f;
+  }
+}
+
 .topPanel {
   display: flex;
   width: 100%;

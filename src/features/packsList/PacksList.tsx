@@ -130,15 +130,24 @@ export const PacksList = (): ReturnComponentType => {
         </div>
       </PackFrame>
       <Modal title="Add new pack" show={isModal} closeModal={closeModal}>
-        <label>Name pack</label>
+        <label className={styles.label} htmlFor="NamePack">
+          Name pack
+        </label>
         <SuperInputText
+          id="NamePack"
           value={newPackName}
           onChangeText={setNewPackName}
           placeholder="Enter pack name"
         />
         <div className={styles.containerCheckBox}>
-          <SuperCheckbox checked={privateValue} onChangeChecked={setPrivateValue} />
-          <span>Private Pack</span>
+          <SuperCheckbox
+            id="PrivatePack"
+            checked={privateValue}
+            onChangeChecked={setPrivateValue}
+          />
+          <label className={styles.label} htmlFor="PrivatePack">
+            Private Pack
+          </label>
         </div>
         <ModalButtonsWrap closeModal={closeModal}>
           <SuperButton onClick={addPack}>Save</SuperButton>

@@ -24,3 +24,11 @@
     visibility: visible;
     border: 4px solid #272c96;
 }
+
+.label {
+    cursor: pointer;
+
+    &:hover {
+        color: #5d079f;
+    }
+}

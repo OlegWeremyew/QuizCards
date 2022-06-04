@@ -20,6 +20,14 @@
   }
 }
 
+.label {
+  cursor: pointer;
+
+  &:hover {
+    color: #5d079f;
+  }
+}
+
 .containerHeaderCard {
   display: flex;
   align-items: center;

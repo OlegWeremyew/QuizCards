@@ -7,13 +7,14 @@
 }
 
 .gap {
-    padding-bottom: 50px !important;
+    padding-bottom: 10px !important;
 }
 
 .block {
     padding: 10px 0;
     width: 100%;
     text-align: left;
+    word-break: break-all;
 }
 
 .btnBlock {
@@ -21,4 +22,12 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 50px 0 30px;
+}
+
+.label {
+    cursor: pointer;
+
+    &:hover {
+        color: #5d079f;
+    }
 }

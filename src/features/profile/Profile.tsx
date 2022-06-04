@@ -74,9 +74,6 @@ export const Profile = (): ReturnComponentType => {
       <Header />
       {loading && <Preloader />}
       <Frame>
-        <span>
-          <strong>It-incubator</strong>
-        </span>
         <p className={styles.profileTitle}>Your profile</p>
         <div>
           <div className={styles.avatar}>

@@ -97,8 +97,14 @@ export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => 
       )}
       {modalType === 'Edit' && (
         <Modal title="Edit Pack" show={isShownModal} closeModal={closeModal}>
-          <label>New name</label>
-          <SuperInputText value={newPackName} onChangeText={setNewPackName} />
+          <label className={styles.label} htmlFor="newName">
+            New name
+          </label>
+          <SuperInputText
+            id="newName"
+            value={newPackName}
+            onChangeText={setNewPackName}
+          />
           <ModalButtonsWrap closeModal={closeModal}>
             <SuperButton onClick={editPack}>Save</SuperButton>
           </ModalButtonsWrap>

@@ -10,7 +10,7 @@ import noAvatar from '../images/noAvatar.png';
 import icon from '../images/Union.png';
 import styles from '../Profile.module.scss';
 
-import stl from './AvatarFileReader.module.css';
+import stl from './AvatarFileReader.module.scss';
 import { AvatarFilePropsType } from './types';
 
 export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({
@@ -53,22 +53,30 @@ export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({
 
   return (
     <div>
-      <label>
+      <label className={stl.label} htmlFor="addNewAvatar">
         <b>Insert a link:</b>
       </label>
-      <SuperInputText value={newLink} onChange={onChangeLink} placeholder="New link" />
+      <SuperInputText
+        id="addNewAvatar"
+        value={newLink}
+        onChange={onChangeLink}
+        placeholder="New link"
+      />
       <div className={stl.addFileBlock}>
         <input ref={inRef} type="file" style={{ display: 'none' }} onChange={upload} />
-        <span className={stl.spanStl}>
-          {' '}
-          <b>or add image file : </b>
-        </span>
-        <img
-          src={icon}
-          alt="load"
-          className={stl.icon}
+        <label className={stl.label} htmlFor="addNewAvatarPhoto">
+          <span className={stl.spanStl}>
+            {' '}
+            <b>or add image file : </b>
+          </span>
+        </label>
+        <button
+          type="button"
+          id="addNewAvatarPhoto"
           onClick={() => inRef && inRef.current && inRef.current.click()}
-        />
+        >
+          <img src={icon} alt="load" className={stl.icon} />
+        </button>
       </div>
       <div className={styles.avatar}>
         <img src={typeof file64 === 'string' ? file64 : noAvatar} alt="avatar" />

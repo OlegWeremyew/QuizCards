@@ -105,12 +105,20 @@ export const Card: React.FC<CardPropsType> = ({ card, isCheckId, classMyCards })
       {modalType === 'Edit' && (
         <Modal title="Edit Card" show={isShownModal} closeModal={closeModal}>
           <div className={styles.textArea}>
-            <label>New Question</label>
-            <SuperTextArea value={newQuestion} onChangeText={setNewQuestion} />
+            <label className={styles.label} htmlFor="NewQuestion">
+              New Question
+            </label>
+            <SuperTextArea
+              id="NewQuestion"
+              value={newQuestion}
+              onChangeText={setNewQuestion}
+            />
           </div>
           <div className={styles.textArea}>
-            <label>New Answer</label>
-            <SuperTextArea value={newAnswer} onChangeText={setNewAnswer} />
+            <label className={styles.label} htmlFor="NewAnswer">
+              New Answer
+            </label>
+            <SuperTextArea id="NewAnswer" value={newAnswer} onChangeText={setNewAnswer} />
           </div>
           <ModalButtonsWrap closeModal={closeModal}>
             <SuperButton onClick={updateCard}>Save</SuperButton>

@@ -10,5 +10,5 @@ export const PATH = {
   FORGOT_YOUR_PASSWORD: '/forgot',
   CHECK_EMAIL: '/check-email',
   PACKS: '/packs',
-  LEARN: '/learn',
+  LEARN: '/Learn',
 };

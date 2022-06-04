@@ -3,8 +3,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import packsListIcon from '../../assets/images/Packs.svg';
-import profileIcon from '../../assets/images/Profile.svg';
+import logout from '../../assets/images/header/logout.png';
+import packsListIcon from '../../assets/images/header/Packs.png';
+import profileIcon from '../../assets/images/header/Profile.png';
 import { PATH } from '../../constants/routes';
 import { logoutTC } from '../../Redux/loginReducer';
 import { ReturnComponentType } from '../../types';
@@ -41,6 +42,7 @@ export const Header = (): ReturnComponentType => {
         <div className={styles.btnLogoutContainer}>
           <button type="button" className={styles.btnLogout} onClick={logOutHandler}>
             Log Out
+            <img src={logout} alt="packsListIcon" />
           </button>
         </div>
       </nav>

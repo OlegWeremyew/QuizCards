@@ -3,7 +3,7 @@ import React from 'react';
 import { ReturnComponentType } from '../../../../../types';
 import SuperRange from '../c7-SuperRange/SuperRange';
 
-import stl from './DoubleRange.module.css';
+import stl from './DoubleRange.module.scss';
 
 type SuperDoubleRangePropsType = {
   onChangeRange: (value: [number, number]) => void;
