@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/QuizCards/static/css/main.0e2f17c3.css",
-    "main.js": "/QuizCards/static/js/main.057eab9f.js",
+    "main.css": "/QuizCards/static/css/main.b48b71a8.css",
+    "main.js": "/QuizCards/static/js/main.9fa6c63c.js",
     "static/media/editIcon.png": "/QuizCards/static/media/editIcon.545bc6345da3171ae4bd.png",
-    "static/media/Packs.svg": "/QuizCards/static/media/Packs.5d964c999636ddb653dbad492824c432.svg",
     "static/media/error404.png": "/QuizCards/static/media/error404.76ee353c5b1b959f8913.png",
-    "static/media/noAvatar.png": "/QuizCards/static/media/noAvatar.6c53c0a1c12e6d7eaa36.png",
+    "static/media/noAvatar.png": "/QuizCards/static/media/noAvatar.1cdcfe7afca6da5ba779.png",
     "index.html": "/QuizCards/index.html",
     "static/media/IconSearch.svg": "/QuizCards/static/media/IconSearch.b12728372dae9c019091.svg",
-    "static/media/Profile.svg": "/QuizCards/static/media/Profile.6166565d09ae68878fba759ec5639ff6.svg",
     "static/media/no-view.svg": "/QuizCards/static/media/no-view.ef3570e6475960ea172b.svg",
     "static/media/view.svg": "/QuizCards/static/media/view.bc05a0cb437d19c6e4d9.svg",
     "static/media/backPage.svg": "/QuizCards/static/media/backPage.d52a0f56410b4c87aee61f6bc39ddef2.svg",
-    "main.0e2f17c3.css.map": "/QuizCards/static/css/main.0e2f17c3.css.map",
-    "main.057eab9f.js.map": "/QuizCards/static/js/main.057eab9f.js.map"
+    "main.b48b71a8.css.map": "/QuizCards/static/css/main.b48b71a8.css.map",
+    "main.9fa6c63c.js.map": "/QuizCards/static/js/main.9fa6c63c.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e2f17c3.css",
-    "static/js/main.057eab9f.js"
+    "static/css/main.b48b71a8.css",
+    "static/js/main.9fa6c63c.js"
   ]
 }
