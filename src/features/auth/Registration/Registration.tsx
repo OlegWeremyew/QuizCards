@@ -20,6 +20,7 @@ import {
   SuperInputPassword,
   SuperInputText,
 } from '../../../ui';
+import styles from '../Login/Login.module.scss';
 
 import s from './Registration.module.scss';
 
@@ -63,16 +64,30 @@ export const Registration = (): ReturnComponentType => {
         <h2>Sign up</h2>
         {error && <div className={s.error}>{error}</div>}
         <div className={s.input}>
-          <label>Email</label>
-          <SuperInputText value={email} onChangeText={setEmail} />
+          <label className={styles.label} htmlFor="registrationEmail">
+            Email
+          </label>
+          <SuperInputText id="registrationEmail" value={email} onChangeText={setEmail} />
         </div>
         <div className={s.input}>
-          <label>Password</label>
-          <SuperInputPassword value={password} onChangeText={setPassword} />
+          <label className={styles.label} htmlFor="registrationPassword">
+            Password
+          </label>
+          <SuperInputPassword
+            id="registrationPassword"
+            value={password}
+            onChangeText={setPassword}
+          />
         </div>
         <div className={s.input}>
-          <label>Confirm password</label>
-          <SuperInputPassword value={confirmPassword} onChangeText={setConfirmPassword} />
+          <label className={styles.label} htmlFor="registrationConfirmPassword">
+            Confirm password
+          </label>
+          <SuperInputPassword
+            id="registrationConfirmPassword"
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
         </div>
         <SuperButton onClick={onClickHandler} style={{ padding: '10px 60px' }}>
           Register

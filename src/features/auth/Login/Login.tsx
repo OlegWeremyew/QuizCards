@@ -50,22 +50,25 @@ export const Login = (): ReturnComponentType => {
     <>
       {loading && <Preloader />}
       <Frame>
-        <span>
-          <strong>It-incubator</strong>
-        </span>
         <h2>Sign In</h2>
         {error && <div className={styles.error}>{error}</div>}
         <div className={styles.input}>
-          <label>Email</label>
+          <label className={styles.label} htmlFor="email">
+            Email
+          </label>
           <SuperInputText
+            id="email"
             error={error}
             value={email}
             onChange={e => setEmail(e.currentTarget.value)}
           />
         </div>
         <div className={styles.input}>
-          <label>Password</label>
+          <label className={styles.label} htmlFor="password">
+            Password
+          </label>
           <SuperInputPassword
+            id="password"
             error={error}
             value={password}
             onChange={e => setPassword(e.currentTarget.value)}
@@ -73,14 +76,17 @@ export const Login = (): ReturnComponentType => {
         </div>
         <div className={styles.containerCheckbox}>
           <SuperCheckbox
+            id="rememberMe"
             checked={rememberMe}
             onChange={() => setRememberMe(!rememberMe)}
           />
-          <p>Remember me</p>
+          <label className={styles.label} htmlFor="rememberMe">
+            Remember me
+          </label>
         </div>
         <p className={styles.forgotText}>
           <NavLink to={PATH.FORGOT_YOUR_PASSWORD} className={styles.linkLogin}>
-            Forgot Password
+            Forgot Password 🤯
           </NavLink>
         </p>
         <SuperButton onClick={loginHandler} style={{ padding: '10px 60px' }}>

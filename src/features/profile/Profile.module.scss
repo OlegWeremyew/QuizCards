@@ -16,6 +16,11 @@
     object-fit: cover;
     border: 4px outset #e7a3a3;
     background-color: #afa5a5;
+
+    &:hover {
+      border: 4px inset #e7a3a3;
+    }
+
   }
 }
 
@@ -23,9 +28,10 @@
 .profileTitle {
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 33px;
+  line-height: 30px;
   color: #2D2E46;
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 28px;
 }
 
 .info {

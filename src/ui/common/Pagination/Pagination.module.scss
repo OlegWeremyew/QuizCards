@@ -4,12 +4,21 @@
   font-size: 16px;
   position: relative;
 
+  @media (max-width: 600px) {
+    font-size: 13px;
+  }
+
   span {
     min-width: 24px;
     cursor: pointer;
     padding: 5px;
     width: content-box;
     text-align: center;
+
+    @media (max-width: 600px) {
+      min-width: 18px;
+      padding: 3px;
+    }
   }
 
   .page {
@@ -38,6 +47,10 @@
     min-width: 24px;
     width: content-box;
     text-align: center;
-  }
 
+    @media (max-width: 600px) {
+      min-width: 18px;
+      padding: 3px;
+    }
+  }
 }

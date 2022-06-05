@@ -10,6 +10,14 @@
   margin-bottom: 20px;
 }
 
+.label {
+  cursor: pointer;
+
+  &:hover {
+    color: #5d079f;
+  }
+}
+
 .linkLogin {
   text-decoration: none;
 }

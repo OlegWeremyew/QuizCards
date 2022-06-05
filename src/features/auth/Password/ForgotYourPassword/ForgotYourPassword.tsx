@@ -43,14 +43,18 @@ export const ForgotYourPassword = (): ReturnComponentType => {
     <>
       {loading && <Preloader />}
       <Frame>
-        <span>
-          <strong>It-incubator</strong>
-        </span>
         <h2>Forgot your password?</h2>
         {isError && <div className={s.error}>{isError}</div>}
         <div className={s.input}>
-          <label>Email</label>
-          <SuperInputText error={isError} value={email} onChangeText={setEmail} />
+          <label className={styles.label} htmlFor="forgotPassword">
+            Email
+          </label>
+          <SuperInputText
+            id="forgotPassword"
+            error={isError}
+            value={email}
+            onChangeText={setEmail}
+          />
         </div>
         <p>Enter your email address and we will send you further instructions</p>
         <SuperButton onClick={onClickHandler} style={{ padding: '10px 60px' }}>

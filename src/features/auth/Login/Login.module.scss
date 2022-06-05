@@ -47,6 +47,14 @@
   }
 }
 
+.label {
+  cursor: pointer;
+
+  &:hover {
+    color: #5d079f;
+  }
+}
+
 .signUpText {
   display: inline;
   font-style: normal;

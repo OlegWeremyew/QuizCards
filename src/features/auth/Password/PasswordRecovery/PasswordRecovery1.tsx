@@ -44,9 +44,6 @@ export const PasswordRecovery1 = (): ReturnComponentType => {
     <>
       {loading && <Preloader />}
       <Frame>
-        <span>
-          <strong>It-incubator</strong>
-        </span>
         <h2>Create new password</h2>
         {error && (
           <div className={styles.error}>
@@ -54,8 +51,11 @@ export const PasswordRecovery1 = (): ReturnComponentType => {
           </div>
         )}
         <div className={styles.input}>
-          <label>Password</label>
+          <label className={styles.label} htmlFor="passwordRecovery">
+            Password
+          </label>
           <SuperInputPassword
+            id="passwordRecovery"
             value={password}
             onChange={e => setPassword(e.currentTarget.value)}
           />

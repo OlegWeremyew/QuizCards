@@ -38,7 +38,7 @@ export const PacksSearch = (): ReturnComponentType => {
       <input
         onKeyPress={onKeyPressBtnHandler}
         type="text"
-        placeholder="Search..."
+        placeholder="Search packs..."
         value={event}
         onChange={handleChange}
       />

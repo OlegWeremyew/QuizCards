@@ -7,8 +7,8 @@
   overflow: hidden;
 
   @media (max-width: 630px) {
-      padding: 15px;
-    }
+    padding: 15px;
+  }
 
   a {
     text-decoration: none;
@@ -18,6 +18,17 @@
     }
 
   }
+}
+
+.backPage {
+  border-radius: 3px;
+  padding: 3px 6px 0 2px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #bbb9b4;
+  }
+
 }
 
 .label {

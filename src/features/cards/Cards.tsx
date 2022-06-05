@@ -93,9 +93,11 @@ export const Cards = (): ReturnComponentType => {
       <Header />
       <PackFrame>
         <div className={styles.main}>
-          <NavLink to={PATH.PACKS}>
-            <img src={backPage} alt="backPage" />
-          </NavLink>
+          <div className={styles.backPage}>
+            <NavLink to={PATH.PACKS}>
+              <img src={backPage} alt="backPage" />
+            </NavLink>
+          </div>
           <h2>{packName}</h2>
           <div className={styles.containerHeaderCard}>
             <div className={styles.search}>

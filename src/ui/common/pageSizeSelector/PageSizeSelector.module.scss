@@ -5,9 +5,12 @@
   justify-content: end;
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     color: #5d079f;
-  }
 
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
+  }
 }

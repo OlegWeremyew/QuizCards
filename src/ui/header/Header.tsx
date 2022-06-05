@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import logout from '../../assets/images/header/logout.png';
 import packsListIcon from '../../assets/images/header/Packs.png';
 import profileIcon from '../../assets/images/header/Profile.png';
+import { EMPTY_STRING } from '../../constants';
 import { PATH } from '../../constants/routes';
 import { logoutTC } from '../../Redux/loginReducer';
 import { ReturnComponentType } from '../../types';
@@ -23,7 +24,7 @@ export const Header = (): ReturnComponentType => {
       <nav>
         <NavLink
           to={PATH.PACKS}
-          className={navData => (navData.isActive ? styles.isActive : '')}
+          className={navData => (navData.isActive ? styles.isActive : EMPTY_STRING)}
         >
           <div className={styles.packsLink}>
             <img src={packsListIcon} alt="packsListIcon" />
@@ -32,7 +33,7 @@ export const Header = (): ReturnComponentType => {
         </NavLink>
         <NavLink
           to={PATH.PROFILE}
-          className={navData => (navData.isActive ? styles.isActive : '')}
+          className={navData => (navData.isActive ? styles.isActive : EMPTY_STRING)}
         >
           <div className={styles.profileLink}>
             <img src={profileIcon} alt="profileIcon" />
@@ -41,8 +42,7 @@ export const Header = (): ReturnComponentType => {
         </NavLink>
         <div className={styles.btnLogoutContainer}>
           <button type="button" className={styles.btnLogout} onClick={logOutHandler}>
-            Log Out
-            <img src={logout} alt="packsListIcon" />
+            Log Out <img src={logout} alt="packsListIcon" />
           </button>
         </div>
       </nav>
