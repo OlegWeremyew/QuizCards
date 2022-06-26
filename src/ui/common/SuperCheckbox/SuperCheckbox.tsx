@@ -1,18 +1,17 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 import { EMPTY_STRING } from '../../../constants';
-import { ReturnComponentType } from '../../../types';
 
 import s from './SuperCheckbox.module.scss';
 import { SuperCheckboxPropsType } from './types';
 
-export const SuperCheckbox: React.FC<SuperCheckboxPropsType> = ({
+export const SuperCheckbox: FC<SuperCheckboxPropsType> = ({
   onChange,
   onChangeChecked,
   className,
   children,
   ...restProps
-}): ReturnComponentType => {
+}) => {
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>): void => {
     onChange && onChange(e);
     onChangeChecked && onChangeChecked(e.currentTarget.checked);

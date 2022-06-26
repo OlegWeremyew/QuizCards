@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -15,9 +15,9 @@ import {
 } from '../../../../../ui';
 import styles from '../CardsTable.module.scss';
 
-import { CardPropsType } from './types';
+import { CardPropsType, ModalType } from './types';
 
-export const Card: React.FC<CardPropsType> = ({ card, isCheckId, classMyCards }) => {
+export const Card: FC<CardPropsType> = ({ card, isCheckId, classMyCards }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoadingAppSelector);
   const [year, month, day] = card.updated.slice(0, 10).split('-');
@@ -35,11 +35,11 @@ export const Card: React.FC<CardPropsType> = ({ card, isCheckId, classMyCards })
   const [newAnswer, setNewAnswer] = useState<string>(card.answer);
   const [isShownModal, setIsShownModal] = useState<boolean>(false);
 
-  const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>(EMPTY_STRING);
+  const [modalType, setModalType] = useState<ModalType>(EMPTY_STRING);
 
   const closeModal = (): void => setIsShownModal(false);
 
-  const showModal = (modalType: 'Delete' | 'Edit' | ''): void => {
+  const showModal = (modalType: ModalType): void => {
     setIsShownModal(true);
     setModalType(modalType);
   };
@@ -60,8 +60,8 @@ export const Card: React.FC<CardPropsType> = ({ card, isCheckId, classMyCards })
 
   return (
     <div className={`${styles.card} ${classMyCards}`}>
-      <div>{card.question}</div>
-      <div>{card.answer}</div>
+      <div className={styles.word}>{card.question}</div>
+      <div className={styles.word}>{card.answer}</div>
       <div>{`${day}.${month}.${year}`}</div>
       <div>
         <div className={styles.rating_result}>

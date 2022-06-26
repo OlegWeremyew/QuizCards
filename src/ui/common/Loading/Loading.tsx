@@ -1,11 +1,5 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { FC } from 'react';
 
 import styles from './Loading.module.scss';
 
-export const SuperLoading = (): ReturnComponentType => (
-  <>
-    <div className={styles.loading_line} />
-  </>
-);
+export const SuperLoading: FC = () => <div className={styles.loading_line} />;

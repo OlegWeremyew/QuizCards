@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
@@ -12,7 +12,6 @@ import {
   getIsLoadingAppSelector,
   getStatusLoginSelector,
 } from '../../../selectors';
-import { ReturnComponentType } from '../../../types';
 import {
   Frame,
   Preloader,
@@ -24,7 +23,7 @@ import {
 
 import styles from './Login.module.scss';
 
-export const Login = (): ReturnComponentType => {
+export const Login: FC = () => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);
   const [password, setPassword] = useState<string>(EMPTY_STRING);
   const [rememberMe, setRememberMe] = useState<boolean>(false);

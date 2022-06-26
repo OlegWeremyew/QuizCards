@@ -1,11 +1,9 @@
-import React, { ChangeEvent, KeyboardEvent } from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { ChangeEvent, FC, KeyboardEvent } from 'react';
 
 import s from './SuperInputText.module.scss';
 import { SuperInputTextPropsType } from './types';
 
-export const SuperInputText: React.FC<SuperInputTextPropsType> = ({
+export const SuperInputText: FC<SuperInputTextPropsType> = ({
   onChange,
   onChangeText,
   onKeyPress,
@@ -13,7 +11,7 @@ export const SuperInputText: React.FC<SuperInputTextPropsType> = ({
   error,
   className,
   ...restProps
-}): ReturnComponentType => {
+}) => {
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>): void => {
     onChange && onChange(e);
     onChangeText && onChangeText(e.currentTarget.value);

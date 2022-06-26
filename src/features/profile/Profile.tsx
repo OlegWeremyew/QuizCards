@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -15,7 +15,6 @@ import {
   getPublicCardPacksCountProfileSelector,
   getStatusLoginSelector,
 } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import { Frame, Modal, Preloader, SuperButton, SuperEditableSpan } from '../../ui';
 import Header from '../../ui/header/Header';
 
@@ -23,7 +22,7 @@ import { AvatarFileReader } from './AvatarFileReader';
 import noAvatar from './images/noAvatar.png';
 import styles from './Profile.module.scss';
 
-export const Profile = (): ReturnComponentType => {
+export const Profile: FC = () => {
   const dispatch = useDispatch();
   const profileName = useSelector(getNameProfileSelector);
   const profileAvatar = useSelector(getAvatarProfileSelector);

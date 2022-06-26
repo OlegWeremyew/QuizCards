@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { SuperButton } from '../SuperButton';
 
 import styles from './Modal.module.scss';
 import { ModalButtonsWrapPropsType } from './types';
 
-export const ModalButtonsWrap: React.FC<ModalButtonsWrapPropsType> = ({
+export const ModalButtonsWrap: FC<ModalButtonsWrapPropsType> = ({
   closeModal,
   children,
 }) => (

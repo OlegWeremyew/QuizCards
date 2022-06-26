@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,21 +9,13 @@ import { PATH } from '../../constants/routes';
 import { cardsAction, CardsGradeTC, learnCardsTC } from '../../Redux/cardsReducer';
 import { AppRootStateType } from '../../Redux/store';
 import { getCardsCardsSelector, getIsLoadingAppSelector } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import { Frame, Preloader, SuperButton, SuperRadio } from '../../ui';
 import Header from '../../ui/header/Header';
 
+import { btnStyle, grades, initialState } from './data';
 import stl from './Learn.module.scss';
 
-const grades = [
-  'Did not know',
-  'Forgot',
-  'A lot of thought',
-  'Confused',
-  'Knew the answer',
-];
-
-const getCard = (cards: CardType[]): any => {
+const getCard = (cards: CardType[]): CardType => {
   const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);
   const rand = Math.random() * sum;
   const res = cards.reduce(
@@ -37,33 +29,7 @@ const getCard = (cards: CardType[]): any => {
   return cards[res.id + 1];
 };
 
-const initialState: CardType = {
-  _id: EMPTY_STRING,
-  cardsPack_id: EMPTY_STRING,
-  user_id: EMPTY_STRING,
-  answer: EMPTY_STRING,
-  question: EMPTY_STRING,
-  grade: 0,
-  shots: 0,
-  comments: EMPTY_STRING,
-  type: EMPTY_STRING,
-  rating: 0,
-  more_id: EMPTY_STRING,
-  created: EMPTY_STRING,
-  updated: EMPTY_STRING,
-  __v: 0,
-  answerImg: EMPTY_STRING,
-  answerVideo: EMPTY_STRING,
-  questionImg: EMPTY_STRING,
-  questionVideo: EMPTY_STRING,
-};
-
-const btnStyle = {
-  width: '150px',
-  padding: '0',
-};
-
-export const Learn = (): ReturnComponentType => {
+export const Learn: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { packId } = useParams<{ packId: string }>();
@@ -75,7 +41,7 @@ export const Learn = (): ReturnComponentType => {
   const loading = useSelector(getIsLoadingAppSelector);
 
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [rating, setRating] = useState(EMPTY_STRING);
+  const [rating, setRating] = useState<string>(EMPTY_STRING);
   const [card, setCard] = useState<CardType>(initialState);
 
   useEffect(() => {
@@ -109,7 +75,6 @@ export const Learn = (): ReturnComponentType => {
         <Preloader />
       ) : (
         <Frame>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <h2>Learn "{packName}"</h2>
           <div>
             <div className={stl.block}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,13 +9,12 @@ import {
   getIsLoadingAppSelector,
   getSortPacksCardsPackSelector,
 } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types';
 import { sortFields } from '../../../../utilits';
 
 import { Pack } from './Pack';
 import styles from './PacksTable.module.scss';
 
-export const PacksTable = (): ReturnComponentType => {
+export const PacksTable: FC = () => {
   const dispatch = useDispatch();
 
   const packs = useSelector(getCardPacksCountCardsPackSelector);
@@ -29,6 +28,15 @@ export const PacksTable = (): ReturnComponentType => {
   const sortFieldsPack = (field: string): void =>
     sortFields(field, cardsPackAction.sortPacksAC, isLoading, sortPacks, dispatch);
 
+  const SortUpdateStyle =
+    activeField === 'updated' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const SortUserNameStyle =
+    activeField === 'user_name' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const SortNameStyle =
+    activeField === 'name' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const SortCardsCountStyle =
+    activeField === 'cardsCount' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+
   const sortUpdate = (): void => sortFieldsPack('updated');
   const sortName = (): void => sortFieldsPack('name');
   const sortCards = (): void => sortFieldsPack('cardsCount');
@@ -37,28 +45,16 @@ export const PacksTable = (): ReturnComponentType => {
   return (
     <div className={styles.table}>
       <div className={`${styles.header} ${styles.item}`}>
-        <div
-          onClick={sortName}
-          className={activeField === 'name' ? `${styles.active} ${rotate}` : ''}
-        >
+        <div onClick={sortName} className={SortNameStyle}>
           Name
         </div>
-        <div
-          onClick={sortCards}
-          className={activeField === 'cardsCount' ? `${styles.active} ${rotate}` : ''}
-        >
+        <div onClick={sortCards} className={SortCardsCountStyle}>
           Cards
         </div>
-        <div
-          onClick={sortUpdate}
-          className={activeField === 'updated' ? `${styles.active} ${rotate}` : ''}
-        >
+        <div onClick={sortUpdate} className={SortUpdateStyle}>
           Last Updated
         </div>
-        <div
-          onClick={sortUserName}
-          className={activeField === 'user_name' ? `${styles.active} ${rotate}` : ''}
-        >
+        <div onClick={sortUserName} className={SortUserNameStyle}>
           Created by
         </div>
         <div>Actions</div>
@@ -66,7 +62,7 @@ export const PacksTable = (): ReturnComponentType => {
       {packs.length > 0 ? (
         packs.map(pack => <Pack key={pack._id} pack={pack} />)
       ) : (
-        <div style={{ padding: '16px 24px' }}>Ничего не найдено</div>
+        <div style={{ padding: '16px 24px' }}>No results found</div>
       )}
     </div>
   );

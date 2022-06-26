@@ -1,16 +1,15 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 
-import { ReturnComponentType } from '../../../types';
 import { SuperSelect } from '../SuperSelect';
 
 import styles from './PageSizeSelector.module.scss';
 import { PageSizeSelectorPropsType } from './types';
 
-export const PageSizeSelector: React.FC<PageSizeSelectorPropsType> = ({
+export const PageSizeSelector: FC<PageSizeSelectorPropsType> = ({
   pageCount,
   handler,
   totalCount,
-}): ReturnComponentType => {
+}) => {
   const arr: number[] = [8, 10, 20, 50];
 
   const [value, setValue] = useState(pageCount);

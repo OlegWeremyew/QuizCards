@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { EMPTY_STRING } from '../../../constants';
-import { ReturnComponentType } from '../../../types';
 import { SuperInputText } from '../SuperInputText';
 
 import classes from './SuperEditableSpan.module.scss';
 import { SuperEditableSpanType } from './types';
 
-export const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
+export const SuperEditableSpan: FC<SuperEditableSpanType> = ({
   onBlur,
   onEnter,
   spanProps,
   ...restProps
-}): ReturnComponentType => {
+}) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const { children, onDoubleClick, className, ...restSpanProps } = spanProps || {};
 

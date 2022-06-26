@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,21 +10,18 @@ import {
   getPageCardsSelector,
   getSortCardsCardsSelector,
 } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types';
 import { sortFields } from '../../../../utilits';
 
 import { Card } from './Card';
 import styles from './CardsTable.module.scss';
 import { CardsTablePropsType } from './types';
 
-export const CardsTable = ({ cards }: CardsTablePropsType): ReturnComponentType => {
+export const CardsTable: FC<CardsTablePropsType> = ({ cards }) => {
   const dispatch = useDispatch();
 
   const myUserId = useSelector(get_idProfileSelector);
 
   const isCheckId = cards.every(m => m.user_id === myUserId);
-
-  const classMyCards = `${isCheckId ? `${styles.itemMy}` : `${styles.item}`}`;
 
   const sortCards = useSelector(getSortCardsCardsSelector);
   const isLoading = useSelector(getIsLoadingAppSelector);
@@ -34,24 +31,37 @@ export const CardsTable = ({ cards }: CardsTablePropsType): ReturnComponentType 
   const activeField = sortCards.slice(1);
   const rotate = direction === '1' ? styles.up : EMPTY_STRING;
 
+  const classMyCards = `${isCheckId ? `${styles.itemMy}` : `${styles.item}`}`;
+  const sortQuestionStyle =
+    activeField === 'question' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const sortAnswerStyle =
+    activeField === 'answer' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const sortUpdateStyle =
+    activeField === 'updated' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+  const sortGradeStyle =
+    activeField === 'grade' ? `${styles.active} ${rotate}` : EMPTY_STRING;
+
   const sortUpdate = (): void => {
     sortFields('updated', cardsAction.sortCardsAC, isLoading, sortCards, dispatch);
     if (curPage !== 1) {
       dispatch(cardsAction.changeCurrentPageCardsAC(1));
     }
   };
+
   const sortQuestion = (): void => {
     sortFields('question', cardsAction.sortCardsAC, isLoading, sortCards, dispatch);
     if (curPage !== 1) {
       dispatch(cardsAction.changeCurrentPageCardsAC(1));
     }
   };
+
   const sortAnswer = (): void => {
     sortFields('answer', cardsAction.sortCardsAC, isLoading, sortCards, dispatch);
     if (curPage !== 1) {
       dispatch(cardsAction.changeCurrentPageCardsAC(1));
     }
   };
+
   const sortGrade = (): void => {
     sortFields('grade', cardsAction.sortCardsAC, isLoading, sortCards, dispatch);
   };
@@ -59,36 +69,16 @@ export const CardsTable = ({ cards }: CardsTablePropsType): ReturnComponentType 
   return (
     <div className={styles.table}>
       <div className={`${styles.header} ${classMyCards}`}>
-        <div
-          onClick={sortQuestion}
-          className={
-            activeField === 'question' ? `${styles.active} ${rotate}` : EMPTY_STRING
-          }
-        >
+        <div onClick={sortQuestion} className={sortQuestionStyle}>
           Question
         </div>
-        <div
-          onClick={sortAnswer}
-          className={
-            activeField === 'answer' ? `${styles.active} ${rotate}` : EMPTY_STRING
-          }
-        >
+        <div onClick={sortAnswer} className={sortAnswerStyle}>
           Answer
         </div>
-        <div
-          onClick={sortUpdate}
-          className={
-            activeField === 'updated' ? `${styles.active} ${rotate}` : EMPTY_STRING
-          }
-        >
+        <div onClick={sortUpdate} className={sortUpdateStyle}>
           Last Updated
         </div>
-        <div
-          onClick={sortGrade}
-          className={
-            activeField === 'grade' ? `${styles.active} ${rotate}` : EMPTY_STRING
-          }
-        >
+        <div onClick={sortGrade} className={sortGradeStyle}>
           Grade
         </div>
         {isCheckId && (

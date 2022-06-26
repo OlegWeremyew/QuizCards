@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { FC } from 'react';
 
 import styles from './Preloader.module.scss';
 
-export const Preloader = (): ReturnComponentType => (
+export const Preloader: FC = () => (
   <div className={styles.preloader}>
     <figure>
       <div />

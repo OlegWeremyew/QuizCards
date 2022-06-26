@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { initializeAppTC } from '../../Redux/appReducer';
 import { getInitializedAppSelector } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import { Preloader, RoutesComponent } from '../../ui';
 
-export const App = (): ReturnComponentType => {
+export const App: FC = () => {
   const dispatch = useDispatch();
 
   const isInitialized = useSelector(getInitializedAppSelector);

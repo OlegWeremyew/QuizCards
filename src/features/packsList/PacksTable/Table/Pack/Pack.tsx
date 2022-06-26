@@ -14,6 +14,7 @@ import {
   SuperInputText,
   SuperLoading,
 } from '../../../../../ui';
+import { ModalType } from '../../../../cards/CardsTable/Table/Card/types';
 import styles from '../PacksTable.module.scss';
 
 import { PackPropsType } from './types';
@@ -27,9 +28,9 @@ export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => 
   const [newPackName, setNewPackName] = useState<string>(pack.name);
   const [isShownModal, setIsShownModal] = useState<boolean>(false);
 
-  const [modalType, setModalType] = useState<'Delete' | 'Edit' | ''>(EMPTY_STRING);
+  const [modalType, setModalType] = useState<ModalType>(EMPTY_STRING);
   const closeModal = (): void => setIsShownModal(false);
-  const showModal = (modalType: 'Delete' | 'Edit' | ''): void => {
+  const showModal = (modalType: ModalType): void => {
     setIsShownModal(true);
     setModalType(modalType);
   };
@@ -54,7 +55,7 @@ export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => 
         {pack.name}
       </NavLink>
       <div>{pack.cardsCount}</div>
-      <div>{pack.updated.slice(0, 10)}</div>
+      <div className={styles.packUpdate}>{pack.updated.slice(0, 10)}</div>
       <div>{pack.user_name}</div>
       <div className={styles.buttons}>
         <NavLink

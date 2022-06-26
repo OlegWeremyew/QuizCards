@@ -1,4 +1,4 @@
-import { EMPTY_STRING } from '../constants';
+import { EMPTY_ARRAY, EMPTY_STRING } from '../constants';
 import { cardsAction, cardsReducer } from '../Redux/cardsReducer';
 import { InitialCardStateType } from '../Redux/cardsReducer/types';
 
@@ -6,7 +6,7 @@ let startState: InitialCardStateType;
 
 beforeEach(() => {
   startState = {
-    cards: [],
+    cards: EMPTY_ARRAY,
     cardsTotalCount: 0,
     maxGrade: 0,
     minGrade: 0,

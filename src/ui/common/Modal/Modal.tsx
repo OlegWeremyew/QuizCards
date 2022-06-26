@@ -1,16 +1,9 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { FC } from 'react';
 
 import styles from './Modal.module.scss';
 import { ModalPropsType } from './types';
 
-export const Modal: React.FC<ModalPropsType> = ({
-  show,
-  closeModal,
-  title,
-  children,
-}): ReturnComponentType => {
+export const Modal: FC<ModalPropsType> = ({ show, closeModal, title, children }) => {
   if (!show) return null;
 
   return (

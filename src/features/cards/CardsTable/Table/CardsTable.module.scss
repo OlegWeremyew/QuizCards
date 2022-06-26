@@ -52,6 +52,11 @@
     grid-template-columns: 1fr 180px;
     grid-gap: 16px;
   }
+
+}
+
+.word{
+  word-break: break-all;
 }
 
 .label {

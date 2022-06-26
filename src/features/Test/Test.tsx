@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { EMPTY_STRING } from '../../constants';
-import { ReturnComponentType } from '../../types';
 import {
   Pagination,
   RangeDemo,
@@ -13,7 +12,7 @@ import {
 
 import s from './Test.module.scss';
 
-export const Test = (): ReturnComponentType => {
+export const Test: FC = () => {
   const [value, setValue] = useState<string>(EMPTY_STRING);
   const [page, setPage] = useState(1);
   const [isShownModal, setIsShownModal] = useState<boolean>(true);

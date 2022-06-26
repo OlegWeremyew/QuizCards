@@ -1,3 +1,10 @@
+h2 {
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 32px;
+  padding: 10px 0;
+  margin: 0;
+}
+
 .input {
   margin-bottom: 20px;
   text-align: left;
@@ -25,6 +32,7 @@
 
 .linkLogin {
   text-decoration: none;
+  color: #5d079f
 }
 
 .forgotText {

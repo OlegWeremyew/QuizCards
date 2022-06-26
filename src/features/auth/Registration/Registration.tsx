@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
@@ -12,7 +12,6 @@ import {
   getIsLoadingAppSelector,
   getIsRegisteredRegisterSelector,
 } from '../../../selectors';
-import { ReturnComponentType } from '../../../types';
 import {
   Frame,
   Preloader,
@@ -24,7 +23,7 @@ import styles from '../Login/Login.module.scss';
 
 import s from './Registration.module.scss';
 
-export const Registration = (): ReturnComponentType => {
+export const Registration: FC = () => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);
   const [password, setPassword] = useState<string>(EMPTY_STRING);
   const [confirmPassword, setConfirmPassword] = useState<string>(EMPTY_STRING);
@@ -58,9 +57,6 @@ export const Registration = (): ReturnComponentType => {
     <>
       {loading && <Preloader />}
       <Frame>
-        <span>
-          <strong>It-incubator</strong>
-        </span>
         <h2>Sign up</h2>
         {error && <div className={s.error}>{error}</div>}
         <div className={s.input}>

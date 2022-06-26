@@ -5,3 +5,5 @@ export type CardPropsType = {
   isCheckId: boolean;
   classMyCards: string;
 };
+
+export type ModalType = 'Delete' | 'Edit' | '';

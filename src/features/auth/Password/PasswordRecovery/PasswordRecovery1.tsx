@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom';
@@ -12,12 +12,11 @@ import {
   getIsChangedPassPasswordSelector,
   getIsLoadingAppSelector,
 } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types';
 import { Frame, Preloader, SuperButton, SuperInputPassword } from '../../../../ui';
 
 import styles from './PasswordRecovery1.module.scss';
 
-export const PasswordRecovery1 = (): ReturnComponentType => {
+export const PasswordRecovery1: FC = () => {
   const [password, setPassword] = useState<string>(EMPTY_STRING);
 
   const isChangedPass = useSelector(getIsChangedPassPasswordSelector);

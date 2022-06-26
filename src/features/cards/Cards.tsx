@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink, useParams } from 'react-router-dom';
@@ -21,7 +21,6 @@ import {
   getSortCardsCardsSelector,
   getStatusLoginSelector,
 } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import {
   CardsSearch,
   Modal,
@@ -37,7 +36,7 @@ import Header from '../../ui/header/Header';
 import styles from './Cards.module.scss';
 import { CardsTable } from './CardsTable/Table';
 
-export const Cards = (): ReturnComponentType => {
+export const Cards: FC = () => {
   const myId = useSelector(get_idProfileSelector);
   const userId = useSelector(getPackUserIdCardsSelector);
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,19 +8,18 @@ import {
   getMaxCardsPackSelector,
   getMinCardsPackSelector,
 } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import { DoubleCheckbox } from '../common';
 import SuperDoubleRange from '../common/SuperRange/common/c8-SuperDoubleRange/SuperDoubleRange';
 import stl from '../common/SuperRange/RangeDemo.module.scss';
 
 import styles from './Sidebar.module.scss';
 
-export const Sidebar = (): ReturnComponentType => {
+export const Sidebar: FC = () => {
   const dispatch = useDispatch();
   const maxCardsCount = useSelector(getMaxCardsCountCardsPackSelector);
   const max = useSelector(getMaxCardsPackSelector);
   const min = useSelector(getMinCardsPackSelector);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState<number>(0);
 
   useEffect(() => {
     dispatch(cardsPackAction.setMaxAC(maxCardsCount));

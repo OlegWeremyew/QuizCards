@@ -1,10 +1,10 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
 import { EMPTY_STRING } from '../../../constants';
 import { updateProfile } from '../../../Redux/profileReducer';
-import { Nullable, ReturnComponentType } from '../../../types';
+import { Nullable, Undetectable } from '../../../types';
 import { ModalButtonsWrap, SuperButton, SuperInputText } from '../../../ui';
 import noAvatar from '../images/noAvatar.png';
 import icon from '../images/Union.png';
@@ -13,9 +13,7 @@ import styles from '../Profile.module.scss';
 import stl from './AvatarFileReader.module.scss';
 import { AvatarFilePropsType } from './types';
 
-export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({
-  closeModal,
-}): ReturnComponentType => {
+export const AvatarFileReader: FC<AvatarFilePropsType> = ({ closeModal }) => {
   const dispatch = useDispatch();
   const [newLink, setNewLink] = useState<string>(EMPTY_STRING);
 
@@ -94,7 +92,7 @@ export const AvatarFileReader: React.FC<AvatarFilePropsType> = ({
 };
 
 // eslint-disable-next-line consistent-return
-const returnFileSize = (n: number): any => {
+const returnFileSize = (n: number): Undetectable<string> => {
   if (n < 1024) {
     return `${n}bytes`;
   }

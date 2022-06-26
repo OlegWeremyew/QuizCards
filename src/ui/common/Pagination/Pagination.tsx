@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppAction } from '../../../Redux/appReducer';
 import { getIsLoadingAppSelector } from '../../../selectors';
-import { ReturnComponentType } from '../../../types';
 
 import styles from './Pagination.module.scss';
 import { PaginationPropsType } from './types';
 
-export const Pagination: React.FC<PaginationPropsType> = ({
+export const Pagination: FC<PaginationPropsType> = ({
   totalCount,
   pageSize,
   currentPage,
   onChangedPage,
-}): ReturnComponentType => {
+}) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoadingAppSelector);
   const pageCounts = totalCount ? Math.ceil(totalCount / pageSize) : 1;

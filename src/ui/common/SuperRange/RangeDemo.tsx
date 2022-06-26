@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { FC, useState } from 'react';
 
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange';
 import stl from './RangeDemo.module.scss';
 
-export const RangeDemo = (): ReturnComponentType => {
+export const RangeDemo: FC = () => {
   const [value1, setValue1] = useState<number>(0);
   const [value2, setValue2] = useState<number>(100);
 

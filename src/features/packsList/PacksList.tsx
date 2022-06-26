@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -23,7 +23,6 @@ import {
   getSortPacksCardsPackSelector,
   getStatusLoginSelector,
 } from '../../selectors';
-import { ReturnComponentType } from '../../types';
 import {
   Modal,
   ModalButtonsWrap,
@@ -41,7 +40,7 @@ import Header from '../../ui/header/Header';
 import styles from './PacksList.module.scss';
 import { PacksTable } from './PacksTable/Table';
 
-export const PacksList = (): ReturnComponentType => {
+export const PacksList: FC = () => {
   const dispatch = useDispatch();
 
   const error = useSelector(getErrorAppSelector);

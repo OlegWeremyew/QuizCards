@@ -1,22 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { ReturnComponentType } from '../../../../../types';
 import SuperRange from '../c7-SuperRange/SuperRange';
 
 import stl from './DoubleRange.module.scss';
+import { SuperDoubleRangePropsType } from './types';
 
-type SuperDoubleRangePropsType = {
-  onChangeRange: (value: [number, number]) => void;
-  value: [number, number];
-  // eslint-disable-next-line react/require-default-props
-  max?: number;
-};
-
-const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = ({
+const SuperDoubleRange: FC<SuperDoubleRangePropsType> = ({
   onChangeRange,
   value,
   max,
-}): ReturnComponentType => {
+}) => {
   const onChangeRangeMin = (min: number): void => {
     if (value[0] <= value[1]) {
       onChangeRange([min, value[1]]);

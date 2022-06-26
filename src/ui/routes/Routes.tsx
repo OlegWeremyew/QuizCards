@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -15,10 +15,9 @@ import {
   Registration,
   Test,
 } from '../../features';
-import { ReturnComponentType } from '../../types';
 import { Error404 } from '../common';
 
-export const RoutesComponent = (): ReturnComponentType => (
+export const RoutesComponent: FC = () => (
   <Routes>
     <Route path="/" element={<Login />} />
     <Route path={PATH.LOGIN} element={<Login />} />

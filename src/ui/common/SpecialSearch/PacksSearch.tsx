@@ -1,15 +1,14 @@
-import React, { ChangeEvent, useState, KeyboardEvent, useEffect } from 'react';
+import React, { ChangeEvent, useState, KeyboardEvent, useEffect, FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { EMPTY_STRING } from '../../../constants';
 import { cardsPackAction } from '../../../Redux/cardsPackReducer';
 import { getPackNameCardsPackSelector } from '../../../selectors';
-import { ReturnComponentType } from '../../../types';
 
-import s from './PackSearch.module.scss';
+import style from './PackSearch.module.scss';
 
-export const PacksSearch = (): ReturnComponentType => {
+export const PacksSearch: FC = () => {
   const dispatch = useDispatch();
   const packName = useSelector(getPackNameCardsPackSelector);
   const [event, setEvent] = useState<string>(EMPTY_STRING);
@@ -34,7 +33,7 @@ export const PacksSearch = (): ReturnComponentType => {
   };
 
   return (
-    <div className={s.wrap}>
+    <div className={style.wrap}>
       <input
         onKeyPress={onKeyPressBtnHandler}
         type="text"
@@ -42,7 +41,7 @@ export const PacksSearch = (): ReturnComponentType => {
         value={event}
         onChange={handleChange}
       />
-      <button type="button" onClick={BtnHandler} className={s.btnSearch} />
+      <button type="button" onClick={BtnHandler} className={style.btnSearch} />
     </div>
   );
 };

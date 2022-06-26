@@ -1,11 +1,9 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
-
-import { ReturnComponentType } from '../../../types';
+import React, { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
 
 import s from './SuperInputPassword.module.scss';
 import { SuperInputPasswordPropsType } from './types';
 
-export const SuperInputPassword: React.FC<SuperInputPasswordPropsType> = ({
+export const SuperInputPassword: FC<SuperInputPasswordPropsType> = ({
   onChange,
   onChangeText,
   onKeyPress,
@@ -13,7 +11,7 @@ export const SuperInputPassword: React.FC<SuperInputPasswordPropsType> = ({
   error,
   className,
   ...restProps
-}): ReturnComponentType => {
+}) => {
   const [isShown, setIsShow] = useState<boolean>(false);
 
   const typeInput = isShown ? 'text' : 'password';

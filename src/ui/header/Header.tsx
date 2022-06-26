@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -9,11 +9,10 @@ import profileIcon from '../../assets/images/header/Profile.png';
 import { EMPTY_STRING } from '../../constants';
 import { PATH } from '../../constants/routes';
 import { logoutTC } from '../../Redux/loginReducer';
-import { ReturnComponentType } from '../../types';
 
 import styles from './Header.module.scss';
 
-export const Header = (): ReturnComponentType => {
+export const Header: FC = () => {
   const dispatch = useDispatch();
   const logOutHandler = (): void => {
     dispatch(logoutTC());

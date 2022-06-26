@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
@@ -12,13 +12,12 @@ import {
   getIsLoadingAppSelector,
   getIsSendPasswordSelector,
 } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types';
 import { Frame, Preloader, SuperButton, SuperInputText } from '../../../../ui';
 import styles from '../../Login/Login.module.scss';
 
 import s from './ForgotYourPassword.module.scss';
 
-export const ForgotYourPassword = (): ReturnComponentType => {
+export const ForgotYourPassword: FC = () => {
   const isSend = useSelector(getIsSendPasswordSelector);
   const isError = useSelector(getErrorAppSelector);
   const loading = useSelector(getIsLoadingAppSelector);
