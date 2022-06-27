@@ -2,7 +2,9 @@ import React, { FC } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { PATH } from '../../constants/routes';
+import { Error404 } from '../common';
+
+import { PATH } from 'constants/routes';
 import {
   Cards,
   CheckEmail,
@@ -14,8 +16,7 @@ import {
   Profile,
   Registration,
   Test,
-} from '../../features';
-import { Error404 } from '../common';
+} from 'features';
 
 export const RoutesComponent: FC = () => (
   <Routes>

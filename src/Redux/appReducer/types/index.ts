@@ -1,5 +1,5 @@
-import { InferActionTypes } from '../../types';
-import { AppAction } from '../appAction';
+import { AppAction } from 'Redux/appReducer';
+import { InferActionTypes } from 'Redux/types';
 
 export type InitialAppStateType = {
   isInitialized: boolean;

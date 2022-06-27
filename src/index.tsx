@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 
 import ReactDOM from 'react-dom';
 import './index.scss';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
-import { App } from './features';
-import { store } from './Redux/store';
+import { App } from 'features';
+import { store } from 'Redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <HashRouter>
         <App />
       </HashRouter>
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root'),
 );

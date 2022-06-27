@@ -1,4 +1,4 @@
-import { AppRootStateType } from '../../Redux/store';
+import { AppRootStateType } from 'Redux/store';
 
 export const getInitializedAppSelector = (state: AppRootStateType): boolean =>
   state.app.isInitialized;

@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
 
-import { authAndProfileApi } from '../../../api';
-import { EMPTY_STRING } from '../../../constants';
-import { Undetectable } from '../../../types';
-import { AppAction } from '../../appReducer';
-import { passwordAction } from '../passwordAction';
+import { authAndProfileApi } from 'api/authAndProfileApi';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { passwordAction } from 'Redux/passwordReducer';
+import { Undetectable } from 'types/index';
 
 export const passwordForgotTC =
   (email: string): any =>

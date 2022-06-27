@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import { EMPTY_STRING } from '../../constants';
 import {
   Pagination,
   RangeDemo,
@@ -11,6 +10,8 @@ import {
 } from '../../ui';
 
 import s from './Test.module.scss';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 export const Test: FC = () => {
   const [value, setValue] = useState<string>(EMPTY_STRING);

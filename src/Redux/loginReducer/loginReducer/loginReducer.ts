@@ -1,5 +1,5 @@
-import { SET_IS_LOGGED_IN } from '../constants';
-import { AuthActionsType, initialStateLoginType } from '../types';
+import { SET_IS_LOGGED_IN } from 'Redux/loginReducer/constants';
+import { AuthActionsType, initialStateLoginType } from 'Redux/loginReducer/types';
 
 export const initialStateLogin: initialStateLoginType = {
   status: false,

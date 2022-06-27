@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux';
 
-import { authAndProfileApi } from '../../../api';
-import { LoginAction } from '../../loginReducer';
-import { profileAction } from '../../profileReducer';
-import { AppAction } from '../appAction';
+import { authAndProfileApi } from 'api/authAndProfileApi';
+import { AppAction } from 'Redux/appReducer';
+import { LoginAction } from 'Redux/loginReducer';
+import { profileAction } from 'Redux/profileReducer';
 
-export const initializeAppTC = (): any => (dispatch: Dispatch) => {
+export const initializeAppTC = (): Function => (dispatch: Dispatch) => {
   authAndProfileApi
     .me()
     .then(res => {

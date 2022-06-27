@@ -1,6 +1,6 @@
-import { CardType } from '../../../api/cardsApi/types';
-import { InferActionTypes } from '../../types';
-import { cardsAction } from '../cardsAction';
+import { CardType } from 'api/cardsApi/types';
+import { cardsAction } from 'Redux/cardsReducer';
+import { InferActionTypes } from 'Redux/types';
 
 export type InitialCardStateType = {
   cards: Array<CardType>;

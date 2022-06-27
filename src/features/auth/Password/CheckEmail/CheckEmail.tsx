@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import email2 from '../../../../assets/images/email2.png';
-import { getEmailPasswordSelector } from '../../../../selectors';
-import { Frame } from '../../../../ui';
-
 import styles from './CheckEmail.module.scss';
+
+import email2 from 'assets/images/email2.png';
+import { getEmailPasswordSelector } from 'selectors';
+import { Frame } from 'ui';
 
 export const CheckEmail: FC = () => {
   const emailName = useSelector(getEmailPasswordSelector);

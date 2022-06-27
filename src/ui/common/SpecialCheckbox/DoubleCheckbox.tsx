@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { cardsPackAction } from '../../../Redux/cardsPackReducer';
-import { getIsLoadingAppSelector, getMyPacksCardsPackSelector } from '../../../selectors';
-
 import styles from './DoubleCheckbox.module.scss';
+
+import { cardsPackAction } from 'Redux/cardsPackReducer';
+import { getIsLoadingAppSelector, getMyPacksCardsPackSelector } from 'selectors';
 
 export const DoubleCheckbox: FC = () => {
   const myPacks = useSelector(getMyPacksCardsPackSelector);

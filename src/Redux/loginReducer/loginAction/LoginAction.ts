@@ -1,4 +1,4 @@
-import { SET_IS_LOGGED_IN } from '../constants';
+import { SET_IS_LOGGED_IN } from 'Redux/loginReducer/constants';
 
 export const LoginAction = {
   setIsLoggedInAC(status: boolean) {

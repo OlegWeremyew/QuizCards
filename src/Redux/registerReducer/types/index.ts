@@ -1,5 +1,5 @@
-import { InferActionTypes } from '../../types';
-import { registerAction } from '../registerAction';
+import { registerAction } from 'Redux/registerReducer';
+import { InferActionTypes } from 'Redux/types';
 
 export type InitialRegisterStateType = {
   isRegistered: boolean;

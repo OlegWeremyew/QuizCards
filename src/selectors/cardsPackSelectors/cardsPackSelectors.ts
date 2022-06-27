@@ -1,5 +1,5 @@
-import { PackType } from '../../api/cardsPackApi/types';
-import { AppRootStateType } from '../../Redux/store';
+import { PackType } from 'api/cardsPackApi/types';
+import { AppRootStateType } from 'Redux/store';
 
 export const getPackNameCardsPackSelector = (state: AppRootStateType): string =>
   state.cardsPack.packName;

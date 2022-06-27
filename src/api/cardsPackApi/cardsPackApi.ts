@@ -1,5 +1,3 @@
-import { instance } from '../instance';
-
 import { endPointCardsPack } from './constants';
 import {
   AddCardsPackParamsType,
@@ -7,6 +5,8 @@ import {
   PacksResponseType,
   UpdateCardsPackType,
 } from './types';
+
+import { instance } from 'api/instance';
 
 export const cardsPackApi = {
   getPacks(params: Partial<GetPacksParamsType>) {

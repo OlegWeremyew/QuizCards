@@ -1,4 +1,4 @@
-import { PacksResponseType } from '../../../api/cardsPackApi/types';
+import { PacksResponseType } from 'api/cardsPackApi/types';
 import {
   CHANGE_CURRENT_PAGE,
   SET_DEBOUNCING_FLAG,
@@ -9,7 +9,7 @@ import {
   SET_PACKS_LIST,
   SET_PAGE_COUNT,
   SORT,
-} from '../constants';
+} from 'Redux/cardsPackReducer/constants';
 
 export const cardsPackAction = {
   setPacksListsAC(data: PacksResponseType) {

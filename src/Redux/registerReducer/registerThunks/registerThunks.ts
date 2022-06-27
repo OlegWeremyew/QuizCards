@@ -1,9 +1,9 @@
 import { Dispatch } from 'redux';
 
-import { authAndProfileApi } from '../../../api';
-import { EMPTY_STRING } from '../../../constants';
-import { AppAction } from '../../appReducer';
-import { registerAction } from '../registerAction';
+import { authAndProfileApi } from 'api';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { registerAction } from 'Redux/registerReducer';
 
 export const registerTC =
   (email: string, password: string): any =>

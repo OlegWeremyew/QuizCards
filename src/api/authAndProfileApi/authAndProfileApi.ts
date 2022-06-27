@@ -1,8 +1,5 @@
 import { AxiosResponse } from 'axios';
 
-import { Undetectable } from '../../types';
-import { instance } from '../instance';
-
 import {
   endPointAuthForgot,
   endPointAuthLogin,
@@ -17,6 +14,9 @@ import {
   updateProfileResponseType,
   UserResponseType,
 } from './types';
+
+import { instance } from 'api/instance';
+import { Undetectable } from 'types/index';
 
 export const authAndProfileApi = {
   me() {

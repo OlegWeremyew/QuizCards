@@ -1,6 +1,11 @@
-import { EMPTY_STRING } from '../../../constants';
-import { LOADING, SET_ERROR, SET_ERROR_APP, SET_INITIALIZED } from '../constants';
-import { ActionAppReducerType, InitialAppStateType } from '../types';
+import { EMPTY_STRING } from 'constants/variables';
+import {
+  LOADING,
+  SET_ERROR,
+  SET_ERROR_APP,
+  SET_INITIALIZED,
+} from 'Redux/appReducer/constants';
+import { ActionAppReducerType, InitialAppStateType } from 'Redux/appReducer/types';
 
 export const initialAppState = {
   isInitialized: false,

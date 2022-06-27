@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AppAction } from '../../../Redux/appReducer';
-import { getIsLoadingAppSelector } from '../../../selectors';
-
 import styles from './Pagination.module.scss';
 import { PaginationPropsType } from './types';
+
+import { AppAction } from 'Redux/appReducer';
+import { getIsLoadingAppSelector } from 'selectors';
 
 export const Pagination: FC<PaginationPropsType> = ({
   totalCount,

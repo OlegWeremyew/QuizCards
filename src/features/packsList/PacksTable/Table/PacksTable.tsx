@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../../constants';
-import { cardsPackAction } from '../../../../Redux/cardsPackReducer';
+import { Pack } from './Pack';
+import styles from './PacksTable.module.scss';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { cardsPackAction } from 'Redux/cardsPackReducer';
 import {
   getCardPacksCountCardsPackSelector,
   getIsLoadingAppSelector,
   getSortPacksCardsPackSelector,
-} from '../../../../selectors';
-import { sortFields } from '../../../../utilits';
-
-import { Pack } from './Pack';
-import styles from './PacksTable.module.scss';
+} from 'selectors';
+import { sortFields } from 'utils';
 
 export const PacksTable: FC = () => {
   const dispatch = useDispatch();

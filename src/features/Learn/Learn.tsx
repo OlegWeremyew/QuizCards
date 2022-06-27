@@ -3,17 +3,17 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { CardType } from '../../api/cardsApi/types';
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../constants/routes';
-import { cardsAction, CardsGradeTC, learnCardsTC } from '../../Redux/cardsReducer';
-import { AppRootStateType } from '../../Redux/store';
-import { getCardsCardsSelector, getIsLoadingAppSelector } from '../../selectors';
-import { Frame, Preloader, SuperButton, SuperRadio } from '../../ui';
-import Header from '../../ui/header/Header';
-
 import { btnStyle, grades, initialState } from './data';
 import stl from './Learn.module.scss';
+
+import { CardType } from 'api/cardsApi/types';
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { cardsAction, CardsGradeTC, learnCardsTC } from 'Redux/cardsReducer';
+import { AppRootStateType } from 'Redux/store';
+import { getCardsCardsSelector, getIsLoadingAppSelector } from 'selectors';
+import { Frame, Preloader, SuperButton, SuperRadio } from 'ui';
+import Header from 'ui/header/Header';
 
 const getCard = (cards: CardType[]): CardType => {
   const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);

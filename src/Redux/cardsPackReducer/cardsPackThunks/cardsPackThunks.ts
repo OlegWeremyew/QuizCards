@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
 
-import { cardsPackApi } from '../../../api';
-import { EMPTY_STRING } from '../../../constants';
-import { AppAction } from '../../appReducer';
-import { AppRootStateType } from '../../store';
-import { cardsPackAction } from '../cardsPackAction';
+import { cardsPackApi } from 'api/cardsPackApi';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { cardsPackAction } from 'Redux/cardsPackReducer';
+import { AppRootStateType } from 'Redux/store';
 
 export const fetchPacksListsTC =
   () => (dispatch: Dispatch, getState: () => AppRootStateType) => {

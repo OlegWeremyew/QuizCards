@@ -3,19 +3,14 @@ import React, { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../../../../constants';
-import { deleteCardTC, updateCardTC } from '../../../../../Redux/cardsReducer';
-import { getIsLoadingAppSelector } from '../../../../../selectors';
-import {
-  Modal,
-  ModalButtonsWrap,
-  SuperButton,
-  SuperLoading,
-  SuperTextArea,
-} from '../../../../../ui';
 import styles from '../CardsTable.module.scss';
 
 import { CardPropsType, ModalType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { deleteCardTC, updateCardTC } from 'Redux/cardsReducer';
+import { getIsLoadingAppSelector } from 'selectors';
+import { Modal, ModalButtonsWrap, SuperButton, SuperLoading, SuperTextArea } from 'ui';
 
 export const Card: FC<CardPropsType> = ({ card, isCheckId, classMyCards }) => {
   const dispatch = useDispatch();

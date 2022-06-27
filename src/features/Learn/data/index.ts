@@ -1,5 +1,5 @@
-import { CardType } from '../../../api/cardsApi/types';
-import { EMPTY_STRING } from '../../../constants';
+import { CardType } from 'api/cardsApi/types';
+import { EMPTY_STRING } from 'constants/variables';
 
 export const grades = [
   'Did not know',

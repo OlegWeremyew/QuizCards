@@ -2,10 +2,10 @@ import React, { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../constants';
-import { cardsAction } from '../../../Redux/cardsReducer';
-
 import styles from './PackSearch.module.scss';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { cardsAction } from 'Redux/cardsReducer';
 
 export const CardsSearch: FC = () => {
   const dispatch = useDispatch();

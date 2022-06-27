@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import { SuperButton } from '../SuperButton';
-
 import styles from './Modal.module.scss';
 import { ModalButtonsWrapPropsType } from './types';
+
+import { SuperButton } from 'ui/common';
 
 export const ModalButtonsWrap: FC<ModalButtonsWrapPropsType> = ({
   closeModal,

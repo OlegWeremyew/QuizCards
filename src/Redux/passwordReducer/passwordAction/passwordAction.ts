@@ -1,4 +1,4 @@
-import { SEND_EMAIL, SET_IS_CHANGED_PASSWORD } from '../constants';
+import { SEND_EMAIL, SET_IS_CHANGED_PASSWORD } from 'Redux/passwordReducer/constants';
 
 export const passwordAction = {
   passwordForgotAC(isSend: boolean, email: string) {

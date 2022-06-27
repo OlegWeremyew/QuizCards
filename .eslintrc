@@ -128,7 +128,7 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "import/order": [
-      "error",
+      "off",
       {
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": [

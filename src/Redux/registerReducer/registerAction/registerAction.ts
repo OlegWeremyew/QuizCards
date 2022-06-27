@@ -1,4 +1,4 @@
-import { SET_REGISTER } from '../constants';
+import { SET_REGISTER } from 'Redux/registerReducer/constants';
 
 export const registerAction = {
   setRegister(isRegistered: boolean) {

@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 
-import { EMPTY_STRING } from '../../../constants';
-import { SuperInputText } from '../SuperInputText';
-
 import classes from './SuperEditableSpan.module.scss';
-import { SuperEditableSpanType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { SuperInputText } from 'ui/common';
+import { SuperEditableSpanType } from 'ui/common/SuperEditableSpan/types';
 
 export const SuperEditableSpan: FC<SuperEditableSpanType> = ({
   onBlur,

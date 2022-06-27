@@ -2,16 +2,17 @@ import React, { ChangeEvent, FC, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../constants';
-import { updateProfile } from '../../../Redux/profileReducer';
-import { Nullable, Undetectable } from '../../../types';
-import { ModalButtonsWrap, SuperButton, SuperInputText } from '../../../ui';
 import noAvatar from '../images/noAvatar.png';
 import icon from '../images/Union.png';
 import styles from '../Profile.module.scss';
 
 import stl from './AvatarFileReader.module.scss';
 import { AvatarFilePropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { updateProfile } from 'Redux/profileReducer';
+import { Nullable, Undetectable } from 'types';
+import { ModalButtonsWrap, SuperButton, SuperInputText } from 'ui';
 
 export const AvatarFileReader: FC<AvatarFilePropsType> = ({ closeModal }) => {
   const dispatch = useDispatch();

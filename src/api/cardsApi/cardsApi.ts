@@ -1,5 +1,3 @@
-import { instance } from '../instance';
-
 import { endPointCardsCard, endPointCardsGrade } from './constants';
 import {
   addCardType,
@@ -8,6 +6,8 @@ import {
   GetCardsGrade,
   GetCardsParamsType,
 } from './types';
+
+import { instance } from 'api/instance';
 
 export const cardsApi = {
   getCards(params: Partial<GetCardsParamsType>) {

@@ -2,11 +2,11 @@ import React, { ChangeEvent, useState, KeyboardEvent, useEffect, FC } from 'reac
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../constants';
-import { cardsPackAction } from '../../../Redux/cardsPackReducer';
-import { getPackNameCardsPackSelector } from '../../../selectors';
-
 import style from './PackSearch.module.scss';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { cardsPackAction } from 'Redux/cardsPackReducer';
+import { getPackNameCardsPackSelector } from 'selectors';
 
 export const PacksSearch: FC = () => {
   const dispatch = useDispatch();

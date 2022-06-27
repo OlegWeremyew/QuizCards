@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 
-import { SuperSelect } from '../SuperSelect';
-
 import styles from './PageSizeSelector.module.scss';
 import { PageSizeSelectorPropsType } from './types';
+
+import { SuperSelect } from 'ui/common';
 
 export const PageSizeSelector: FC<PageSizeSelectorPropsType> = ({
   pageCount,

@@ -1,12 +1,12 @@
-import { UserResponseType } from '../../../api/authAndProfileApi/types';
-import { EMPTY_STRING } from '../../../constants';
+import { UserResponseType } from 'api/authAndProfileApi/types';
+import { EMPTY_STRING } from 'constants/variables';
 import {
   SET_PROFILE_DATA,
   SET_PROFILE_DELETE_DATA,
   SET_PROFILE_ERROR,
   UPDATE_PROFILE_DATA,
-} from '../constants';
-import { ProfileActionsType } from '../types';
+} from 'Redux/profileReducer/constants';
+import { ProfileActionsType } from 'Redux/profileReducer/types';
 
 export const profileInitialState: UserResponseType = {
   _id: EMPTY_STRING,

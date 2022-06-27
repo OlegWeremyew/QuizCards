@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { ActionAppReducerType } from '../../Redux/appReducer/types';
+import { ActionAppReducerType } from 'Redux/appReducer/types';
 
 export const sortFields = (
   field: string,

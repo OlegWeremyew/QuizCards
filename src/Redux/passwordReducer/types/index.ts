@@ -1,5 +1,5 @@
-import { InferActionTypes } from '../../types';
-import { passwordAction } from '../passwordAction';
+import { passwordAction } from 'Redux/passwordReducer';
+import { InferActionTypes } from 'Redux/types';
 
 export type InitialPasswordStateType = {
   isSend: boolean;

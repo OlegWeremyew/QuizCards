@@ -1,5 +1,5 @@
-import { InferActionTypes } from '../../types';
-import { LoginAction } from '../loginAction';
+import { LoginAction } from 'Redux/loginReducer';
+import { InferActionTypes } from 'Redux/types';
 
 export type initialStateLoginType = {
   status: boolean;

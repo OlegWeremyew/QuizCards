@@ -3,10 +3,13 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink, useParams } from 'react-router-dom';
 
-import backPage from '../../assets/images/backPage.svg';
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../constants/routes';
-import { addCardTC, cardsAction, fetchCardsTC } from '../../Redux/cardsReducer';
+import styles from './Cards.module.scss';
+import { CardsTable } from './CardsTable/Table';
+
+import backPage from 'assets/images/backPage.svg';
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { addCardTC, cardsAction, fetchCardsTC } from 'Redux/cardsReducer';
 import {
   get_idProfileSelector,
   getCardAnswerCardsSelector,
@@ -20,7 +23,7 @@ import {
   getPageCountCardsSelector,
   getSortCardsCardsSelector,
   getStatusLoginSelector,
-} from '../../selectors';
+} from 'selectors';
 import {
   CardsSearch,
   Modal,
@@ -30,16 +33,14 @@ import {
   Pagination,
   SuperButton,
   SuperTextArea,
-} from '../../ui';
-import Header from '../../ui/header/Header';
-
-import styles from './Cards.module.scss';
-import { CardsTable } from './CardsTable/Table';
+} from 'ui';
+import Header from 'ui/header/Header';
 
 export const Cards: FC = () => {
+  const dispatch = useDispatch();
+
   const myId = useSelector(get_idProfileSelector);
   const userId = useSelector(getPackUserIdCardsSelector);
-  const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoadingAppSelector);
   const packName = useSelector(getPackNameCardsPackSelector);
   const cards = useSelector(getCardsCardsSelector);

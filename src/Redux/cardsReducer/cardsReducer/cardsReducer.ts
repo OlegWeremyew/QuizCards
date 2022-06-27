@@ -1,4 +1,4 @@
-import { EMPTY_ARRAY, EMPTY_STRING } from '../../../constants';
+import { EMPTY_ARRAY, EMPTY_STRING } from 'constants/variables';
 import {
   CHANGE_CURRENT_PAGE,
   CLEAR_CARDS,
@@ -7,8 +7,8 @@ import {
   SET_FILTER_CARDS,
   SET_PAGE_COUNT_CARDS,
   SORT_CARDS,
-} from '../constants';
-import { CardsActionsType, InitialCardStateType } from '../types';
+} from 'Redux/cardsReducer/constants';
+import { CardsActionsType, InitialCardStateType } from 'Redux/cardsReducer/types';
 
 const initialCardState = {
   cards: EMPTY_ARRAY,

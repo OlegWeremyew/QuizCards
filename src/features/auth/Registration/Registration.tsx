@@ -3,25 +3,20 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../../constants';
-import { PATH } from '../../../constants/routes';
-import { AppAction } from '../../../Redux/appReducer';
-import { registerAction, registerTC } from '../../../Redux/registerReducer';
+import styles from '../Login/Login.module.scss';
+
+import s from './Registration.module.scss';
+
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { registerAction, registerTC } from 'Redux/registerReducer';
 import {
   getErrorAppSelector,
   getIsLoadingAppSelector,
   getIsRegisteredRegisterSelector,
-} from '../../../selectors';
-import {
-  Frame,
-  Preloader,
-  SuperButton,
-  SuperInputPassword,
-  SuperInputText,
-} from '../../../ui';
-import styles from '../Login/Login.module.scss';
-
-import s from './Registration.module.scss';
+} from 'selectors';
+import { Frame, Preloader, SuperButton, SuperInputPassword, SuperInputText } from 'ui';
 
 export const Registration: FC = () => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);

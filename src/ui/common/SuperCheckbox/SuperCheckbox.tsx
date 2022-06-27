@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
 
-import { EMPTY_STRING } from '../../../constants';
-
 import s from './SuperCheckbox.module.scss';
 import { SuperCheckboxPropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 export const SuperCheckbox: FC<SuperCheckboxPropsType> = ({
   onChange,

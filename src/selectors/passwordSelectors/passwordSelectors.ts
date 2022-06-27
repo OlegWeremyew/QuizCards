@@ -1,4 +1,4 @@
-import { AppRootStateType } from '../../Redux/store';
+import { AppRootStateType } from 'Redux/store';
 
 export const getEmailPasswordSelector = (state: AppRootStateType): string =>
   state.recovery.email;

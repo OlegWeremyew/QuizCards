@@ -3,21 +3,16 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../../../../constants';
-import { deletePackTC, editPackTC } from '../../../../../Redux/cardsPackReducer';
-import { get_idProfileSelector, getIsLoadingAppSelector } from '../../../../../selectors';
-import { ReturnComponentType } from '../../../../../types';
-import {
-  Modal,
-  ModalButtonsWrap,
-  SuperButton,
-  SuperInputText,
-  SuperLoading,
-} from '../../../../../ui';
-import { ModalType } from '../../../../cards/CardsTable/Table/Card/types';
 import styles from '../PacksTable.module.scss';
 
 import { PackPropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { ModalType } from 'features/cards/CardsTable/Table/Card/types';
+import { deletePackTC, editPackTC } from 'Redux/cardsPackReducer';
+import { get_idProfileSelector, getIsLoadingAppSelector } from 'selectors';
+import { ReturnComponentType } from 'types';
+import { Modal, ModalButtonsWrap, SuperButton, SuperInputText, SuperLoading } from 'ui';
 
 export const Pack: React.FC<PackPropsType> = ({ pack }): ReturnComponentType => {
   const dispatch = useDispatch();

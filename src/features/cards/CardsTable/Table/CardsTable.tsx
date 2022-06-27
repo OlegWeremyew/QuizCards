@@ -2,19 +2,19 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../../constants';
-import { cardsAction } from '../../../../Redux/cardsReducer';
+import { Card } from './Card';
+import styles from './CardsTable.module.scss';
+import { CardsTablePropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { cardsAction } from 'Redux/cardsReducer';
 import {
   get_idProfileSelector,
   getIsLoadingAppSelector,
   getPageCardsSelector,
   getSortCardsCardsSelector,
-} from '../../../../selectors';
-import { sortFields } from '../../../../utilits';
-
-import { Card } from './Card';
-import styles from './CardsTable.module.scss';
-import { CardsTablePropsType } from './types';
+} from 'selectors';
+import { sortFields } from 'utils';
 
 export const CardsTable: FC<CardsTablePropsType> = ({ cards }) => {
   const dispatch = useDispatch();

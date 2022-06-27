@@ -1,5 +1,5 @@
-import { AppRootStateType } from '../../Redux/store';
-import { Undetectable } from '../../types';
+import { AppRootStateType } from 'Redux/store';
+import { Undetectable } from 'types';
 
 export const get_idProfileSelector = (state: AppRootStateType): string =>
   state.profilePage._id;

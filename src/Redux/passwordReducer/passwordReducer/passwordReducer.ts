@@ -1,6 +1,9 @@
-import { EMPTY_STRING } from '../../../constants';
-import { SEND_EMAIL, SET_IS_CHANGED_PASSWORD } from '../constants';
-import { InitialPasswordStateType, PasswordActionsType } from '../types';
+import { EMPTY_STRING } from 'constants/variables';
+import { SEND_EMAIL, SET_IS_CHANGED_PASSWORD } from 'Redux/passwordReducer/constants';
+import {
+  InitialPasswordStateType,
+  PasswordActionsType,
+} from 'Redux/passwordReducer/types';
 
 const initialPasswordState = {
   isSend: false,

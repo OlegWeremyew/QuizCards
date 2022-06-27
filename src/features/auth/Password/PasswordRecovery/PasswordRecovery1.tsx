@@ -3,18 +3,18 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../../../constants';
-import { PATH } from '../../../../constants/routes';
-import { AppAction } from '../../../../Redux/appReducer';
-import { changePassTC } from '../../../../Redux/passwordReducer';
+import styles from './PasswordRecovery1.module.scss';
+
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { changePassTC } from 'Redux/passwordReducer';
 import {
   getErrorAppSelector,
   getIsChangedPassPasswordSelector,
   getIsLoadingAppSelector,
-} from '../../../../selectors';
-import { Frame, Preloader, SuperButton, SuperInputPassword } from '../../../../ui';
-
-import styles from './PasswordRecovery1.module.scss';
+} from 'selectors';
+import { Frame, Preloader, SuperButton, SuperInputPassword } from 'ui';
 
 export const PasswordRecovery1: FC = () => {
   const [password, setPassword] = useState<string>(EMPTY_STRING);

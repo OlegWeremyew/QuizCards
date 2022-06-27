@@ -1,10 +1,10 @@
-import { UserResponseType } from '../../../api/authAndProfileApi/types';
+import { UserResponseType } from 'api/authAndProfileApi/types';
 import {
   SET_PROFILE_DATA,
   SET_PROFILE_DELETE_DATA,
   SET_PROFILE_ERROR,
   UPDATE_PROFILE_DATA,
-} from '../constants';
+} from 'Redux/profileReducer/constants';
 
 export const profileAction = {
   setProfileData(data: UserResponseType) {

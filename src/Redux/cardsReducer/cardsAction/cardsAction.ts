@@ -1,4 +1,4 @@
-import { updatedGradeType } from '../../../api/cardsApi/types';
+import { updatedGradeType } from 'api/cardsApi/types';
 import {
   CHANGE_CURRENT_PAGE,
   CLEAR_CARDS,
@@ -7,8 +7,8 @@ import {
   SET_FILTER_CARDS,
   SET_PAGE_COUNT_CARDS,
   SORT_CARDS,
-} from '../constants';
-import { InitialCardStateType } from '../types';
+} from 'Redux/cardsReducer/constants';
+import { InitialCardStateType } from 'Redux/cardsReducer/types';
 
 export const cardsAction = {
   setCardsAC(data: InitialCardStateType) {

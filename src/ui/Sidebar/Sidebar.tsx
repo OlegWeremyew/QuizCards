@@ -2,17 +2,18 @@ import React, { FC, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { cardsPackAction } from '../../Redux/cardsPackReducer';
-import {
-  getMaxCardsCountCardsPackSelector,
-  getMaxCardsPackSelector,
-  getMinCardsPackSelector,
-} from '../../selectors';
 import { DoubleCheckbox } from '../common';
 import SuperDoubleRange from '../common/SuperRange/common/c8-SuperDoubleRange/SuperDoubleRange';
 import stl from '../common/SuperRange/RangeDemo.module.scss';
 
 import styles from './Sidebar.module.scss';
+
+import { cardsPackAction } from 'Redux/cardsPackReducer';
+import {
+  getMaxCardsCountCardsPackSelector,
+  getMaxCardsPackSelector,
+  getMinCardsPackSelector,
+} from 'selectors';
 
 export const Sidebar: FC = () => {
   const dispatch = useDispatch();

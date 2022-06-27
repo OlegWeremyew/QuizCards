@@ -3,14 +3,13 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../constants/routes';
-import { AppAction } from '../../Redux/appReducer';
-import {
-  addPackTC,
-  cardsPackAction,
-  fetchPacksListsTC,
-} from '../../Redux/cardsPackReducer';
+import styles from './PacksList.module.scss';
+import { PacksTable } from './PacksTable/Table';
+
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { addPackTC, cardsPackAction, fetchPacksListsTC } from 'Redux/cardsPackReducer';
 import {
   getCardPacksTotalCountCardsPackSelector,
   getDebouncingFlagCardsPackSelector,
@@ -22,7 +21,7 @@ import {
   getPageCountCardsPackSelector,
   getSortPacksCardsPackSelector,
   getStatusLoginSelector,
-} from '../../selectors';
+} from 'selectors';
 import {
   Modal,
   ModalButtonsWrap,
@@ -34,11 +33,8 @@ import {
   SuperButton,
   SuperCheckbox,
   SuperInputText,
-} from '../../ui';
-import Header from '../../ui/header/Header';
-
-import styles from './PacksList.module.scss';
-import { PacksTable } from './PacksTable/Table';
+} from 'ui';
+import Header from 'ui/header/Header';
 
 export const PacksList: FC = () => {
   const dispatch = useDispatch();

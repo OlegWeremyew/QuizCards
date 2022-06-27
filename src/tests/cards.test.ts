@@ -1,6 +1,6 @@
-import { EMPTY_ARRAY, EMPTY_STRING } from '../constants';
-import { cardsAction, cardsReducer } from '../Redux/cardsReducer';
-import { InitialCardStateType } from '../Redux/cardsReducer/types';
+import { EMPTY_ARRAY, EMPTY_STRING } from 'constants/variables';
+import { cardsAction, cardsReducer } from 'Redux/cardsReducer';
+import { InitialCardStateType } from 'Redux/cardsReducer/types';
 
 let startState: InitialCardStateType;
 

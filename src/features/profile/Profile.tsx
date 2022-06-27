@@ -3,9 +3,13 @@ import React, { ChangeEvent, FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../constants/routes';
-import { updateProfile } from '../../Redux/profileReducer';
+import { AvatarFileReader } from './AvatarFileReader';
+import noAvatar from './images/noAvatar.png';
+import styles from './Profile.module.scss';
+
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { updateProfile } from 'Redux/profileReducer';
 import {
   getAvatarProfileSelector,
   getEmailProfileSelector,
@@ -14,13 +18,9 @@ import {
   getNameProfileSelector,
   getPublicCardPacksCountProfileSelector,
   getStatusLoginSelector,
-} from '../../selectors';
-import { Frame, Modal, Preloader, SuperButton, SuperEditableSpan } from '../../ui';
-import Header from '../../ui/header/Header';
-
-import { AvatarFileReader } from './AvatarFileReader';
-import noAvatar from './images/noAvatar.png';
-import styles from './Profile.module.scss';
+} from 'selectors';
+import { Frame, Modal, Preloader, SuperButton, SuperEditableSpan } from 'ui';
+import Header from 'ui/header/Header';
 
 export const Profile: FC = () => {
   const dispatch = useDispatch();

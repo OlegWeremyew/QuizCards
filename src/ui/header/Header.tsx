@@ -3,14 +3,14 @@ import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import logout from '../../assets/images/header/logout.png';
-import packsListIcon from '../../assets/images/header/Packs.png';
-import profileIcon from '../../assets/images/header/Profile.png';
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../constants/routes';
-import { logoutTC } from '../../Redux/loginReducer';
-
 import styles from './Header.module.scss';
+
+import logout from 'assets/images/header/logout.png';
+import packsListIcon from 'assets/images/header/Packs.png';
+import profileIcon from 'assets/images/header/Profile.png';
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { logoutTC } from 'Redux/loginReducer';
 
 export const Header: FC = () => {
   const dispatch = useDispatch();

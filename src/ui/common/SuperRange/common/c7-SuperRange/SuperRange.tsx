@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
 
-import { EMPTY_STRING } from '../../../../../constants';
-
 import s from './SuperRange.module.scss';
 import { SuperRangePropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 const SuperRange: FC<SuperRangePropsType> = ({
   onChange,

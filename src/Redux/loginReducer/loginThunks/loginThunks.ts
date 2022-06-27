@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux';
 
-import { authAndProfileApi } from '../../../api';
-import { EMPTY_STRING } from '../../../constants';
-import { AppAction } from '../../appReducer';
-import { profileAction } from '../../profileReducer';
-import { profileInitialState } from '../../profileReducer/profileReducer/profileReducer';
-import { LoginAction } from '../loginAction';
+import { authAndProfileApi } from 'api/authAndProfileApi';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { LoginAction } from 'Redux/loginReducer';
+import { profileAction } from 'Redux/profileReducer';
+import { profileInitialState } from 'Redux/profileReducer/profileReducer/profileReducer';
 
 export const loginTC =
   (email: string, password: string, remember: boolean): any =>

@@ -3,19 +3,20 @@ import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../../../constants';
-import { PATH } from '../../../../constants/routes';
-import { AppAction } from '../../../../Redux/appReducer';
-import { passwordForgotTC } from '../../../../Redux/passwordReducer';
+import styles from '../../Login/Login.module.scss';
+
+import s from './ForgotYourPassword.module.scss';
+
+import { PATH } from 'constants/routes';
+import { EMPTY_STRING } from 'constants/variables';
+import { AppAction } from 'Redux/appReducer';
+import { passwordForgotTC } from 'Redux/passwordReducer';
 import {
   getErrorAppSelector,
   getIsLoadingAppSelector,
   getIsSendPasswordSelector,
-} from '../../../../selectors';
-import { Frame, Preloader, SuperButton, SuperInputText } from '../../../../ui';
-import styles from '../../Login/Login.module.scss';
-
-import s from './ForgotYourPassword.module.scss';
+} from 'selectors';
+import { Frame, Preloader, SuperButton, SuperInputText } from 'ui';
 
 export const ForgotYourPassword: FC = () => {
   const isSend = useSelector(getIsSendPasswordSelector);
