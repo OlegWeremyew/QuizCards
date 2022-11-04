@@ -14,6 +14,7 @@ import { AppRootStateType } from 'Redux/store';
 import { getCardsCardsSelector, getIsLoadingAppSelector } from 'selectors';
 import { Frame, Preloader, SuperButton, SuperRadio } from 'ui';
 import Header from 'ui/header/Header';
+import { Helmet } from 'react-helmet';
 
 const getCard = (cards: CardType[]): CardType => {
   const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);
@@ -70,6 +71,10 @@ export const Learn: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>learn</title>
+        <meta name="description" content="learn cards" />
+      </Helmet>
       <Header />
       {loading ? (
         <Preloader />

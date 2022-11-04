@@ -41,7 +41,8 @@ export const Header: FC = () => {
         </NavLink>
         <div className={styles.btnLogoutContainer}>
           <button type="button" className={styles.btnLogout} onClick={logOutHandler}>
-            Log Out <img src={logout} alt="packsListIcon" />
+            <span style={{ paddingRight: 10 }}>Log Out</span>{' '}
+            <img src={logout} alt="packsListIcon" />
           </button>
         </div>
       </nav>

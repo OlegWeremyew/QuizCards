@@ -35,6 +35,7 @@ import {
   SuperInputText,
 } from 'ui';
 import Header from 'ui/header/Header';
+import { Helmet } from 'react-helmet';
 
 export const PacksList: FC = () => {
   const dispatch = useDispatch();
@@ -88,6 +89,10 @@ export const PacksList: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>pack</title>
+        <meta name="description" content="pack list" />
+      </Helmet>
       <Header />
       <PackFrame>
         <Sidebar />

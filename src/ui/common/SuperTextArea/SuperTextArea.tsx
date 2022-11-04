@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent } from 'react';
+import React, { ChangeEvent, FC, KeyboardEvent } from 'react';
 
 import styles from './SuperTextArea.module.scss';
 import { SuperTextareaTextPropsType } from './types';
@@ -12,7 +12,7 @@ export const SuperTextArea: FC<SuperTextareaTextPropsType> = ({
   className,
   ...restProps
 }) => {
-  const onChangeCallback = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const onChangeCallback = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     onChange && onChange(e);
     onChangeText && onChangeText(e.currentTarget.value);
   };

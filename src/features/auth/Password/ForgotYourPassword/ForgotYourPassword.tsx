@@ -17,6 +17,7 @@ import {
   getIsSendPasswordSelector,
 } from 'selectors';
 import { Frame, Preloader, SuperButton, SuperInputText } from 'ui';
+import { Helmet } from 'react-helmet';
 
 export const ForgotYourPassword: FC = () => {
   const isSend = useSelector(getIsSendPasswordSelector);
@@ -41,6 +42,10 @@ export const ForgotYourPassword: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>forgot password</title>
+        <meta name="description" content="forgot password" />
+      </Helmet>
       {loading && <Preloader />}
       <Frame>
         <h2>Forgot your password?</h2>

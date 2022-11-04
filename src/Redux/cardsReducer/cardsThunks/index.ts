@@ -1,8 +1,1 @@
-export {
-  updateCardTC,
-  deleteCardTC,
-  addCardTC,
-  CardsGradeTC,
-  learnCardsTC,
-  fetchCardsTC,
-} from './cardsThunks';
+export * from './cardsThunks';

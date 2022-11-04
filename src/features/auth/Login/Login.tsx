@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 
 import styles from './Login.module.scss';
+import { Helmet } from 'react-helmet';
 
 import { PATH } from 'constants/routes';
 import { EMPTY_STRING } from 'constants/variables';
@@ -47,6 +48,10 @@ export const Login: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>login</title>
+        <meta name="description" content="login page" />
+      </Helmet>
       {loading && <Preloader />}
       <Frame>
         <h2>Sign In</h2>

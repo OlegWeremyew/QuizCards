@@ -15,6 +15,7 @@ import {
   getIsLoadingAppSelector,
 } from 'selectors';
 import { Frame, Preloader, SuperButton, SuperInputPassword } from 'ui';
+import { Helmet } from 'react-helmet';
 
 export const PasswordRecovery1: FC = () => {
   const [password, setPassword] = useState<string>(EMPTY_STRING);
@@ -41,6 +42,10 @@ export const PasswordRecovery1: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>password recovery</title>
+        <meta name="description" content="password recovery" />
+      </Helmet>
       {loading && <Preloader />}
       <Frame>
         <h2>Create new password</h2>

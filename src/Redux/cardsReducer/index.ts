@@ -1,10 +1,3 @@
-export {
-  updateCardTC,
-  deleteCardTC,
-  addCardTC,
-  CardsGradeTC,
-  learnCardsTC,
-  fetchCardsTC,
-} from './cardsThunks';
+export * from './cardsThunks';
 export { cardsAction } from './cardsAction';
 export { cardsReducer } from './cardsReducer';

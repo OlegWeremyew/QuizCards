@@ -1,2 +1,1 @@
-export { initialStateLogin } from './loginReducer';
-export { loginReducer } from './loginReducer';
+export * from './loginReducer';

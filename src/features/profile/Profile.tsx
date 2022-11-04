@@ -21,6 +21,7 @@ import {
 } from 'selectors';
 import { Frame, Modal, Preloader, SuperButton, SuperEditableSpan } from 'ui';
 import Header from 'ui/header/Header';
+import { Helmet } from 'react-helmet';
 
 export const Profile: FC = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,10 @@ export const Profile: FC = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>{name} profile</title>
+        <meta name="description" content="user profile" />
+      </Helmet>
       <Header />
       {loading && <Preloader />}
       <Frame>

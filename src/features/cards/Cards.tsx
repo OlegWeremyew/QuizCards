@@ -35,6 +35,7 @@ import {
   SuperTextArea,
 } from 'ui';
 import Header from 'ui/header/Header';
+import { Helmet } from 'react-helmet';
 
 export const Cards: FC = () => {
   const dispatch = useDispatch();
@@ -90,6 +91,10 @@ export const Cards: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>cards</title>
+        <meta name="description" content="cards list" />
+      </Helmet>
       <Header />
       <PackFrame>
         <div className={styles.main}>

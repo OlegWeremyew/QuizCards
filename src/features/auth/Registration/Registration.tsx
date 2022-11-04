@@ -17,6 +17,7 @@ import {
   getIsRegisteredRegisterSelector,
 } from 'selectors';
 import { Frame, Preloader, SuperButton, SuperInputPassword, SuperInputText } from 'ui';
+import { Helmet } from 'react-helmet';
 
 export const Registration: FC = () => {
   const [email, setEmail] = useState<string>(EMPTY_STRING);
@@ -50,6 +51,10 @@ export const Registration: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>registration</title>
+        <meta name="description" content="registration" />
+      </Helmet>
       {loading && <Preloader />}
       <Frame>
         <h2>Sign up</h2>
